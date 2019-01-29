@@ -1,0 +1,297 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Electron应用开发 | xiafei-xupt's blog</title><link rel="stylesheet" type="text/css" href="//fonts.css.network/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.1"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.1"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Electron应用开发</h1><a id="logo" href="/.">xiafei-xupt's blog</a><p class="description">汝之意志所向,即吾剑之所指</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> Home</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="Arama"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">Electron应用开发</h1><div class="post-meta"><a href="/Electron应用开发/#comments" class="comment-count"></a><p><span class="date">Aug 20, 2018</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>Hits</i></i></span></p></div><div class="post-content"><blockquote>
+<ul>
+<li>0x00-文章背景</li>
+<li>0x01-技能储备</li>
+<li>0x02-开发环境</li>
+<li>0x03-方案设计</li>
+<li>0x04-实践操作</li>
+<li>0x05-总结分析</li>
+<li>0x06-程序源码</li>
+<li>0x07-参考资料</li>
+</ul>
+</blockquote>
+<h1 id="0x00-文章背景"><a href="#0x00-文章背景" class="headerlink" title="0x00-文章背景"></a>0x00-文章背景</h1><h2 id="文章目的"><a href="#文章目的" class="headerlink" title="文章目的"></a>文章目的</h2><ul>
+<li>实现Electron应用原型开发，同时预留相应扩展接口及功能使得后续维护及扩展变得相对容易</li>
+<li>完善Electron应用交互开发，结合具体需求添加相应功能使得整个开发周期、产品功能可控可调</li>
+</ul>
+<h2 id="文章前景"><a href="#文章前景" class="headerlink" title="文章前景"></a>文章前景</h2><ul>
+<li>Electron套用BlurAdmin模板打通了B/S架构与跨平台桌面应用程序之间的界限</li>
+<li>结合自身需求选择合适的开发方式，提高开发效率，避免未来将会产生的一些问题</li>
+<li>原型开发的复用，使得一些相似应用也能直接使用这种开发成果，缩短开发周期，提高开发效率</li>
+</ul>
+<h1 id="0x01-技能储备"><a href="#0x01-技能储备" class="headerlink" title="0x01-技能储备"></a>0x01-技能储备</h1><h2 id="BlurAdmin简介"><a href="#BlurAdmin简介" class="headerlink" title="BlurAdmin简介"></a>BlurAdmin简介</h2><p><img src="/assets/blogImg/微信图片_20180802201611.png" alt=""></p>
+<ul>
+<li>BlurAdmin是Angular前端Admin Dashboard模板。这意味着您可以在图表，图表表格中看到的所有数据都在Javascript中进行硬编码。您可以无限制地使用任何您想要的后端。</li>
+<li>目前很多业务应用程序都有一些管理界面。有时它并不那么明显，但很多Web应用程序都有仪表板，带有面板，图表分析。</li>
+<li>BlurAdmin旨在引导您的产品开发，并为构建原型甚至生产就绪应用程序提供生态系统。</li>
+<li>尽管像Bootstrap这样的框架提供了许多组件，但通常它们还不足以构建真实世界的应用程序。此模板带有许多流行的UI组件和统一的配色方案。</li>
+</ul>
+<h2 id="Electron简介"><a href="#Electron简介" class="headerlink" title="Electron简介"></a>Electron简介</h2><p>Electron 基于 Chromium 和 Node.js, 让你可以使用 HTML, CSS 和 JavaScript 构建应用。<br>这是一个整合了Node，Chromium，V8的一个框架，通过它可以使用JavaScript，HTML, CSS技术来开发桌面应用程序</p>
+<h2 id="Node-js简介"><a href="#Node-js简介" class="headerlink" title="Node.js简介"></a>Node.js简介</h2><ul>
+<li>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 </li>
+<li>Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。 </li>
+<li>Node.js 的包管理器 npm，是全球最大的开源库生态系统。</li>
+<li>Node.JS逐渐发展成一个成熟的开发平台，吸引了许多开发者。有许多大型高流量网站都采用Node.JS进行开发，此外，开发人员还可以使用它来开发一些快速移动Web框架。</li>
+<li>除了Web应用外，Node.JS也被应用在许多方面，包括应用程序监控、媒体流、远程控制、桌面和移动应用等等</li>
+</ul>
+<h2 id="混合开发"><a href="#混合开发" class="headerlink" title="混合开发"></a>混合开发</h2><p>随着前端技术的发展，现在越来越多的桌面应用程序会嵌入一些Web技术来进行混合开发，结合了web端和传统桌面软件各自的优点。</p>
+<h2 id="全栈开发"><a href="#全栈开发" class="headerlink" title="全栈开发"></a>全栈开发</h2><ul>
+<li>权衡服务器、网络和服务器环境、数据建模、业务逻辑、API层、Action层、MVC、UI、用户体验等因素，找到适合当前环境应用开发的最优解。</li>
+<li>开发者既要了解后端开发，也要了解前端开发。是“全方位”的工程师，熟悉服务端的同时又懂客户端用户体验。理解Web开发进程的每一个方面，同时又会就整体策略与最佳实践对相关方面提出建议与指导。</li>
+</ul>
+<h1 id="0x02-开发环境"><a href="#0x02-开发环境" class="headerlink" title="0x02-开发环境"></a>0x02-开发环境</h1><h2 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h2><ul>
+<li>处理器：i7</li>
+<li>内存：8G</li>
+<li>显示器：VGA 或更高</li>
+<li>硬盘空间：128G</li>
+</ul>
+<h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><ul>
+<li>Windows 10系统</li>
+<li>WebStorm</li>
+<li>Node.js</li>
+<li>Git</li>
+</ul>
+<h1 id="0x03-方案设计"><a href="#0x03-方案设计" class="headerlink" title="0x03-方案设计"></a>0x03-方案设计</h1><h2 id="方案A-单独开发"><a href="#方案A-单独开发" class="headerlink" title="方案A:单独开发"></a>方案A:单独开发</h2><h3 id="Electron开发"><a href="#Electron开发" class="headerlink" title="Electron开发"></a>Electron开发</h3><p>Electron直接开发，调用Node.js等相关API，编写应用</p>
+<h3 id="BlurAdmin开发"><a href="#BlurAdmin开发" class="headerlink" title="BlurAdmin开发"></a>BlurAdmin开发</h3><p>BlurAdmin单独开发使用一些前端语言，使得变为一个Web网站项目</p>
+<h2 id="方案B-混合开发"><a href="#方案B-混合开发" class="headerlink" title="方案B:混合开发"></a>方案B:混合开发</h2><h3 id="BlurAdmin开发完成后打包成Electron应用"><a href="#BlurAdmin开发完成后打包成Electron应用" class="headerlink" title="BlurAdmin开发完成后打包成Electron应用"></a>BlurAdmin开发完成后打包成Electron应用</h3><p>套用HTML5模板，使用Electron将网站变为应用</p>
+<h3 id="使用BlurAdmin打包压缩后的文件，结合Electron开发"><a href="#使用BlurAdmin打包压缩后的文件，结合Electron开发" class="headerlink" title="使用BlurAdmin打包压缩后的文件，结合Electron开发"></a>使用BlurAdmin打包压缩后的文件，结合Electron开发</h3><p>利用打包压缩后的BlurAdmin模板，将其变为应用，再在其基础上开发</p>
+<h3 id="使用BlurAdmin打包未压缩的文件，结合Electron开发"><a href="#使用BlurAdmin打包未压缩的文件，结合Electron开发" class="headerlink" title="使用BlurAdmin打包未压缩的文件，结合Electron开发"></a>使用BlurAdmin打包未压缩的文件，结合Electron开发</h3><p>利用打包未压缩的BlurAdmin模板，将其变为应用，再在其基础上开发</p>
+<h2 id="方案C-全栈开发"><a href="#方案C-全栈开发" class="headerlink" title="方案C:全栈开发"></a>方案C:全栈开发</h2><h3 id="BlurAdmin开发-使用BlurAdmin打包未压缩的文件-Electron开发"><a href="#BlurAdmin开发-使用BlurAdmin打包未压缩的文件-Electron开发" class="headerlink" title="BlurAdmin开发+使用BlurAdmin打包未压缩的文件+Electron开发"></a>BlurAdmin开发+使用BlurAdmin打包未压缩的文件+Electron开发</h3><p>在BlurAdmin模板基础上开发出网站，然后打包产生未压缩文件，结合Electron再次开发</p>
+<h1 id="0x04-实践操作"><a href="#0x04-实践操作" class="headerlink" title="0x04-实践操作"></a>0x04-实践操作</h1><h2 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h2><ol>
+<li><a href="https://pan.baidu.com/s/15miRWxA6Qj8cv9cCB2ydhw" target="_blank" rel="noopener">electron-v1.0.0</a>（密码：<code>dkes</code>），解压改名为<code>electron-v1.1.0</code>，删除除main.js和package.json外其它文件</li>
+<li><a href="https://pan.baidu.com/s/1IMw-e1bxKWqQLilA5LQzQQ" target="_blank" rel="noopener">blur-admin-v1.0.0</a>（密码：<code>l48u</code>）），解压改名为<code>blur-admin-v1.1.0</code></li>
+<li>将<code>blur-admin-v1.1.0</code>移到<code>electron-v1.1.0</code>文件夹中<br><img src="/assets/blogImg/微信图片_20181006154113.png" alt=""></li>
+</ol>
+<h2 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a>修改文件</h2><ol>
+<li>修改main.js中win.loadURL里的路径，使其指向<code>release</code>文件夹下index.html页面</li>
+<li><p>注释掉mian.js中win.on()语句，避免重复加载整个页面</p>
+<pre><code>//调整页面大小后重新加载整个页面    
+//win.on(&apos;resize&apos;,() =&gt; {
+//    win.reload();
+//})
+</code></pre></li>
+<li>修改package.json中name、vision、description</li>
+</ol>
+<h3 id="main-js"><a href="#main-js" class="headerlink" title="main.js"></a>main.js</h3><pre><code>const {app, BrowserWindow} = require(&apos;electron&apos;);
+let win;
+let windowConfig = {
+    width:800,
+    height:600
+};
+
+function createWindow(){
+    win = new BrowserWindow(windowConfig);
+    //加载index.html文件
+    win.loadURL(`file://${__dirname}/blur-admin-v1.1.0/release/index.html`);
+    //开启调试工具
+    //win.webContents.openDevTools();
+    win.on(&apos;close&apos;,() =&gt; {
+        //回收BrowserWindow对象
+        win = null;
+    });
+    //调整页面大小后重新加载整个页面    
+    //win.on(&apos;resize&apos;,() =&gt; {
+    //    win.reload();
+    //})
+}
+
+app.on(&apos;ready&apos;,createWindow);
+app.on(&apos;window-all-closed&apos;,() =&gt; {
+    app.quit();
+});
+
+app.on(&apos;activate&apos;,() =&gt; {
+    if(win == null){
+        createWindow();
+    }
+})
+</code></pre><h3 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h3><pre><code>{
+  &quot;name&quot;: &quot;electron-v1.1.0&quot;,
+  &quot;version&quot;: &quot;1.1.0&quot;,
+  &quot;description&quot;: &quot;an electron application&quot;,
+  &quot;main&quot;: &quot;main.js&quot;,
+  &quot;build&quot;: {
+    &quot;appId&quot;: &quot;com.xxx.app&quot;,
+    &quot;win&quot;: {
+      &quot;target&quot;: [
+        &quot;nsis&quot;,
+        &quot;zip&quot;
+      ]
+    },
+    &quot;publish&quot;: [
+      {
+        &quot;provider&quot;: &quot;generic&quot;,
+        &quot;url&quot;: &quot;http://localhost:4000/version&quot;
+      }
+    ]
+  },
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,
+    &quot;start&quot;: &quot;electron .&quot;,
+    &quot;dist&quot;: &quot;electron-builder --win --x64&quot;
+  },
+  &quot;author&quot;: &quot;xiafei_xupt&quot;,
+  &quot;license&quot;: &quot;ISC&quot;
+}
+</code></pre><h2 id="添加语句"><a href="#添加语句" class="headerlink" title="添加语句"></a>添加语句</h2><p><strong>说明：</strong>由于BlurAdmin和Electron所用的模块有所不同，所以直接Electron直接引用BlurAdmin打包生成的文件是会报错的，故添加模块兼容语句，使其根据环境自动选择合适的模块，避免了模板不兼容情况的发生。</p>
+<pre><code>&lt;!--添加模块兼容语句--&gt;
+&lt;script&gt;if (typeof module === &apos;object&apos;) {window.module = module; module = undefined;}&lt;/script&gt;
+</code></pre><p><img src="/assets/blogImg/微信图片_20180805123318.png" alt=""></p>
+<h2 id="启动应用"><a href="#启动应用" class="headerlink" title="启动应用"></a>启动应用</h2><h3 id="浏览器中查看"><a href="#浏览器中查看" class="headerlink" title="浏览器中查看"></a>浏览器中查看</h3><pre><code>gulp serve:dist
+</code></pre><p><img src="/assets/blogImg/微信图片_20181006163249.png" alt=""><br><img src="/assets/blogImg/微信图片_20181006170921.png" alt=""></p>
+<p><strong>注：</strong>blur-admin-v1.1.0目录下运行<code>gulp serve:dist</code>，既能查看BlurAdmin模板页面，又能生成打包后的<code>release</code>文件夹</p>
+<h3 id="Electron中查看"><a href="#Electron中查看" class="headerlink" title="Electron中查看"></a>Electron中查看</h3><pre><code>electron .
+</code></pre><p><img src="/assets/blogImg/微信图片_20181006162147.png" alt=""><br><img src="/assets/blogImg/微信图片_20181006162325.png" alt=""></p>
+<h1 id="0x05-总结分析"><a href="#0x05-总结分析" class="headerlink" title="0x05-总结分析"></a>0x05-总结分析</h1><h2 id="单独开发"><a href="#单独开发" class="headerlink" title="单独开发"></a>单独开发</h2><p><strong>优点：</strong>开发效率高，相关接口框架等比较成熟<br><strong>缺点：</strong>功能单一，先天不足，后期几乎无法扩充相关功能</p>
+<h2 id="混合开发-1"><a href="#混合开发-1" class="headerlink" title="混合开发"></a>混合开发</h2><p><strong>优点：</strong>效率高，前后端混合开发，避免了前后端对接这一开发流程，缩短开发周期<br><strong>缺点：</strong>较难维护，高耦合低内聚</p>
+<h2 id="全栈开发（前后端分离开发）"><a href="#全栈开发（前后端分离开发）" class="headerlink" title="全栈开发（前后端分离开发）"></a>全栈开发（前后端分离开发）</h2><p><strong>优点：</strong>前后端分离仍是当前主流开发模式，符合现代编程低耦合高内聚的要求，后端逻辑与页面显示完全解耦，容易维护与完善<br><strong>缺点：</strong>前后端分离是存在沟通成本，只有真正理解“全栈”，熟悉整个技术栈，权衡各个技术点与用户体验才有可能找到最优解</p>
+<h1 id="0x06-程序源码"><a href="#0x06-程序源码" class="headerlink" title="0x06-程序源码"></a>0x06-程序源码</h1><h2 id="main-js-1"><a href="#main-js-1" class="headerlink" title="main.js"></a>main.js</h2><pre><code>const {app, BrowserWindow} = require(&apos;electron&apos;);
+let win;
+let windowConfig = {
+    width:800,
+    height:600
+};
+
+function createWindow(){
+    win = new BrowserWindow(windowConfig);
+    //加载index.html文件
+    win.loadURL(`file://${__dirname}/blur-admin-v1.1.0/release/index.html`);
+    //开启调试工具
+    //win.webContents.openDevTools();
+    win.on(&apos;close&apos;,() =&gt; {
+        //回收BrowserWindow对象
+        win = null;
+    });
+    //调整页面大小后重新加载整个页面    
+    //win.on(&apos;resize&apos;,() =&gt; {
+    //    win.reload();
+    //})
+}
+
+app.on(&apos;ready&apos;,createWindow);
+app.on(&apos;window-all-closed&apos;,() =&gt; {
+    app.quit();
+});
+
+app.on(&apos;activate&apos;,() =&gt; {
+    if(win == null){
+        createWindow();
+    }
+})
+</code></pre><h2 id="package-json-1"><a href="#package-json-1" class="headerlink" title="package.json"></a>package.json</h2><pre><code>{
+  &quot;name&quot;: &quot;electron-v1.1.0&quot;,
+  &quot;version&quot;: &quot;1.1.0&quot;,
+  &quot;description&quot;: &quot;an electron application&quot;,
+  &quot;main&quot;: &quot;main.js&quot;,
+  &quot;build&quot;: {
+    &quot;appId&quot;: &quot;com.xxx.app&quot;,
+    &quot;win&quot;: {
+      &quot;target&quot;: [
+        &quot;nsis&quot;,
+        &quot;zip&quot;
+      ]
+    },
+    &quot;publish&quot;: [
+      {
+        &quot;provider&quot;: &quot;generic&quot;,
+        &quot;url&quot;: &quot;http://localhost:4000/version&quot;
+      }
+    ]
+  },
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,
+    &quot;start&quot;: &quot;electron .&quot;,
+    &quot;dist&quot;: &quot;electron-builder --win --x64&quot;
+  },
+  &quot;author&quot;: &quot;xiafei_xupt&quot;,
+  &quot;license&quot;: &quot;ISC&quot;
+}
+</code></pre><h2 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h2><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; ng-app=&quot;BlurAdmin&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;title&gt;Blur Admin&lt;/title&gt;
+  &lt;!--添加模块兼容语句--&gt;
+  &lt;script&gt;if (typeof module === &apos;object&apos;) {window.module = module; module = undefined;}&lt;/script&gt;
+  &lt;link href=&apos;https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900&amp;subset=latin,greek,greek-ext,vietnamese,cyrillic-ext,latin-ext,cyrillic&apos; rel=&apos;stylesheet&apos; type=&apos;text/css&apos;&gt;
+
+  &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;16x16&quot; href=&quot;assets/img/favicon-16x16.png&quot;&gt;
+  &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;32x32&quot; href=&quot;assets/img/favicon-32x32.png&quot;&gt;
+  &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;96x96&quot; href=&quot;assets/img/favicon-96x96.png&quot;&gt;
+
+  &lt;!-- build:css({.tmp/serve,src}) styles/vendor.css --&gt;
+  &lt;!-- bower:css --&gt;
+  &lt;!-- run `gulp inject` to automatically populate bower styles dependencies --&gt;
+  &lt;!-- endbower --&gt;
+  &lt;!-- endbuild --&gt;
+
+  &lt;!-- build:css({.tmp/serve,src}) styles/app.css --&gt;
+  &lt;!-- inject:css --&gt;
+  &lt;!-- css files will be automatically insert here --&gt;
+  &lt;!-- endinject --&gt;
+  &lt;!-- endbuild --&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;body-bg&quot;&gt;&lt;/div&gt;
+&lt;main ng-if=&quot;$pageFinishedLoading&quot; ng-class=&quot;{ &apos;menu-collapsed&apos;: $baSidebarService.isMenuCollapsed() }&quot;&gt;
+
+  &lt;ba-sidebar&gt;&lt;/ba-sidebar&gt;
+  &lt;page-top&gt;&lt;/page-top&gt;
+
+  &lt;div class=&quot;al-main&quot;&gt;
+    &lt;div class=&quot;al-content&quot;&gt;
+      &lt;content-top&gt;&lt;/content-top&gt;
+      &lt;div ui-view autoscroll=&quot;true&quot; autoscroll-body-top&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;footer class=&quot;al-footer clearfix&quot;&gt;
+    &lt;div class=&quot;al-footer-right&quot;&gt;Created with &lt;i class=&quot;ion-heart&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+    &lt;div class=&quot;al-footer-main clearfix&quot;&gt;
+      &lt;div class=&quot;al-copy&quot;&gt;Blur Admin 2016&lt;/div&gt;
+      &lt;ul class=&quot;al-share clearfix&quot;&gt;
+        &lt;li&gt;&lt;i class=&quot;socicon socicon-facebook&quot;&gt;&lt;/i&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;i class=&quot;socicon socicon-twitter&quot;&gt;&lt;/i&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;i class=&quot;socicon socicon-google&quot;&gt;&lt;/i&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;i class=&quot;socicon socicon-github&quot;&gt;&lt;/i&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+
+  &lt;back-top&gt;&lt;/back-top&gt;
+&lt;/main&gt;
+
+&lt;div id=&quot;preloader&quot; ng-show=&quot;!$pageFinishedLoading&quot;&gt;
+  &lt;div&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- build:js(src) scripts/vendor.js --&gt;
+&lt;!-- bower:js --&gt;
+&lt;!-- run `gulp inject` to automatically populate bower script dependencies --&gt;
+&lt;!-- endbower --&gt;
+&lt;!-- endbuild --&gt;
+&lt;!--去掉引用谷歌maps.js--&gt;
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;http://maps.google.com/maps/api/js?sensor=false&quot;&gt;&lt;/script&gt;--&gt;
+
+&lt;!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js --&gt;
+&lt;!-- inject:js --&gt;
+&lt;!-- js files will be automatically insert here --&gt;
+&lt;!-- endinject --&gt;
+
+&lt;!-- inject:partials --&gt;
+&lt;!-- angular templates will be automatically converted in js and inserted here --&gt;
+&lt;!-- endinject --&gt;
+&lt;!-- endbuild --&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h2 id="源码打包"><a href="#源码打包" class="headerlink" title="源码打包"></a>源码打包</h2><p><a href="https://pan.baidu.com/s/13lWqKd-NioxLGAqfawT8ng" target="_blank" rel="noopener">electron-v1.1.0</a>（密码：<code>tmb5</code>）</p>
+<h1 id="0x07-参考资料"><a href="#0x07-参考资料" class="headerlink" title="0x07-参考资料"></a>0x07-参考资料</h1><ul>
+<li><a href="https://electronjs.org/" target="_blank" rel="noopener">Electron官网</a></li>
+<li><a href="https://akveo.github.io/blur-admin/" target="_blank" rel="noopener">BlurAdmin官网</a></li>
+<li><a href="https://xiafei-xupt.top/2018/07/23/Electron%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/" target="_blank" rel="noopener">Electron开发流程</a></li>
+<li><a href="https://xiafei-xupt.top/2018/08/13/BlurAdmin%E6%A8%A1%E6%9D%BF%E5%AD%A6%E4%B9%A0/" target="_blank" rel="noopener">BlurAdmin模板学习</a></li>
+</ul>
+</div><div class="tags"><a href="/tags/Electron/">Electron</a></div><div class="post-share"></div><div class="post-nav"><a href="/BlurAdmin应用开发/" class="pre">BlurAdmin应用开发</a><a href="/BlurAdmin模板学习/" class="next">BlurAdmin模板学习</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">Contents</i></div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#0x00-文章背景"><span class="toc-text">0x00-文章背景</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#文章目的"><span class="toc-text">文章目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文章前景"><span class="toc-text">文章前景</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x01-技能储备"><span class="toc-text">0x01-技能储备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#BlurAdmin简介"><span class="toc-text">BlurAdmin简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Electron简介"><span class="toc-text">Electron简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Node-js简介"><span class="toc-text">Node.js简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#混合开发"><span class="toc-text">混合开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全栈开发"><span class="toc-text">全栈开发</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x02-开发环境"><span class="toc-text">0x02-开发环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#硬件"><span class="toc-text">硬件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#软件"><span class="toc-text">软件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x03-方案设计"><span class="toc-text">0x03-方案设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#方案A-单独开发"><span class="toc-text">方案A:单独开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Electron开发"><span class="toc-text">Electron开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BlurAdmin开发"><span class="toc-text">BlurAdmin开发</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方案B-混合开发"><span class="toc-text">方案B:混合开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BlurAdmin开发完成后打包成Electron应用"><span class="toc-text">BlurAdmin开发完成后打包成Electron应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用BlurAdmin打包压缩后的文件，结合Electron开发"><span class="toc-text">使用BlurAdmin打包压缩后的文件，结合Electron开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用BlurAdmin打包未压缩的文件，结合Electron开发"><span class="toc-text">使用BlurAdmin打包未压缩的文件，结合Electron开发</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方案C-全栈开发"><span class="toc-text">方案C:全栈开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BlurAdmin开发-使用BlurAdmin打包未压缩的文件-Electron开发"><span class="toc-text">BlurAdmin开发+使用BlurAdmin打包未压缩的文件+Electron开发</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x04-实践操作"><span class="toc-text">0x04-实践操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载源码"><span class="toc-text">下载源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改文件"><span class="toc-text">修改文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#main-js"><span class="toc-text">main.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#package-json"><span class="toc-text">package.json</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加语句"><span class="toc-text">添加语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动应用"><span class="toc-text">启动应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器中查看"><span class="toc-text">浏览器中查看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Electron中查看"><span class="toc-text">Electron中查看</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x05-总结分析"><span class="toc-text">0x05-总结分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#单独开发"><span class="toc-text">单独开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#混合开发-1"><span class="toc-text">混合开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全栈开发（前后端分离开发）"><span class="toc-text">全栈开发（前后端分离开发）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x06-程序源码"><span class="toc-text">0x06-程序源码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#main-js-1"><span class="toc-text">main.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#package-json-1"><span class="toc-text">package.json</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#index-html"><span class="toc-text">index.html</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码打包"><span class="toc-text">源码打包</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x07-参考资料"><span class="toc-text">0x07-参考资料</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/Linux内核模块编程入门/">Linux内核模块编程入门</a></li><li class="post-list-item"><a class="post-list-link" href="/Gitbook教程/">Gitbook教程</a></li><li class="post-list-item"><a class="post-list-link" href="/博客模板/">博客模板</a></li><li class="post-list-item"><a class="post-list-link" href="/任务安排/">任务安排</a></li><li class="post-list-item"><a class="post-list-link" href="/新建文件夹/IPFS/">新建文件夹/IPFS</a></li><li class="post-list-item"><a class="post-list-link" href="/开源大学/">开源大学</a></li><li class="post-list-item"><a class="post-list-link" href="/编译、链接与装载/">编译、链接与装载</a></li><li class="post-list-item"><a class="post-list-link" href="/编译和链接/">编译和链接</a></li><li class="post-list-item"><a class="post-list-link" href="/第一阶段计划表/">第一阶段计划表</a></li><li class="post-list-item"><a class="post-list-link" href="/Linux内核分析-孟宁/">Linux内核分析-孟宁</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> Tags</i></div><div class="tagcloud"><a href="/tags/博客/" style="font-size: 15px;">博客</a> <a href="/tags/模板/" style="font-size: 15px;">模板</a> <a href="/tags/FAQ/" style="font-size: 15px;">FAQ</a> <a href="/tags/MariaDB/" style="font-size: 15px;">MariaDB</a> <a href="/tags/实习/" style="font-size: 15px;">实习</a> <a href="/tags/PostgreSQL/" style="font-size: 15px;">PostgreSQL</a> <a href="/tags/安全/" style="font-size: 15px;">安全</a> <a href="/tags/旧事/" style="font-size: 15px;">旧事</a> <a href="/tags/BlurAdmin/" style="font-size: 15px;">BlurAdmin</a> <a href="/tags/Kernel/" style="font-size: 15px;">Kernel</a> <a href="/tags/安排/" style="font-size: 15px;">安排</a> <a href="/tags/操作系统/" style="font-size: 15px;">操作系统</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/Electron/" style="font-size: 15px;">Electron</a> <a href="/tags/红线/" style="font-size: 15px;">红线</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> Archive</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">September 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">January 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> Blogroll</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">Baidu Site Haritası</a> |  <a href="/atom.xml">RSS</a> |  <a href="/about/">About</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次</p><p><span> Copyright &copy;<a href="/." rel="nofollow">xiafei-xupt.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.1"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.1" async></script></body></html>

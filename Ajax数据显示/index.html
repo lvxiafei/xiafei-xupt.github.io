@@ -1,0 +1,302 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Ajax数据显示 | xiafei-xupt's blog</title><link rel="stylesheet" type="text/css" href="//fonts.css.network/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.1"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.1"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Ajax数据显示</h1><a id="logo" href="/.">xiafei-xupt's blog</a><p class="description">汝之意志所向,即吾剑之所指</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> Home</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="Arama"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">Ajax数据显示</h1><div class="post-meta"><a href="/Ajax数据显示/#comments" class="comment-count"></a><p><span class="date">Sep 03, 2018</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>Hits</i></i></span></p></div><div class="post-content"><blockquote>
+<ul>
+<li>0x00-文章前言</li>
+<li>0x01-知识储备</li>
+<li>0x02-测试环境</li>
+<li>0x03-方案设计</li>
+<li>0x04-实践操作</li>
+<li>0x05-总结分析</li>
+<li>0x06-程序源码</li>
+<li>0x07-参考资料</li>
+</ul>
+</blockquote>
+<h1 id="0x00-文章前言"><a href="#0x00-文章前言" class="headerlink" title="0x00-文章前言"></a>0x00-文章前言</h1><h2 id="文章目的"><a href="#文章目的" class="headerlink" title="文章目的"></a>文章目的</h2><ul>
+<li>实现页面数据动态刷新，而不是全部刷新整个页面</li>
+<li>页面在首次加载后，剩下的所有数据通过Ajax更新</li>
+</ul>
+<h2 id="文章前景"><a href="#文章前景" class="headerlink" title="文章前景"></a>文章前景</h2><ul>
+<li>节约系统资源，使得浏览器页面占用更少硬件资源</li>
+<li>加快响应速度，使得浏览器运行更加流畅，机器效率更高</li>
+</ul>
+<h1 id="0x01-知识储备"><a href="#0x01-知识储备" class="headerlink" title="0x01-知识储备"></a>0x01-知识储备</h1><h2 id="Ajax基础"><a href="#Ajax基础" class="headerlink" title="Ajax基础"></a>Ajax基础</h2><h3 id="Ajax框架介绍"><a href="#Ajax框架介绍" class="headerlink" title="Ajax框架介绍"></a>Ajax框架介绍</h3><ul>
+<li>Ajax的全称是Asynchronous JavaScript and XML（异步的 JavaScript 和 XML），其中，Asynchronous 是 异步 的意思，它有别于传统web开发中采用的同步的方式。</li>
+<li>Ajax不是编程语言，是一种在与服务器交换数据无需重新加载整个网页的情况下，能够更新部分网页的技术。</li>
+<li>Ajax是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换。Ajax可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。而传统的网页（不使用Ajax）如果需要更新内容，必须重载整个网页面。</li>
+<li>Ajax的应用使用支持以上技术的web浏览器作为运行平台。这些浏览器目前包括：Mozilla、Firefox、Internet Explorer、Opera、Konqueror及Safari。但是Opera不支持XSL格式对象，也不支持XSLT。</li>
+</ul>
+<h3 id="Ajax工作原理"><a href="#Ajax工作原理" class="headerlink" title="Ajax工作原理"></a>Ajax工作原理</h3><ul>
+<li>Ajax工作原理是提供与服务器异步通信的能力，从而使用户从请求/响应的循环中解脱出来。</li>
+<li>借助于Ajax，可以在用户单击按钮时，使用JavaScript和DHTML立即更新UI，并向服务器发出异步请求，以执行更新或查询数据库。</li>
+<li>当请求返回时，就可以使用JavaScript和CSS来相应地更新UI，而不是刷新整个页面。</li>
+<li>最重要的是，用户甚至不知道浏览器正在与服务器通信：Web站点看起来是即时响应的。</li>
+</ul>
+<h2 id="Node-js基础"><a href="#Node-js基础" class="headerlink" title="Node.js基础"></a>Node.js基础</h2><ul>
+<li>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 </li>
+<li>Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。 </li>
+<li>Node.js 的包管理器 npm，是全球最大的开源库生态系统。</li>
+<li>Node.JS逐渐发展成一个成熟的开发平台，吸引了许多开发者。有许多大型高流量网站都采用Node.JS进行开发，此外，开发人员还可以使用它来开发一些快速移动Web框架。</li>
+<li>除了Web应用外，Node.JS也被应用在许多方面，包括应用程序监控、媒体流、远程控制、桌面和移动应用等等</li>
+</ul>
+<h1 id="0x02-测试环境"><a href="#0x02-测试环境" class="headerlink" title="0x02-测试环境"></a>0x02-测试环境</h1><h2 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h2><ul>
+<li>处理器：i7</li>
+<li>内存：8G</li>
+<li>显示器：VGA 或更高</li>
+<li>硬盘空间：128G</li>
+</ul>
+<h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><ul>
+<li>Windows 10系统</li>
+<li>PostgreSQL</li>
+<li>WebStorm</li>
+<li>Node.js</li>
+<li>Git</li>
+</ul>
+<h1 id="0x03-方案设计"><a href="#0x03-方案设计" class="headerlink" title="0x03-方案设计"></a>0x03-方案设计</h1><h2 id="静态数据方案"><a href="#静态数据方案" class="headerlink" title="静态数据方案"></a>静态数据方案</h2><p>使用Ajax框架传递静态数据给页面，查看页面数据</p>
+<h2 id="动态数据方案"><a href="#动态数据方案" class="headerlink" title="动态数据方案"></a>动态数据方案</h2><p>使用Ajax框架传递动态数据给页面，观察页面数据变化</p>
+<h1 id="0x04-实践操作"><a href="#0x04-实践操作" class="headerlink" title="0x04-实践操作"></a>0x04-实践操作</h1><h2 id="静态数据方案-1"><a href="#静态数据方案-1" class="headerlink" title="静态数据方案"></a>静态数据方案</h2><h3 id="启动服务器"><a href="#启动服务器" class="headerlink" title="启动服务器"></a>启动服务器</h3><pre><code>node server
+</code></pre><p><img src="/assets/blogImg/微信图片_20181006225716.png" alt=""></p>
+<h3 id="打开页面"><a href="#打开页面" class="headerlink" title="打开页面"></a>打开页面</h3><pre><code>index.html
+</code></pre><p><img src="/assets/blogImg/微信图片_20181006225829.png" alt=""><br><img src="/assets/blogImg/微信图片_20181006225932.png" alt=""></p>
+<h2 id="动态数据方案-1"><a href="#动态数据方案-1" class="headerlink" title="动态数据方案"></a>动态数据方案</h2><h3 id="打开页面-1"><a href="#打开页面-1" class="headerlink" title="打开页面"></a>打开页面</h3><pre><code>index2.html
+</code></pre><p><img src="/assets/blogImg/微信图片_20181006230107.png" alt=""></p>
+<p><img src="/assets/blogImg/微信图片_20181006230319.png" alt=""></p>
+<h3 id="修改重启"><a href="#修改重启" class="headerlink" title="修改重启"></a>修改重启</h3><p><img src="/assets/blogImg/微信图片_20181006230708.png" alt=""></p>
+<p><img src="/assets/blogImg/微信图片_20181006231716.png" alt=""></p>
+<h2 id="数据库数据显示"><a href="#数据库数据显示" class="headerlink" title="数据库数据显示"></a>数据库数据显示</h2><p>基于<a href="/2018/08/06/PostgreSQL操作接口/index.html">PostgreSQL操作接口</a>中所创建的数据库表<code>Log_Inf</code>，server3.js和index.html为数据库数据显示代码</p>
+<h3 id="安装pg模块"><a href="#安装pg模块" class="headerlink" title="安装pg模块"></a>安装pg模块</h3><p><img src="/assets/blogImg/微信图片_20181007143449.png" alt=""></p>
+<h3 id="启动服务器-1"><a href="#启动服务器-1" class="headerlink" title="启动服务器"></a>启动服务器</h3><p><img src="/assets/blogImg/微信图片_20181007140352.png" alt=""></p>
+<h3 id="打开页面-2"><a href="#打开页面-2" class="headerlink" title="打开页面"></a>打开页面</h3><pre><code>index3.html
+</code></pre><p><img src="/assets/blogImg/微信图片_20181007141810.png" alt=""></p>
+<h3 id="查看数据库表格"><a href="#查看数据库表格" class="headerlink" title="查看数据库表格"></a>查看数据库表格</h3><p><img src="/assets/blogImg/微信图片_20181007141823.png" alt=""></p>
+<h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h3><p><img src="/assets/blogImg/微信图片_20181007141843.png" alt=""></p>
+<h3 id="查看当前表格"><a href="#查看当前表格" class="headerlink" title="查看当前表格"></a>查看当前表格</h3><p><img src="/assets/blogImg/微信图片_20181007141857.png" alt=""></p>
+<h3 id="查看GitBash输出"><a href="#查看GitBash输出" class="headerlink" title="查看GitBash输出"></a>查看GitBash输出</h3><p><img src="/assets/blogImg/微信图片_20181007141914.png" alt=""></p>
+<h3 id="查看页面"><a href="#查看页面" class="headerlink" title="查看页面"></a>查看页面</h3><p><img src="/assets/blogImg/微信图片_20181007141934.png" alt=""></p>
+<h1 id="0x05-总结分析"><a href="#0x05-总结分析" class="headerlink" title="0x05-总结分析"></a>0x05-总结分析</h1><h2 id="Ajax特点"><a href="#Ajax特点" class="headerlink" title="Ajax特点"></a>Ajax特点</h2><ul>
+<li>Ajax请求是限时的，所以错误警告被捕获并处理后，可以用来提升用户体验。</li>
+<li>AJAX请求是异步执行的，也就是说，要通过回调函数获得响应</li>
+</ul>
+<h2 id="传统交互模型"><a href="#传统交互模型" class="headerlink" title="传统交互模型"></a>传统交互模型</h2><ul>
+<li>浏览器直接将请求发送给服务器，服务器回送响应，直接发给浏览器</li>
+<li>同步交互模式，客户端提交请求，等待，在响应回到客户端前，客户端无法进行其他操作  </li>
+</ul>
+<h2 id="Ajax交互模型"><a href="#Ajax交互模型" class="headerlink" title="Ajax交互模型"></a>Ajax交互模型</h2><ul>
+<li>浏览器首先将请求 发送 Ajax引擎（以XMLHttpRequest为核心），AJax引擎再将请求发送给 服务器，服务器回送响应先发给Ajax引擎，再由引擎传给浏览器显示 </li>
+<li>异步交互模型，客户端将请求提交给Ajax引擎，客户端可以继续操作，由Ajax引擎来完成与服务武器端通信</li>
+</ul>
+<h1 id="0x06-程序源码"><a href="#0x06-程序源码" class="headerlink" title="0x06-程序源码"></a>0x06-程序源码</h1><h2 id="server-js"><a href="#server-js" class="headerlink" title="server.js"></a>server.js</h2><pre><code>var http = require(&apos;http&apos;);
+var urlLib = require(&apos;url&apos;);
+var data = {
+    content:`你好`//动态数据方案中需修改 content:`你好` 为： content:`你好呀！`
+};
+http.createServer(function(req,res){
+    //parse用于从一个字符串中解析出json对象
+    var parms = urlLib.parse(req.url,true);
+    //stringify()用于从一个对象解析出字符串
+    var str = parms.query.callback + &apos;(&apos; + JSON.stringify(data) +&apos;)&apos;;
+    res.end(str);
+}).listen(8088);
+console.log(&apos;Server running on port http://127.0.0.1:8088/&apos;);
+</code></pre><h2 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h2><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;script src=&quot;http://code.jquery.com/jquery-1.7.1.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;body&gt;
+&lt;div id=&quot;date&quot;&gt;&lt;/div&gt;
+&lt;!-- &lt;button id=&quot;btn&quot;&gt;请点击&lt;/button&gt;--&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    $(document).ready(function() {
+        // $(&quot;#btn&quot;).click(function(){
+            $.ajax({
+                url: &apos;http://127.0.0.1:8088/&apos;,
+                dataType: &quot;jsonp&quot;,//jsonp是针对于get的跨域解决办法
+                data: &apos;{&quot;data&quot;: &quot;TEST&quot;}&apos;,
+                type: &apos;GET&apos;,
+                jsonpCallback: &apos;callback&apos;, // 这与POST不相关
+                success: function (data) {
+                    console.log(data);
+                    // var ret = jQuery.parseJSON(data);//jQuery.parseJSON()  函数用于将格式完好的JSON字符串转为与之对应的JavaScript对象。
+                    //所谓&quot;格式完好&quot;，就是要求指定的字符串必须符合严格的JSON格式，例如：属性名称必须加双引号、字符串值也必须用双引号。
+                    $(&apos;#date&apos;).html(data.content);
+                    // console.log(&apos;Success!&apos;)
+                },
+                error: function (xhr, status, error) {
+                    console.log(&apos;Error: &apos; + error.message);
+                    $(&apos;#lblResponse&apos;).html(&apos;Error connecting to the server.&apos;);
+                },
+            });
+        // });
+    });
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h2 id="index2-html"><a href="#index2-html" class="headerlink" title="index2.html"></a>index2.html</h2><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;script src=&quot;http://code.jquery.com/jquery-1.7.1.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;body&gt;
+&lt;div id=&quot;date&quot;&gt;&lt;/div&gt;
+&lt;!-- &lt;button id=&quot;btn&quot;&gt;请点击&lt;/button&gt;--&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+    function doUpdate()
+    {     $(document).ready(function() {
+        // $(&quot;#btn&quot;).click(function(){
+        $.ajax({
+            url: &apos;http://127.0.0.1:8088/&apos;,
+            dataType: &quot;jsonp&quot;,//jsonp是针对于get的跨域解决办法
+            data: &apos;{&quot;data&quot;: &quot;TEST&quot;}&apos;,
+            type: &apos;GET&apos;,
+            jsonpCallback: &apos;callback&apos;, // 这与POST不相关
+            success: function (data) {
+                console.log(data);
+                // var ret = jQuery.parseJSON(data);//jQuery.parseJSON()  函数用于将格式完好的JSON字符串转为与之对应的JavaScript对象。
+                //所谓&quot;格式完好&quot;，就是要求指定的字符串必须符合严格的JSON格式，例如：属性名称必须加双引号、字符串值也必须用双引号。
+                $(&apos;#date&apos;).html(data.content);
+                // console.log(&apos;Success!&apos;)
+            },
+            error: function (xhr, status, error) {
+                console.log(&apos;Error: &apos; + error.message);
+                $(&apos;#lblResponse&apos;).html(&apos;Error connecting to the server.&apos;);
+            },
+        });
+        // });
+    });
+        console.log(&quot;doUpdate&quot;);
+        window.setTimeout(&quot;doUpdate()&quot;, 3000);
+    }
+    doUpdate();
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h2 id="server3-js"><a href="#server3-js" class="headerlink" title="server3.js"></a>server3.js</h2><pre><code>var http = require(&apos;http&apos;);
+var urlLib = require(&apos;url&apos;);
+
+var data;
+
+function doUpdate(){
+
+    function _select(client,selectSQLString)
+    {
+        // console.log(&quot;select beginning&quot;);
+        client.query(selectSQLString,  function selectCb(error, results, fields)
+        {
+        // console.log(&quot;in select callback function&quot;);
+            if (error)
+            {
+                console.log(&apos;GetData Error: &apos; + error.message),
+                    client.end();
+                return;
+            }
+            if(results.rowCount &gt; 0)
+            {
+                var firstResult,
+                    resultSet = &apos;&apos;;
+                for(var i = 0, len = results.rowCount; i &lt; len; i++)
+                {
+                    firstResult = results.rows[i];
+                    resultSet += &apos;id:&apos; + firstResult[&apos;id&apos;] + &apos; &apos; + &apos;type:&apos; + firstResult[&apos;type&apos;] + &apos; &apos; +
+                        &apos;rank:&apos; + firstResult[&apos;rank&apos;] + &apos; &apos;;
+                }
+            }
+            console.log(resultSet);
+
+            data = {
+                content:&apos;你好吗？&apos;,
+                content1:resultSet
+            };
+
+            /* 添加功能：使查询结果集返回到客户端并保证此函数的通用性. */
+        });
+        // console.log(&quot;select end\n&quot;);
+    }
+
+    var pg = require(&apos;pg&apos;);
+    var conString = &quot;tcp://postgres:111111@localhost:5432/test&quot;;//1.连接
+
+    var client = new pg.Client(conString);
+    selectSQLString = &apos;select * from Log_Inf&apos;;
+
+    client.connect(function(error, results) {
+        if(error){
+            console.log(&apos;ClientConnectionReady Error: &apos; + error.message);
+           client.end();
+           return;
+        }
+        _select(client,selectSQLString);
+    });
+
+
+    console.log(&quot;hello&quot;);
+    setTimeout(doUpdate,3000);
+}
+doUpdate();
+
+http.createServer(function(req,res){
+    //parse用于从一个字符串中解析出json对象
+    var parms = urlLib.parse(req.url,true);
+    //stringify()用于从一个对象解析出字符串
+    var str = parms.query.callback + &apos;(&apos; + JSON.stringify(data) +&apos;)&apos;;
+    res.end(str);
+}).listen(8088);
+console.log(&apos;Server running on port http://127.0.0.1:8088/&apos;);
+</code></pre><h2 id="index3-html"><a href="#index3-html" class="headerlink" title="index3.html"></a>index3.html</h2><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;script src=&quot;http://code.jquery.com/jquery-1.7.1.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;body&gt;
+文件数据：
+&lt;div id=&quot;date&quot;&gt;&lt;/div&gt;
+&lt;br&gt;
+数据库数据：
+&lt;div id=&quot;date1&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+    function doUpdate()
+    {     $(document).ready(function() {
+        // $(&quot;#btn&quot;).click(function(){
+        $.ajax({
+            url: &apos;http://127.0.0.1:8088/&apos;,
+            dataType: &quot;jsonp&quot;,//jsonp是针对于get的跨域解决办法
+            data: &apos;{&quot;data&quot;: &quot;TEST&quot;}&apos;,
+            type: &apos;GET&apos;,
+            jsonpCallback: &apos;callback&apos;, // 这与POST不相关
+            success: function (data) {
+                console.log(data);
+                // var ret = jQuery.parseJSON(data);//jQuery.parseJSON()  函数用于将格式完好的JSON字符串转为与之对应的JavaScript对象。
+                //所谓&quot;格式完好&quot;，就是要求指定的字符串必须符合严格的JSON格式，例如：属性名称必须加双引号、字符串值也必须用双引号。
+                $(&apos;#date&apos;).html(data.content);
+                $(&apos;#date1&apos;).html(data.content1);
+                // console.log(&apos;Success!&apos;)
+            },
+            error: function (xhr, status, error) {
+                console.log(&apos;Error: &apos; + error.message);
+                $(&apos;#lblResponse&apos;).html(&apos;Error connecting to the server.&apos;);
+            },
+        });
+        // });
+    });
+        console.log(&quot;hello&quot;);
+        window.setTimeout(&quot;doUpdate()&quot;, 3000);
+    }
+    doUpdate();
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h2 id="源码打包"><a href="#源码打包" class="headerlink" title="源码打包"></a>源码打包</h2><p><a href="https://pan.baidu.com/s/1Tm0kOaa3wCznYrR4qzMoTw" target="_blank" rel="noopener">Ajax-Demo</a>（密码：<code>busg</code>）</p>
+<h1 id="0x07-参考资料"><a href="#0x07-参考资料" class="headerlink" title="0x07-参考资料"></a>0x07-参考资料</h1><ul>
+<li><a href="http://www.w3school.com.cn/ajax/" target="_blank" rel="noopener">AJAX教程</a></li>
+<li><a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001434499861493e7c35be5e0864769a2c06afb4754acc6000" target="_blank" rel="noopener">AJAX-廖雪峰的官方网站</a></li>
+<li><a href="/2018/08/06/PostgreSQL操作接口/index.html">PostgreSQL操作接口</a></li>
+</ul>
+</div><div class="tags"><a href="/tags/JavaScript/">JavaScript</a></div><div class="post-share"></div><div class="post-nav"><a href="/表格设计与查询显示/" class="pre">表格设计与查询显示</a><a href="/BlurAdmin应用开发/" class="next">BlurAdmin应用开发</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">Contents</i></div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#0x00-文章前言"><span class="toc-text">0x00-文章前言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#文章目的"><span class="toc-text">文章目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文章前景"><span class="toc-text">文章前景</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x01-知识储备"><span class="toc-text">0x01-知识储备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Ajax基础"><span class="toc-text">Ajax基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ajax框架介绍"><span class="toc-text">Ajax框架介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ajax工作原理"><span class="toc-text">Ajax工作原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Node-js基础"><span class="toc-text">Node.js基础</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x02-测试环境"><span class="toc-text">0x02-测试环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#硬件"><span class="toc-text">硬件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#软件"><span class="toc-text">软件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x03-方案设计"><span class="toc-text">0x03-方案设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#静态数据方案"><span class="toc-text">静态数据方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态数据方案"><span class="toc-text">动态数据方案</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x04-实践操作"><span class="toc-text">0x04-实践操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#静态数据方案-1"><span class="toc-text">静态数据方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动服务器"><span class="toc-text">启动服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打开页面"><span class="toc-text">打开页面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态数据方案-1"><span class="toc-text">动态数据方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#打开页面-1"><span class="toc-text">打开页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改重启"><span class="toc-text">修改重启</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库数据显示"><span class="toc-text">数据库数据显示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装pg模块"><span class="toc-text">安装pg模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动服务器-1"><span class="toc-text">启动服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打开页面-2"><span class="toc-text">打开页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看数据库表格"><span class="toc-text">查看数据库表格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插入数据"><span class="toc-text">插入数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看当前表格"><span class="toc-text">查看当前表格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看GitBash输出"><span class="toc-text">查看GitBash输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看页面"><span class="toc-text">查看页面</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x05-总结分析"><span class="toc-text">0x05-总结分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Ajax特点"><span class="toc-text">Ajax特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#传统交互模型"><span class="toc-text">传统交互模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ajax交互模型"><span class="toc-text">Ajax交互模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x06-程序源码"><span class="toc-text">0x06-程序源码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#server-js"><span class="toc-text">server.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#index-html"><span class="toc-text">index.html</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#index2-html"><span class="toc-text">index2.html</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#server3-js"><span class="toc-text">server3.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#index3-html"><span class="toc-text">index3.html</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码打包"><span class="toc-text">源码打包</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x07-参考资料"><span class="toc-text">0x07-参考资料</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/Linux内核模块编程入门/">Linux内核模块编程入门</a></li><li class="post-list-item"><a class="post-list-link" href="/Gitbook教程/">Gitbook教程</a></li><li class="post-list-item"><a class="post-list-link" href="/博客模板/">博客模板</a></li><li class="post-list-item"><a class="post-list-link" href="/任务安排/">任务安排</a></li><li class="post-list-item"><a class="post-list-link" href="/新建文件夹/IPFS/">新建文件夹/IPFS</a></li><li class="post-list-item"><a class="post-list-link" href="/开源大学/">开源大学</a></li><li class="post-list-item"><a class="post-list-link" href="/编译、链接与装载/">编译、链接与装载</a></li><li class="post-list-item"><a class="post-list-link" href="/编译和链接/">编译和链接</a></li><li class="post-list-item"><a class="post-list-link" href="/第一阶段计划表/">第一阶段计划表</a></li><li class="post-list-item"><a class="post-list-link" href="/Linux内核分析-孟宁/">Linux内核分析-孟宁</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> Tags</i></div><div class="tagcloud"><a href="/tags/博客/" style="font-size: 15px;">博客</a> <a href="/tags/模板/" style="font-size: 15px;">模板</a> <a href="/tags/FAQ/" style="font-size: 15px;">FAQ</a> <a href="/tags/MariaDB/" style="font-size: 15px;">MariaDB</a> <a href="/tags/实习/" style="font-size: 15px;">实习</a> <a href="/tags/PostgreSQL/" style="font-size: 15px;">PostgreSQL</a> <a href="/tags/安全/" style="font-size: 15px;">安全</a> <a href="/tags/旧事/" style="font-size: 15px;">旧事</a> <a href="/tags/BlurAdmin/" style="font-size: 15px;">BlurAdmin</a> <a href="/tags/Kernel/" style="font-size: 15px;">Kernel</a> <a href="/tags/安排/" style="font-size: 15px;">安排</a> <a href="/tags/操作系统/" style="font-size: 15px;">操作系统</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/Electron/" style="font-size: 15px;">Electron</a> <a href="/tags/红线/" style="font-size: 15px;">红线</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> Archive</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">September 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">January 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> Blogroll</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">Baidu Site Haritası</a> |  <a href="/atom.xml">RSS</a> |  <a href="/about/">About</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次</p><p><span> Copyright &copy;<a href="/." rel="nofollow">xiafei-xupt.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.1"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.1" async></script></body></html>
