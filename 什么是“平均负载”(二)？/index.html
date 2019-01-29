@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>什么是“平均负载”(二)？ | xiafei-xupt's blog</title><link rel="stylesheet" type="text/css" href="//fonts.css.network/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.1"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.1"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">什么是“平均负载”(二)？</h1><a id="logo" href="/.">xiafei-xupt's blog</a><p class="description">汝之意志所向,即吾剑之所指</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> Home</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="Arama"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">什么是“平均负载”(二)？</h1><div class="post-meta"><a href="/什么是“平均负载”(二)？/#comments" class="comment-count"></a><p><span class="date">Jan 29, 2019</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>Hits</i></i></span></p></div><div class="post-content"><h1 id="平均负载与-CPU-使用率"><a href="#平均负载与-CPU-使用率" class="headerlink" title="平均负载与 CPU 使用率"></a>平均负载与 CPU 使用率</h1><p>现实工作中，我们经常容易把平均负载和 CPU 使用率混淆，所以在这里，我也做一个区分。<br>可能你会疑惑，既然平均负载代表的是活跃进程数，那平均负载高了，不就意味着 CPU 使用率高吗？<br>我们还是要回到平均负载的含义上来，平均负载是指单位时间内，处于可运行状态和不可中断状态的进程数。所以，它不仅包括了正在使用 CPU 的进程，还包括等待 CPU 和等待 I/O 的进程。<br>而 CPU 使用率，是单位时间内 CPU 繁忙情况的统计，跟平均负载并不一定完全对应。比如：</p>
+<ul>
+<li>CPU 密集型进程，使用大量 CPU 会导致平均负载升高，此时这两者是一致的；</li>
+<li>I/O 密集型进程，等待 I/O 也会导致平均负载升高，但 CPU 使用率不一定很高；</li>
+<li>大量等待 CPU 的进程调度也会导致平均负载升高，此时的 CPU 使用率也会比较高。</li>
+</ul>
+<h1 id="平均负载案例分析"><a href="#平均负载案例分析" class="headerlink" title="平均负载案例分析"></a>平均负载案例分析</h1><p>下面，我们以三个示例分别来看这三种情况，并用 iostat、mpstat、pidstat 等工具，找出平均负载升高的根源。<br>因为案例分析都是基于机器上的操作，所以不要只是听听、看看就够了，最好还是跟着我实际操作一下。<br>你的准备<br>下面的案例都是基于 Ubuntu 18.04，当然，同样适用于其他 Linux 系统。我使用的案例环境如下所示。</p>
+<ul>
+<li>机器配置：2 CPU，2GB 内存。</li>
+<li>预先安装 stress 和 sysstat 包，如 apt install stress sysstat。<br>在这里，我先简单介绍一下 stress 和 sysstat。<br>stress 是一个 Linux 系统压力测试工具，这里我们用作异常进程模拟平均负载升高的场景。<br>而 sysstat 包含了常用的 Linux 性能工具，用来监控和分析系统的性能。我们的案例会用到这个包的两个命令 mpstat 和 pidstat。</li>
+<li>mpstat 是一个常用的多核 CPU 性能分析工具，用来实时查看每个 CPU 的性能指标，以及所有 CPU 的平均指标。</li>
+<li>pidstat 是一个常用的进程性能分析工具，用来实时查看进程的 CPU、内存、I/O 以及上下文切换等性能指标。</li>
+</ul>
+<p>此外，每个场景都需要你开三个终端，登录到同一台 Linux 机器中。</p>
+<p>实验之前，你先做好上面的准备。如果包的安装有问题，可以先在 Google 一下自行解决，如果还是解决不了，再来留言区找我，这事儿应该不难。</p>
+<p>另外要注意，下面的所有命令，我们都是默认以 root 用户运行。所以，如果你是用普通用户登陆的系统，一定要先运行 sudo su root 命令切换到 root 用户。</p>
+<p>如果上面的要求都已经完成了，你可以先用 uptime 命令，看一下测试前的平均负载情况：</p>
+<pre><code>$ uptime
+...,  load average: 0.11, 0.15, 0.09
+</code></pre><h2 id="场景一：CPU-密集型进程"><a href="#场景一：CPU-密集型进程" class="headerlink" title="场景一：CPU 密集型进程"></a>场景一：CPU 密集型进程</h2><p>首先，我们在第一个终端运行 stress 命令，模拟一个 CPU 使用率 100% 的场景：</p>
+<pre><code>$ stress --cpu 1 --timeout 600
+</code></pre><p>接着，在第二个终端运行 uptime 查看平均负载的变化情况：</p>
+<pre><code># -d 参数表示高亮显示变化的区域
+$ watch -d uptime
+...,  load average: 1.00, 0.75, 0.39
+</code></pre><p>最后，在第三个终端运行 mpstat 查看 CPU 使用率的变化情况：</p>
+<pre><code># -P ALL 表示监控所有 CPU，后面数字 5 表示间隔 5 秒后输出一组数据
+$ mpstat -P ALL 5
+Linux 4.15.0 (ubuntu) 09/22/18 _x86_64_ (2 CPU)
+13:30:06     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+13:30:11     all   50.05    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00   49.95
+13:30:11       0    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+13:30:11       1  100.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00
+</code></pre><p>从终端二中可以看到，1 分钟的平均负载会慢慢增加到 1.00，而从终端三中还可以看到，正好有一个 CPU 的使用率为 100%，但它的 iowait 只有 0。这说明，平均负载的升高正是由于 CPU 使用率为 100% 。</p>
+<p>那么，到底是哪个进程导致了 CPU 使用率为 100% 呢？你可以使用 pidstat 来查询：</p>
+<pre><code># 间隔 5 秒后输出一组数据
+$ pidstat -u 5 1
+13:37:07      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+13:37:12        0      2962  100.00    0.00    0.00    0.00  100.00     1  stress
+</code></pre><p>从这里可以明显看到，stress 进程的 CPU 使用率为 100%。</p>
+<h2 id="场景二：I-O-密集型进程"><a href="#场景二：I-O-密集型进程" class="headerlink" title="场景二：I/O 密集型进程"></a>场景二：I/O 密集型进程</h2><p>首先还是运行 stress 命令，但这次模拟 I/O 压力，即不停地执行 sync：</p>
+<pre><code>$ stress -i 1 --timeout 600
+</code></pre><p>还是在第二个终端运行 uptime 查看平均负载的变化情况：</p>
+<pre><code>$ watch -d uptime
+...,  load average: 1.06, 0.58, 0.37
+</code></pre><p>然后，第三个终端运行 mpstat 查看 CPU 使用率的变化情况：</p>
+<pre><code># 显示所有 CPU 的指标，并在间隔 5 秒输出一组数据
+$ mpstat -P ALL 5 1
+Linux 4.15.0 (ubuntu)     09/22/18     _x86_64_    (2 CPU)
+13:41:28     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+13:41:33     all    0.21    0.00   12.07   32.67    0.00    0.21    0.00    0.00    0.00   54.84
+13:41:33       0    0.43    0.00   23.87   67.53    0.00    0.43    0.00    0.00    0.00    7.74
+13:41:33       1    0.00    0.00    0.81    0.20    0.00    0.00    0.00    0.00    0.00   98.99
+</code></pre><p>从这里可以看到，1 分钟的平均负载会慢慢增加到 1.06，其中一个 CPU 的系统 CPU 使用率升高到了 23.87，而 iowait 高达 67.53%。这说明，平均负载的升高是由于 iowait 的升高。<br>那么到底是哪个进程，导致 iowait 这么高呢？我们还是用 pidstat 来查询：</p>
+<pre><code># 间隔 5 秒后输出一组数据，-u 表示 CPU 指标
+$ pidstat -u 5 1
+Linux 4.15.0 (ubuntu)     09/22/18     _x86_64_    (2 CPU)
+13:42:08      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+13:42:13        0       104    0.00    3.39    0.00    0.00    3.39     1  kworker/1:1H
+13:42:13        0       109    0.00    0.40    0.00    0.00    0.40     0  kworker/0:1H
+13:42:13        0      2997    2.00   35.53    0.00    3.99   37.52     1  stress
+13:42:13        0      3057    0.00    0.40    0.00    0.00    0.40     0  pidstat
+</code></pre><p>可以发现，还是 stress 进程导致的。</p>
+<h2 id="场景三：大量进程的场景"><a href="#场景三：大量进程的场景" class="headerlink" title="场景三：大量进程的场景"></a>场景三：大量进程的场景</h2><p>当系统中运行进程超出 CPU 运行能力时，就会出现等待 CPU 的进程。<br>比如，我们还是使用 stress，但这次模拟的是 8 个进程：</p>
+<pre><code>$ stress -c 8 --timeout 600
+</code></pre><p>由于系统只有 2 个 CPU，明显比 8 个进程要少得多，因而，系统的 CPU 处于严重过载状态，平均负载高达 7.97：</p>
+<pre><code>$ uptime
+...,  load average: 7.97, 5.93, 3.02
+</code></pre><p>接着再运行 pidstat 来看一下进程的情况：</p>
+<pre><code># 间隔 5 秒后输出一组数据
+$ pidstat -u 5 1
+14:23:25      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+14:23:30        0      3190   25.00    0.00    0.00   74.80   25.00     0  stress
+14:23:30        0      3191   25.00    0.00    0.00   75.20   25.00     0  stress
+14:23:30        0      3192   25.00    0.00    0.00   74.80   25.00     1  stress
+14:23:30        0      3193   25.00    0.00    0.00   75.00   25.00     1  stress
+14:23:30        0      3194   24.80    0.00    0.00   74.60   24.80     0  stress
+14:23:30        0      3195   24.80    0.00    0.00   75.00   24.80     0  stress
+14:23:30        0      3196   24.80    0.00    0.00   74.60   24.80     1  stress
+14:23:30        0      3197   24.80    0.00    0.00   74.80   24.80     1  stress
+14:23:30        0      3200    0.00    0.20    0.00    0.20    0.20     0  pidstat
+</code></pre><p>可以看出，8 个进程在争抢 2 个 CPU，每个进程等待 CPU 的时间（也就是代码块中的 %wait 列）高达 75%。这些超出 CPU 计算能力的进程，最终导致 CPU 过载。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>分析完这三个案例，我再来归纳一下平均负载的理解。<br>平均负载提供了一个快速查看系统整体性能的手段，反映了整体的负载情况。但只看平均负载本身，我们并不能直接发现，到底是哪里出现了瓶颈。所以，在理解平均负载时，也要注意：</p>
+<ul>
+<li>平均负载高有可能是 CPU 密集型进程导致的；</li>
+<li>平均负载高并不一定代表 CPU 使用率高，还有可能是 I/O 更繁忙了；</li>
+<li>当发现负载高的时候，你可以使用 mpstat、pidstat 等工具，辅助分析负载的来源。<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2>最后，我想邀请你一起来聊聊你所理解的平均负载，当你发现平均负载升高后，又是怎么分析排查的呢？你可以结合我前面的讲解，来总结自己的思考。欢迎在留言区和我讨论。</li>
+</ul>
+</div><div class="tags"><a href="/tags/系统优化/">系统优化</a></div><div class="post-share"></div><div class="post-nav"><a href="/Gitbook教程/" class="pre">Gitbook教程</a><a href="/什么是“平均负载”(一)？/" class="next">什么是“平均负载”(一)？</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">Contents</i></div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#平均负载与-CPU-使用率"><span class="toc-text">平均负载与 CPU 使用率</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#平均负载案例分析"><span class="toc-text">平均负载案例分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#场景一：CPU-密集型进程"><span class="toc-text">场景一：CPU 密集型进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#场景二：I-O-密集型进程"><span class="toc-text">场景二：I/O 密集型进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#场景三：大量进程的场景"><span class="toc-text">场景三：大量进程的场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结"><span class="toc-text">小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思考"><span class="toc-text">思考</span></a></li></ol></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/Linux内核模块编程入门/">Linux内核模块编程入门</a></li><li class="post-list-item"><a class="post-list-link" href="/博客模板/">博客模板</a></li><li class="post-list-item"><a class="post-list-link" href="/Gitbook教程/">Gitbook教程</a></li><li class="post-list-item"><a class="post-list-link" href="/什么是“平均负载”(二)？/">什么是“平均负载”(二)？</a></li><li class="post-list-item"><a class="post-list-link" href="/什么是“平均负载”(一)？/">什么是“平均负载”(一)？</a></li><li class="post-list-item"><a class="post-list-link" href="/任务安排/">任务安排</a></li><li class="post-list-item"><a class="post-list-link" href="/阿里云9.9元学生服务器的购买和配置/">阿里云9.9元学生服务器的购买和配置</a></li><li class="post-list-item"><a class="post-list-link" href="/IPFS历史、现状及未来/">IPFS历史、现状及未来</a></li><li class="post-list-item"><a class="post-list-link" href="/IPFS私有网络搭建/">IPFS私有网络搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/IPFS环境搭建与入门教程/">IPFS环境搭建与入门教程</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> Tags</i></div><div class="tagcloud"><a href="/tags/博客/" style="font-size: 15px;">博客</a> <a href="/tags/模板/" style="font-size: 15px;">模板</a> <a href="/tags/FAQ/" style="font-size: 15px;">FAQ</a> <a href="/tags/MariaDB/" style="font-size: 15px;">MariaDB</a> <a href="/tags/实习/" style="font-size: 15px;">实习</a> <a href="/tags/PostgreSQL/" style="font-size: 15px;">PostgreSQL</a> <a href="/tags/安全/" style="font-size: 15px;">安全</a> <a href="/tags/旧事/" style="font-size: 15px;">旧事</a> <a href="/tags/BlurAdmin/" style="font-size: 15px;">BlurAdmin</a> <a href="/tags/Kernel/" style="font-size: 15px;">Kernel</a> <a href="/tags/安排/" style="font-size: 15px;">安排</a> <a href="/tags/操作系统/" style="font-size: 15px;">操作系统</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/Electron/" style="font-size: 15px;">Electron</a> <a href="/tags/系统优化/" style="font-size: 15px;">系统优化</a> <a href="/tags/红线/" style="font-size: 15px;">红线</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> Archive</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">September 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">January 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> Blogroll</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">Baidu Site Haritası</a> |  <a href="/atom.xml">RSS</a> |  <a href="/about/">About</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次</p><p><span> Copyright &copy;<a href="/." rel="nofollow">xiafei-xupt.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.1"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.1" async></script></body></html>
