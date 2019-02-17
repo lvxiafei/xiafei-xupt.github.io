@@ -48,37 +48,6 @@
   </entry>
   
   <entry>
-    <title>Gitbook教程</title>
-    <link href="http://yoursite.com/Gitbook%E6%95%99%E7%A8%8B/"/>
-    <id>http://yoursite.com/Gitbook教程/</id>
-    <published>2026-01-03T16:00:00.000Z</published>
-    <updated>2018-08-13T18:52:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><ul><li>0x00-文章前言</li><li>0x01-知识储备</li><li>0x02-测试环境</li><li>0x03-方案设计</li><li>0x04-实践验证</li><li>0x05-总结分析</li><li>0x06-程序源码</li><li>0x07-参考资料</li></ul></blockquote><h1 id="0x00-文章前言"><a href="#0x00-文章前言" class="headerlink" title="0x00-文章前言"></a>0x00-文章前言</h1><h2 id="文章目的"><a href="#文章目的" class="headerlink" title="文章目的"></a>文章目的</h2><p>在线文档</p><h2 id="文章前景"><a href="#文章前景" class="headerlink" title="文章前景"></a>文章前景</h2><h1 id="0x01-知识储备"><a href="#0x01-知识储备" class="headerlink" title="0x01-知识储备"></a>0x01-知识储备</h1><h2 id="linux系统"><a href="#linux系统" class="headerlink" title="linux系统"></a>linux系统</h2><h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h2 id="深入理解计算机系统"><a href="#深入理解计算机系统" class="headerlink" title="深入理解计算机系统"></a>深入理解计算机系统</h2><h2 id="操作系统原理"><a href="#操作系统原理" class="headerlink" title="操作系统原理"></a>操作系统原理</h2><h1 id="0x02-测试环境"><a href="#0x02-测试环境" class="headerlink" title="0x02-测试环境"></a>0x02-测试环境</h1><h2 id="硬件环境"><a href="#硬件环境" class="headerlink" title="硬件环境"></a>硬件环境</h2><h2 id="软件环境"><a href="#软件环境" class="headerlink" title="软件环境"></a>软件环境</h2><h1 id="0x03-方案设计"><a href="#0x03-方案设计" class="headerlink" title="0x03-方案设计"></a>0x03-方案设计</h1><p>pdf – –&gt; md</p><p>md、HTML、world、pdf等格式互相转换</p><h2 id="方案A"><a href="#方案A" class="headerlink" title="方案A"></a>方案A</h2><h2 id="方案B"><a href="#方案B" class="headerlink" title="方案B"></a>方案B</h2><h1 id="0x04-实践验证"><a href="#0x04-实践验证" class="headerlink" title="0x04-实践验证"></a>0x04-实践验证</h1><h2 id="实践操作"><a href="#实践操作" class="headerlink" title="实践操作"></a>实践操作</h2><h2 id="实践结果"><a href="#实践结果" class="headerlink" title="实践结果"></a>实践结果</h2><h1 id="0x05-总结分析"><a href="#0x05-总结分析" class="headerlink" title="0x05-总结分析"></a>0x05-总结分析</h1><h2 id="文章结论"><a href="#文章结论" class="headerlink" title="文章结论"></a>文章结论</h2><h2 id="文章分析"><a href="#文章分析" class="headerlink" title="文章分析"></a>文章分析</h2><h1 id="0x06-程序源码"><a href="#0x06-程序源码" class="headerlink" title="0x06-程序源码"></a>0x06-程序源码</h1><h2 id="代码A"><a href="#代码A" class="headerlink" title="代码A"></a>代码A</h2><h2 id="代码B"><a href="#代码B" class="headerlink" title="代码B"></a>代码B</h2><h1 id="0x07-参考资料"><a href="#0x07-参考资料" class="headerlink" title="0x07-参考资料"></a>0x07-参考资料</h1><ul><li><a href="https://www.baidu.com" target="_blank" rel="noopener">百度一下</a></li><li><a href="https://www.baidu.com" target="_blank" rel="noopener">百度一下</a></li></ul><p>考虑到：</p><pre><code>理论与实践抽象与具体现状与未来</code></pre><p>调试优化（折中与平衡）<br>用户体验：<br>应用性能：</p><p>截图时间点（I/O）：</p><p>输入：命令、按钮</p><p>输出：变化、结果</p><p>——&gt;I/O截图法</p><p>#########################</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;0x00-文章前言&lt;/li&gt;
-&lt;li&gt;0x01-知识储备&lt;/li&gt;
-&lt;li&gt;0x02-测试环境&lt;/li&gt;
-&lt;li&gt;0x03-方案设计&lt;/li&gt;
-&lt;li&gt;0x04-实践验证&lt;/li&gt;
-&lt;li&gt;0x05-总结分析&lt;/li&gt;
-&lt;li&gt;0x06
-      
-    
-    </summary>
-    
-    
-      <category term="模板" scheme="http://yoursite.com/tags/%E6%A8%A1%E6%9D%BF/"/>
-    
-  </entry>
-  
-  <entry>
     <title>博客模板</title>
     <link href="http://yoursite.com/%E5%8D%9A%E5%AE%A2%E6%A8%A1%E6%9D%BF/"/>
     <id>http://yoursite.com/博客模板/</id>
@@ -98,6 +67,37 @@
 &lt;li&gt;0x02-测试环境&lt;/li&gt;
 &lt;li&gt;0x03-方案设计&lt;/li&gt;
 &lt;li&gt;0x04-实践操作&lt;/li&gt;
+&lt;li&gt;0x05-总结分析&lt;/li&gt;
+&lt;li&gt;0x06
+      
+    
+    </summary>
+    
+    
+      <category term="模板" scheme="http://yoursite.com/tags/%E6%A8%A1%E6%9D%BF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Gitbook教程</title>
+    <link href="http://yoursite.com/Gitbook%E6%95%99%E7%A8%8B/"/>
+    <id>http://yoursite.com/Gitbook教程/</id>
+    <published>2026-01-03T16:00:00.000Z</published>
+    <updated>2018-08-13T18:52:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><ul><li>0x00-文章前言</li><li>0x01-知识储备</li><li>0x02-测试环境</li><li>0x03-方案设计</li><li>0x04-实践验证</li><li>0x05-总结分析</li><li>0x06-程序源码</li><li>0x07-参考资料</li></ul></blockquote><h1 id="0x00-文章前言"><a href="#0x00-文章前言" class="headerlink" title="0x00-文章前言"></a>0x00-文章前言</h1><h2 id="文章目的"><a href="#文章目的" class="headerlink" title="文章目的"></a>文章目的</h2><p>在线文档</p><h2 id="文章前景"><a href="#文章前景" class="headerlink" title="文章前景"></a>文章前景</h2><h1 id="0x01-知识储备"><a href="#0x01-知识储备" class="headerlink" title="0x01-知识储备"></a>0x01-知识储备</h1><h2 id="linux系统"><a href="#linux系统" class="headerlink" title="linux系统"></a>linux系统</h2><h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h2 id="深入理解计算机系统"><a href="#深入理解计算机系统" class="headerlink" title="深入理解计算机系统"></a>深入理解计算机系统</h2><h2 id="操作系统原理"><a href="#操作系统原理" class="headerlink" title="操作系统原理"></a>操作系统原理</h2><h1 id="0x02-测试环境"><a href="#0x02-测试环境" class="headerlink" title="0x02-测试环境"></a>0x02-测试环境</h1><h2 id="硬件环境"><a href="#硬件环境" class="headerlink" title="硬件环境"></a>硬件环境</h2><h2 id="软件环境"><a href="#软件环境" class="headerlink" title="软件环境"></a>软件环境</h2><h1 id="0x03-方案设计"><a href="#0x03-方案设计" class="headerlink" title="0x03-方案设计"></a>0x03-方案设计</h1><p>pdf – –&gt; md</p><p>md、HTML、world、pdf等格式互相转换</p><h2 id="方案A"><a href="#方案A" class="headerlink" title="方案A"></a>方案A</h2><h2 id="方案B"><a href="#方案B" class="headerlink" title="方案B"></a>方案B</h2><h1 id="0x04-实践验证"><a href="#0x04-实践验证" class="headerlink" title="0x04-实践验证"></a>0x04-实践验证</h1><h2 id="实践操作"><a href="#实践操作" class="headerlink" title="实践操作"></a>实践操作</h2><h2 id="实践结果"><a href="#实践结果" class="headerlink" title="实践结果"></a>实践结果</h2><h1 id="0x05-总结分析"><a href="#0x05-总结分析" class="headerlink" title="0x05-总结分析"></a>0x05-总结分析</h1><h2 id="文章结论"><a href="#文章结论" class="headerlink" title="文章结论"></a>文章结论</h2><h2 id="文章分析"><a href="#文章分析" class="headerlink" title="文章分析"></a>文章分析</h2><h1 id="0x06-程序源码"><a href="#0x06-程序源码" class="headerlink" title="0x06-程序源码"></a>0x06-程序源码</h1><h2 id="代码A"><a href="#代码A" class="headerlink" title="代码A"></a>代码A</h2><h2 id="代码B"><a href="#代码B" class="headerlink" title="代码B"></a>代码B</h2><h1 id="0x07-参考资料"><a href="#0x07-参考资料" class="headerlink" title="0x07-参考资料"></a>0x07-参考资料</h1><ul><li><a href="https://www.baidu.com" target="_blank" rel="noopener">百度一下</a></li><li><a href="https://www.baidu.com" target="_blank" rel="noopener">百度一下</a></li></ul><p>考虑到：</p><pre><code>理论与实践抽象与具体现状与未来</code></pre><p>调试优化（折中与平衡）<br>用户体验：<br>应用性能：</p><p>截图时间点（I/O）：</p><p>输入：命令、按钮</p><p>输出：变化、结果</p><p>——&gt;I/O截图法</p><p>#########################</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;0x00-文章前言&lt;/li&gt;
+&lt;li&gt;0x01-知识储备&lt;/li&gt;
+&lt;li&gt;0x02-测试环境&lt;/li&gt;
+&lt;li&gt;0x03-方案设计&lt;/li&gt;
+&lt;li&gt;0x04-实践验证&lt;/li&gt;
 &lt;li&gt;0x05-总结分析&lt;/li&gt;
 &lt;li&gt;0x06
       
@@ -372,6 +372,27 @@ IPFS私有网络存储研究
   
   <entry>
     <title></title>
+    <link href="http://yoursite.com/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E8%AE%A1%E5%88%92%E8%A1%A8/"/>
+    <id>http://yoursite.com/第一阶段计划表/</id>
+    <published>2018-11-03T05:02:48.000Z</published>
+    <updated>2018-10-08T00:35:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一周：9-10"><a href="#一周：9-10" class="headerlink" title="一周：9.10"></a>一周：9.10</h1><h3 id="服务器管理"><a href="#服务器管理" class="headerlink" title="服务器管理"></a>服务器管理</h3><ol><li>从数据表server中获取所有服务器并显示</li><li>可筛选查看</li></ol><h3 id="日志查询"><a href="#日志查询" class="headerlink" title="日志查询"></a>日志查询</h3><ol><li>通过条件从warning中查询日志并显示</li><li>多条件查询，时间、消息类型、电厂名称等</li></ol><h1 id="一周：9-17"><a href="#一周：9-17" class="headerlink" title="一周：9.17"></a>一周：9.17</h1><h3 id="实时告警"><a href="#实时告警" class="headerlink" title="实时告警"></a>实时告警</h3><ol><li>实时（通过定时器）从数据表warning中获取最新的日志显示</li><li>可选择要显示的日志类型、可清空、对日志可以操作状态（已解决、未解决）</li><li>根据重要性统计以饼状图显示（紧急、重要、一般）、并以线性图显示趋势（近一周、近一月、近一年）</li><li>上面显示图表，下面以列表显示日志</li></ol><h1 id="二周：10-1"><a href="#二周：10-1" class="headerlink" title="二周：10.1"></a>二周：10.1</h1><h3 id="系统运行统计图"><a href="#系统运行统计图" class="headerlink" title="系统运行统计图"></a>系统运行统计图</h3><ol><li>按消息类型统计，以柱状图显示</li><li>按操作类型统计，以柱状图显示</li><li>按电厂属性统计，以饼状图显示</li><li>在线统计</li><li>按告警级别统计，以饼状图统计</li></ol><p>第二阶段</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;一周：9-10&quot;&gt;&lt;a href=&quot;#一周：9-10&quot; class=&quot;headerlink&quot; title=&quot;一周：9.10&quot;&gt;&lt;/a&gt;一周：9.10&lt;/h1&gt;&lt;h3 id=&quot;服务器管理&quot;&gt;&lt;a href=&quot;#服务器管理&quot; class=&quot;headerlink&quot; ti
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
     <link href="http://yoursite.com/%E5%BC%80%E6%BA%90%E5%A4%A7%E5%AD%A6/"/>
     <id>http://yoursite.com/开源大学/</id>
     <published>2018-11-03T05:02:48.000Z</published>
@@ -385,27 +406,6 @@ IPFS私有网络存储研究
       
         &lt;p&gt;开源大学&lt;/p&gt;
 
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://yoursite.com/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E8%AE%A1%E5%88%92%E8%A1%A8/"/>
-    <id>http://yoursite.com/第一阶段计划表/</id>
-    <published>2018-11-03T05:02:48.000Z</published>
-    <updated>2018-10-08T00:35:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="一周：9-10"><a href="#一周：9-10" class="headerlink" title="一周：9.10"></a>一周：9.10</h1><h3 id="服务器管理"><a href="#服务器管理" class="headerlink" title="服务器管理"></a>服务器管理</h3><ol><li>从数据表server中获取所有服务器并显示</li><li>可筛选查看</li></ol><h3 id="日志查询"><a href="#日志查询" class="headerlink" title="日志查询"></a>日志查询</h3><ol><li>通过条件从warning中查询日志并显示</li><li>多条件查询，时间、消息类型、电厂名称等</li></ol><h1 id="一周：9-17"><a href="#一周：9-17" class="headerlink" title="一周：9.17"></a>一周：9.17</h1><h3 id="实时告警"><a href="#实时告警" class="headerlink" title="实时告警"></a>实时告警</h3><ol><li>实时（通过定时器）从数据表warning中获取最新的日志显示</li><li>可选择要显示的日志类型、可清空、对日志可以操作状态（已解决、未解决）</li><li>根据重要性统计以饼状图显示（紧急、重要、一般）、并以线性图显示趋势（近一周、近一月、近一年）</li><li>上面显示图表，下面以列表显示日志</li></ol><h1 id="二周：10-1"><a href="#二周：10-1" class="headerlink" title="二周：10.1"></a>二周：10.1</h1><h3 id="系统运行统计图"><a href="#系统运行统计图" class="headerlink" title="系统运行统计图"></a>系统运行统计图</h3><ol><li>按消息类型统计，以柱状图显示</li><li>按操作类型统计，以柱状图显示</li><li>按电厂属性统计，以饼状图显示</li><li>在线统计</li><li>按告警级别统计，以饼状图统计</li></ol><p>第二阶段</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;一周：9-10&quot;&gt;&lt;a href=&quot;#一周：9-10&quot; class=&quot;headerlink&quot; title=&quot;一周：9.10&quot;&gt;&lt;/a&gt;一周：9.10&lt;/h1&gt;&lt;h3 id=&quot;服务器管理&quot;&gt;&lt;a href=&quot;#服务器管理&quot; class=&quot;headerlink&quot; ti
       
     
     </summary>
@@ -457,19 +457,12 @@ IPFS私有网络存储研究
   
   <entry>
     <title></title>
-    <link href="http://yoursite.com/JavaScript%20%E6%95%99%E7%A8%8B/"/>
-    <id>http://yoursite.com/JavaScript 教程/</id>
+    <link href="http://yoursite.com/Linux%E5%86%85%E6%A0%B8%E5%88%86%E6%9E%90-%E5%AD%9F%E5%AE%81/"/>
+    <id>http://yoursite.com/Linux内核分析-孟宁/</id>
     <published>2018-11-03T05:02:46.000Z</published>
-    <updated>2018-06-05T00:58:14.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="JavaScript-简介"><a href="#JavaScript-简介" class="headerlink" title="JavaScript 简介"></a>JavaScript 简介</h1><h2 id="JavaScript-是世界上最流行的编程语言。"><a href="#JavaScript-是世界上最流行的编程语言。" class="headerlink" title="JavaScript 是世界上最流行的编程语言。"></a>JavaScript 是世界上最流行的编程语言。</h2><p>这门语言可用于 HTML 和 web，更可广泛用于服务器、PC、笔记本电脑、平板电脑和智能手机等设备。</p><p>JavaScript 是脚本语言<br>JavaScript 是一种轻量级的编程语言。</p><p>JavaScript 是可插入 HTML 页面的编程代码。</p><p>JavaScript 插入 HTML 页面后，可由所有的现代浏览器执行。</p><p>JavaScript 很容易学习。</p><h2 id="JavaScript：写入-HTML-输出"><a href="#JavaScript：写入-HTML-输出" class="headerlink" title="JavaScript：写入 HTML 输出"></a>JavaScript：写入 HTML 输出</h2><h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><pre><code>document.write(&quot;&lt;h1&gt;This is a heading&lt;/h1&gt;&quot;);document.write(&quot;&lt;p&gt;This is a paragraph&lt;/p&gt;&quot;);</code></pre><h3 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h3><p>您只能在 HTML 输出中使用 document.write。如果您在文档加载后使用该方法，会覆盖整个文档。</p><h2 id="JavaScript：对事件作出反应"><a href="#JavaScript：对事件作出反应" class="headerlink" title="JavaScript：对事件作出反应"></a>JavaScript：对事件作出反应</h2><h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><pre><code>&lt;button type=&quot;button&quot; onclick=&quot;alert(&apos;Welcome!&apos;)&quot;&gt;点击这里&lt;/button&gt;</code></pre><h3 id="亲自试一试"><a href="#亲自试一试" class="headerlink" title="亲自试一试"></a>亲自试一试</h3><p>alert() 函数在 JavaScript 中并不常用，但它对于代码测试非常方便。</p><p>onclick 事件只是您即将在本教程中学到的众多事件之一。</p><h2 id="JavaScript：改变-HTML-内容"><a href="#JavaScript：改变-HTML-内容" class="headerlink" title="JavaScript：改变 HTML 内容"></a>JavaScript：改变 HTML 内容</h2><p>使用 JavaScript 来处理 HTML 内容是非常强大的功能。</p><h3 id="实例-2"><a href="#实例-2" class="headerlink" title="实例"></a>实例</h3><pre><code>x=document.getElementById(&quot;demo&quot;)  //查找元素x.innerHTML=&quot;Hello JavaScript&quot;;//改变内容</code></pre><h3 id="亲自试一试-1"><a href="#亲自试一试-1" class="headerlink" title="亲自试一试"></a>亲自试一试</h3><p>您会经常看到 document.getElementByID(“some id”)。这个方法是 HTML DOM 中定义的。</p><p>DOM（文档对象模型）是用以访问 HTML 元素的正式 W3C 标准。</p><p>您将在本教程的多个章节中学到有关 HTML DOM 的知识。</p>]]></content>
+    <updated>2018-06-13T16:15:42.000Z</updated>
     
     <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;JavaScript-简介&quot;&gt;&lt;a href=&quot;#JavaScript-简介&quot; class=&quot;headerlink&quot; title=&quot;JavaScript 简介&quot;&gt;&lt;/a&gt;JavaScript 简介&lt;/h1&gt;&lt;h2 id=&quot;JavaScript-是世界上最流行的编程
-      
     
     </summary>
     
