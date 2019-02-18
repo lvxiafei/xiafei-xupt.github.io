@@ -1,0 +1,210 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>关于区块链的五个问题 | xiafei-xupt's blog</title><link rel="stylesheet" type="text/css" href="//fonts.css.network/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.1"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.1"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">关于区块链的五个问题</h1><a id="logo" href="/.">xiafei-xupt's blog</a><p class="description">汝之意志所向,即吾剑之所指</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> Home</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="Arama"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">关于区块链的五个问题</h1><div class="post-meta"><a href="/五个问题/#comments" class="comment-count"></a><p><span class="date">Feb 18, 2019</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>Hits</i></i></span></p></div><div class="post-content"><p>作者 ：陈哲 西安邮电大学计算机学院研究生大佬一枚</p>
+<p>五个问题：</p>
+<ul>
+<li><p>我们经常说区块链，那么区块究竟是什么？</p>
+</li>
+<li><p>所谓挖矿是怎么回事？</p>
+</li>
+<li><p>比特币是什么？</p>
+</li>
+<li><p>节点之间的信息如何交换？</p>
+</li>
+<li><p>区块在节点上是如何存储，如何查找的？</p>
+<p>首先我们介绍”比特币核心“（bitcoin core），是由中本聪指定的人选组建的团队,通常被认为是比特币的唯一官方开发团队，其在最初的“中本聪客户端”bitcoin-qt的基础上开发了Bitcoin core钱包也被公认为是比特币的官方钱包。</p>
+<p>在bitcoin core中区块信息被存储在一个个<code>.dat</code>文件中，该文件的结构如下， 一个<code>.bat</code>文件包含多个区块的信息。</p>
+<p><img src="https://ws1.sinaimg.cn/large/8c4c513bly1fxclf9jcbvj22jd30du0x.jpg" alt=""><img src="https://ws1.sinaimg.cn/large/8c4c513bly1fxclbi9bcuj20yd0nfwk7.jpg" alt=""></p>
+<p>为了查找方便将区块头等信息另外组织，存放在<code>level DB</code>数据库，这是一个轻量级的K/V数据库，具有很好的写性能。</p>
+<p>查询时可以通过区块哈希值在数据库中查找到相应的<code>.bat</code>文件名及在该文件中的偏移，从而找到区块的完整信息。</p>
+<p><img src="https://ws1.sinaimg.cn/large/8c4c513bly1fxclbhf5bpj20ns0nvdib.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/8c4c513bly1fxclbi53iyj20x90n6grf.jpg" alt=""></p>
+</li>
+</ul>
+<p>区块链</p>
+<ul>
+<li>PoW（Proof of work）各节点贡献自己的计算资源来竞争解决一个难度可动态调整的数学问题。</li>
+<li><p>区块链系统的五个要素</p>
+<ul>
+<li><p>公共的区块链账本</p>
+</li>
+<li><p>分布式的点对点网络</p>
+</li>
+<li>去中心化的共识算法</li>
+<li>适度的经济激励机制</li>
+<li>可编程的脚本代码（智能合约）</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>数字加密货币面临的两个问题</li>
+</ul>
+<ul>
+<li><p>双重支付 </p>
+<p>现金是实体自然避免。其它数字形式货币需要第三方中心机构来保证，例如支付宝。</p>
+</li>
+</ul>
+<ul>
+<li><p>拜占庭将军问题</p>
+<p>分布式节点如何达成共识和建立互信。</p>
+</li>
+</ul>
+<h2 id="区块链技术的基础模型"><a href="#区块链技术的基础模型" class="headerlink" title="区块链技术的基础模型"></a>区块链技术的基础模型</h2><p><img src="https://ws1.sinaimg.cn/large/8c4c513bly1fx8ome53n1j20dr0i5taj.jpg" alt="img"></p>
+<ul>
+<li><p>数据层</p>
+<ul>
+<li><p>数据区块</p>
+<p><img src="https://ws1.sinaimg.cn/large/8c4c513bly1fx8olcgjv8j20d50armz4.jpg" alt="img"></p>
+<ul>
+<li><p>区块头</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">header_structure</span> &#123;</span>      <span class="comment">// BYTES   NAME</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">uint32_t</span> nVersion;            <span class="comment">// 4       version</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">uint8_t</span> hashPrevBlock[<span class="number">32</span>];    <span class="comment">// 32     previous block header hash</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">uint8_t</span> hashMerkleRoot[<span class="number">32</span>];   <span class="comment">// 32     merkle root hash</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">uint32_t</span> nTime;               <span class="comment">// 4       time</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">uint32_t</span> nBits;               <span class="comment">// 4       target</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">uint32_t</span> nNonce;              <span class="comment">// 4       nonce</span></span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>区块体</p>
+<p>包含一定时间段内的交易数据，及交易信息的Merkel树结构。</p>
+</li>
+</ul>
+</li>
+<li><p>哈希函数–SHA256算法</p>
+<p>SHA（Secure Hash Algorithm）是一种密码散列函数算法标准。由美国国家安全局研发，由美国国家标准与技术研究院发布，是美国政府标准。</p>
+<p>其摘要长度为256bits，故称为SHA256。</p>
+<p>其特点为，不可以从消息摘要中复原信息；两个不同的消息不会产生同样的消息摘要。        </p>
+<p>SHA将消息当成一个位（bit）字符串来处理。</p>
+<p>描述：</p>
+<ul>
+<li><p>常量初始化</p>
+<p>8个哈希初值，由自然数中前8个质数取平方根后，将小数部分转化为16进制，再取前32bit构成。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">h0 := 0x6a09e667</span><br><span class="line"></span><br><span class="line">h1 := 0xbb67ae85</span><br><span class="line"></span><br><span class="line">h2 := 0x3c6ef372</span><br><span class="line"></span><br><span class="line">h3 := 0xa54ff53a</span><br><span class="line"></span><br><span class="line">h4 := 0x510e527f</span><br><span class="line"></span><br><span class="line">h5 := 0x9b05688c</span><br><span class="line"></span><br><span class="line">h6 := 0x1f83d9ab</span><br><span class="line"></span><br><span class="line">h7 := 0x5be0cd19</span><br></pre></td></tr></table></figure>
+<p>64个哈希常量，由自然数中前64个质数取立方根后，将小数部分转化为16进制，再取前32bit构成。这里记为Kt。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">428a2f98 71374491 b5c0fbcf e9b5dba5</span><br><span class="line"></span><br><span class="line">3956c25b 59f111f1 923f82a4 ab1c5ed5</span><br><span class="line"></span><br><span class="line">d807aa98 12835b01 243185be 550c7dc3</span><br><span class="line"></span><br><span class="line">72be5d74 80deb1fe 9bdc06a7 c19bf174</span><br><span class="line"></span><br><span class="line">e49b69c1 efbe4786 0fc19dc6 240ca1cc</span><br><span class="line"></span><br><span class="line">2de92c6f 4a7484aa 5cb0a9dc 76f988da</span><br><span class="line"></span><br><span class="line">983e5152 a831c66d b00327c8 bf597fc7</span><br><span class="line"></span><br><span class="line">c6e00bf3 d5a79147 06ca6351 14292967</span><br><span class="line"></span><br><span class="line">27b70a85 2e1b2138 4d2c6dfc 53380d13</span><br><span class="line"></span><br><span class="line">650a7354 766a0abb 81c2c92e 92722c85</span><br><span class="line"></span><br><span class="line">a2bfe8a1 a81a664b c24b8b70 c76c51a3</span><br><span class="line"></span><br><span class="line">d192e819 d6990624 f40e3585 106aa070</span><br><span class="line"></span><br><span class="line">19a4c116 1e376c08 2748774c 34b0bcb5</span><br><span class="line"></span><br><span class="line">391c0cb3 4ed8aa4a 5b9cca4f 682e6ff3</span><br><span class="line"></span><br><span class="line">748f82ee 78a5636f 84c87814 8cc70208</span><br><span class="line"></span><br><span class="line">90befffa a4506ceb bef9a3f7 c67178f2</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>信息预处理</p>
+<p>消息必须进行补位，以使其长度对512取模后余数为448，先补1，再之后补0。</p>
+<p>附加长度值，用64bit表示补位前消息的长度，并附加在第一步处理后的消息之后。这样总的消息长度能被512整除。</p>
+<p>逻辑运算</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://ws1.sinaimg.cn/large/8c4c513bly1fx8l469we0j20cm05qjrj.jpg" alt="img"></p>
+<p><img src="https://ws1.sinaimg.cn/large/8c4c513bly1fx8l466yt0j207m05rgll.jpg" alt="img"></p>
+<ul>
+<li><p>迭代计算消息摘要</p>
+<p>1, 将原始消息分解为512bit大小的块</p>
+<p>2, 对于每一块，将其分解为16个32bit字记为W[0]…W[15]</p>
+<p>3, 根据如下公式，再构造出48个字</p>
+<pre><code>Wt=σ1(Wt−2)+Wt−7+σ0(Wt−15)+Wt−1
+</code></pre><p>这样我们一共获得了64个32位字Wt</p>
+<p>下面开始进行迭代计算：</p>
+<p>对每一块512bit长的消息块需要进行64次迭代，初始的ABCDEFGH即为h0…h7</p>
+<p><img src="https://ws1.sinaimg.cn/large/8c4c513bly1fx8l226a3zj20b407ut8s.jpg" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">for i from 0 to 63</span><br><span class="line">s0 := (a rightrotate 2) xor (a rightrotate 13) xor(a rightrotate 22)</span><br><span class="line">maj := (a and b) xor (a and c) xor(b and c)</span><br><span class="line">t2 := s0 + maj</span><br><span class="line">s1 := (e rightrotate 6) xor (e rightrotate 11) xor(e rightrotate 25)</span><br><span class="line">ch := (e and f) xor ((not e) and g)</span><br><span class="line">t1 := h + s1 + ch + k[i] + w[i]</span><br><span class="line">h := g</span><br><span class="line">g := f</span><br><span class="line">f := e</span><br><span class="line">e := d + t1</span><br><span class="line">d := c</span><br><span class="line">c := b</span><br><span class="line">b := a</span><br><span class="line">a := t1 + t2</span><br></pre></td></tr></table></figure>
+<p>迭代完成后的最后一组ABCDEFG即为该块数据的摘要。</p>
+<p>接着进行下一块数据的迭代，重新初始化8个变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">h0 := h0 + a</span><br><span class="line"></span><br><span class="line">h1 := h1 + b</span><br><span class="line"></span><br><span class="line">h2 := h2 + c</span><br><span class="line"></span><br><span class="line">h3 := h3 + d</span><br><span class="line"></span><br><span class="line">h4 := h4 + e</span><br><span class="line"></span><br><span class="line">h5 := h5 + f</span><br><span class="line"></span><br><span class="line">h6 := h6 + g</span><br><span class="line"></span><br><span class="line">h7 := h7 + h</span><br></pre></td></tr></table></figure>
+<p>最终，当最后一块数据迭代完毕后，我们得到了原始数据的摘要：</p>
+<p><code>digest = hash = h0 append h1 append h2 append h3 append h4 append h5 append h6 append h7</code></p>
+<p>将原始数据编码为特定长度的字符串记入区块链</p>
+<p>双SHA256哈希函数：</p>
+<p>将任意长度的原始数据经过两次SHA256哈希运算后转为长度为256位的二进制数字。</p>
+<p>SHA256算法的散列空间为2^256^ ，好的哈希函数具备的特点：单向性，定时性，定长性，随机性。</p>
+</li>
+</ul>
+</li>
+<li><p>验证一个区块头信息</p>
+<ul>
+<li>首先是<a href="https://webbtc.com/block/000000000003ba27aa200b1cecaad478d2b00432346c3f1f3986da1afd33e506" target="_blank" rel="noopener">真实区块信息</a></li>
+<li>接着将数据处理成十六进制，注意时间戳要先转换为UTC时间戳（从1970年1月1日至此时的秒数），再转十六进制。</li>
+<li>big-endian转为little-endian</li>
+<li>拼接字符串</li>
+<li>做两次SHA256</li>
+</ul>
+</li>
+<li><p>二叉Merkle树–快速归纳和校验区块数据的存在和完整性</p>
+<p>Merkle树是一种哈希树，其中每个叶子结点存放数据块的哈希值，而非叶结点存放其孩子结点数据的哈希值。如下图所示：</p>
+<p><img src="https://ws1.sinaimg.cn/large/8c4c513bly1fxcnn8k8dmj20xc0l8wf7.jpg" alt=""></p>
+<p>Merkel树逐层记录哈希值，底层数据有任何变动，都能传递到他的父结点，一层层传递到树根。根结点实际上记录了全部数据的数字指纹。</p>
+<p>比特币采用Merkel实现SPV（简化支付验证）协议, 即在不运行完整区块链网络节点的情况下, 也能够对 (交易) 数据进行检验。例如, 为验证上图 中交易 L1, 一个没有下载完整区块链数据的客户端可以通过向其他节点索要包括从交易L1 哈希值沿 Merkle 树上溯至区块头根哈希处的哈希序列 (即哈希节点 0-1, 1,TOP) 来快速确认交易的存在性和正确性. </p>
+<p>一般说来, 在 N个交易组成的区块体中确认任一交易的算法复杂度仅为 log~2~N.  </p>
+</li>
+<li><p>非对称加密–公私钥</p>
+<p>发送者记为A，接受者记为B</p>
+<p>信息加密：A使用B的公钥加密信息后发送给B，保证只有B能解密。</p>
+<p>数字签名：A使用A的私钥加密信息后发送给B，B使用A的公钥解密，确保信息是由A发送的。</p>
+<p>登录认证：客户端用私钥加密登录信息，服务器用客户端的公钥解密后进行验证。</p>
+<p>比特币私钥：随机生成的256位随机数（私钥空间2^256^，对比IPV6 2^128^个地址，可以为世界上每粒沙子分配IP），再由<code>SHA256</code>和<code>Base58</code>转换为50个字符长度的便于书写的私钥提供给用户。</p>
+<p>比特币公钥：由私钥经过<code>Secp256k1</code>椭圆曲线算法加密生成65字节长度的随机数。</p>
+<p>比特币交易地址：由公钥进行<code>SHA256</code>和<code>RIPEMD160</code>两次哈希生成20字节长度的结果，再经过SHA256和Base58转换成33字符长度的比特币地址。</p>
+</li>
+</ul>
+</li>
+<li><p>网络层</p>
+<p>在去中心化的区块链网络中，每一个节点都拥有同等的地位，当然也需要为整个网络尽同等的责任。</p>
+<p>节点的任务主要是网络路由，验证区块数据，传播区块数据，发现新节点等。</p>
+<p>1.寻找比特币网络中的有效节点，此步骤通常有两种方法：</p>
+<ul>
+<li><p>使用“DNS种子”（DNS seeds），DNS种子提供比特币节点的IP地址列表，Bitcoin Core客户端提供五种不同的DNS种子，通常默认使用即可</p>
+</li>
+<li><p>手动通过<code>-seednode</code>命令指定一个比特币节点的IP地址作为比特币种子节点</p>
+</li>
+</ul>
+<p>2.与发现的有效比特币节点进行初始“握手”，建立连接</p>
+<p>节点发送一条包含基本认证内容的<strong>version</strong>消息开始“握手”通信过程。</p>
+<p>3.新节点建立更多的连接，使节点在网络中被更多节点接收，保证连接更稳定**</p>
+<ul>
+<li><p>发送一条包含自身IP地址的<strong>addr</strong>发送给已连接的节点，这些节点收到后将此转发给它们各自的连接节点，使网络中更多的节点接收到新节点</p>
+</li>
+<li><p>发送一条<strong>getaddr</strong>消息，要求已连接节点返回其已知的节点IP地址列表，通过这种方式，节点可以找到更多可连接的节点。</p>
+</li>
+<li><p>已建立连接的节点会定期发送信息维持连接，如果某个节点长达<strong>90分钟</strong>没有通信，会被认为已经断开，网络会开始寻找一个新的节点。</p>
+</li>
+<li><p>每个节点连接不超过<strong>1000个</strong>对等节点，超过数量的IP地址会被忽略，连接过多的节点浪费网络资源，没有必要。</p>
+</li>
+</ul>
+<p>4.交换“区块清单”（注：该步骤仅在全节点上会执行，且从与节点建立连接就开始进行）</p>
+<p>全节点在连接到其他节点后，需要构建完整的区块链，如果是新节点，它仅包含静态植入客户端中的0号区块（创世区块）。</p>
+<ul>
+<li><p>通过<strong>version消息中的BestHeight字段</strong>可知双方节点的区块高度，然后节点之间交换一个<strong>getblocks</strong>消息，其中包含本地区块链顶部区块的Hash，这样节点间就可以判断谁的链更长。</p>
+</li>
+<li><p>拥有更长链的节点识别出其他节点需要“补充”的区块后，开始分批发送区块（<strong>500个区块</strong>为一批），通过<strong>inv</strong>消息先将第一批的区块清单发送给对端节点（inv消息包含500个区块的Hash清单）。限制每次同步区块的数量，是为了减少新节点同步区块对网络造成的影响。</p>
+</li>
+<li><p>缺少区块的节点发送<strong>getdata</strong>消息向所有已连接的节点请求全区块数据，“正在传输”的区块数量不能超过客户端<strong>MAX_BLOCKS_IN_TRANSIT_PER_PEER</strong>参数设置的值。</p>
+</li>
+</ul>
+</li>
+<li><p>共识层</p>
+<ul>
+<li><p>PoW共识–分布式节点的算力竞争</p>
+<p>解决一个求解复杂但验证容易的SHA256数学难题（所谓挖矿）。最快解决这一问题的节点获得区块记账权和系统生成的比特币奖励。</p>
+<p>这样数学问题可表述为：根据当前目标值（难度值），通过搜索一个合适的随机数（Nonce）使得区块头元数据两次SHA256后的哈希值小于等于目标值。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">block_header = version + previous_block_hash + merkle_root + time + target_bits + nonce</span><br><span class="line">   <span class="keyword">for</span> i in range(<span class="number">0</span>, <span class="number">2</span>**<span class="number">32</span>):</span><br><span class="line">      <span class="keyword">if</span> sha256(sha256(block_header)) &lt; target_bits:</span><br><span class="line">          <span class="keyword">break</span></span><br><span class="line">      <span class="keyword">else</span>:</span><br><span class="line">          <span class="keyword">continue</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>计算难度的调整：</p>
+<p>比特币系统定时调整目标值（难度值）以保证，每10分钟生成一个区块。</p>
+<p>新目标值= 当前目标值 <em> 实际2016个区块出块时间 / 理论2016个区块产生时间(600s</em>2016=2周)。</p>
+<p>链式结构和分叉</p>
+<p>总是选择延长累计工作量证明最大的区块链和六次确认</p>
+</li>
+</ul>
+</li>
+<li><p>激励层</p>
+<ul>
+<li><p>奖励金</p>
+<p>获得区块记账权的矿工，同时获得系统奖励的比特币，这一奖励信息也被打包在该区块的交易信息中。初始挖到每个区块奖励50BTC ，之后每21万个区块，奖励金减半，最总整个系统共生成2100万BTC 。目前是12.5BTC /块。</p>
+</li>
+<li><p>手续费</p>
+<p>小额交易：小于0.01BTC 每笔支付0.0001BTC </p>
+<p>千字节收费：当前每笔交易的手续费大部分是0.0001BTC  /KB（约3.8元/KB）,最初比特币区块限制1MB。    </p>
+<p>非强制，但矿工在组建数据块时通常会优先考虑带有较高手续费的交易，以便在挖矿成功时能获得较高的报酬，因此无附带任何手续费的交易，可能会需要等待较长的时间才能被处理并纳入区块链中。</p>
+<p>（satoshi，即比特币最小单位，0.000 000 01 BTC = 1 satoshi）</p>
+</li>
+</ul>
+</li>
+<li><p>合约层</p>
+</li>
+<li>应用层</li>
+</ul>
+<p>参考</p>
+<p>《区块链技术发展现状与展望》袁勇 王飞跃</p>
+<p>《區塊鍊(区块链)解密：: 构建基于信用的下一代互联网》   作者：黄步添， 蔡亮编</p>
+<p>《<a href="https://blog.csdn.net/u011583927/article/details/80905740" target="_blank" rel="noopener">SHA256算法原理详解</a>》</p>
+<p>《<a href="https://www.cnblogs.com/fengzhiwu/p/5524324.html" target="_blank" rel="noopener">Merkel Tree学习</a>》</p>
+<p>《<a href="https://www.zhihu.com/question/22075219/answer/301791689" target="_blank" rel="noopener">比特币的挖矿到底在计算什么？ - Tony的回答 - 知乎</a>》</p>
+</div><div class="tags"><a href="/tags/区块链/">区块链</a></div><div class="post-share"></div><div class="post-nav"><a href="/Gitbook教程/" class="pre">Gitbook教程</a><a href="/Linux内核是什么？/" class="next">Linux内核是什么？</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">Contents</i></div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#区块链技术的基础模型"><span class="toc-text">区块链技术的基础模型</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/Linux内核模块编程入门/">Linux内核模块编程入门</a></li><li class="post-list-item"><a class="post-list-link" href="/博客模板/">博客模板</a></li><li class="post-list-item"><a class="post-list-link" href="/Gitbook教程/">Gitbook教程</a></li><li class="post-list-item"><a class="post-list-link" href="/五个问题/">关于区块链的五个问题</a></li><li class="post-list-item"><a class="post-list-link" href="/Linux内核是什么？/">Linux内核是什么？</a></li><li class="post-list-item"><a class="post-list-link" href="/Rust语言的优势/">Rust语言的优势</a></li><li class="post-list-item"><a class="post-list-link" href="/Docker与虚拟机、物理机的区别？/">Docker与虚拟机、物理机的区别？</a></li><li class="post-list-item"><a class="post-list-link" href="/什么是“平均负载”(二)？/">什么是“平均负载”(二)？</a></li><li class="post-list-item"><a class="post-list-link" href="/什么是“平均负载”(一)？/">什么是“平均负载”(一)？</a></li><li class="post-list-item"><a class="post-list-link" href="/任务安排/">任务安排</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> Tags</i></div><div class="tagcloud"><a href="/tags/安全/" style="font-size: 15px;">安全</a> <a href="/tags/BlurAdmin/" style="font-size: 15px;">BlurAdmin</a> <a href="/tags/FAQ/" style="font-size: 15px;">FAQ</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/Electron/" style="font-size: 15px;">Electron</a> <a href="/tags/云计算/" style="font-size: 15px;">云计算</a> <a href="/tags/MariaDB/" style="font-size: 15px;">MariaDB</a> <a href="/tags/实习/" style="font-size: 15px;">实习</a> <a href="/tags/PostgreSQL/" style="font-size: 15px;">PostgreSQL</a> <a href="/tags/Rust/" style="font-size: 15px;">Rust</a> <a href="/tags/模板/" style="font-size: 15px;">模板</a> <a href="/tags/旧事/" style="font-size: 15px;">旧事</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a> <a href="/tags/Kernel/" style="font-size: 15px;">Kernel</a> <a href="/tags/安排/" style="font-size: 15px;">安排</a> <a href="/tags/操作系统/" style="font-size: 15px;">操作系统</a> <a href="/tags/系统优化/" style="font-size: 15px;">系统优化</a> <a href="/tags/区块链/" style="font-size: 15px;">区块链</a> <a href="/tags/红线/" style="font-size: 15px;">红线</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> Archive</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">September 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">January 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> Blogroll</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">Baidu Site Haritası</a> |  <a href="/atom.xml">RSS</a> |  <a href="/about/">About</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次</p><p><span> Copyright &copy;<a href="/." rel="nofollow">xiafei-xupt.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.1"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.1" async></script></body></html>
