@@ -110,6 +110,32 @@
   </entry>
   
   <entry>
+    <title>未来技术猜测</title>
+    <link href="http://yoursite.com/%E6%9C%AA%E6%9D%A5%E6%8A%80%E6%9C%AF%E7%8C%9C%E6%B5%8B/"/>
+    <id>http://yoursite.com/未来技术猜测/</id>
+    <published>2019-02-20T07:45:37.000Z</published>
+    <updated>2019-02-20T07:53:19.242Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="开源带来的影响："><a href="#开源带来的影响：" class="headerlink" title="开源带来的影响："></a>开源带来的影响：</h1><p>主线 与 分支</p><p>基类 与 继承</p><p>计算 与 存储</p><h1 id="物联网带来的影响："><a href="#物联网带来的影响：" class="headerlink" title="物联网带来的影响："></a>物联网带来的影响：</h1><p>物物互联，信息共享</p><h1 id="人工智能带来的影响："><a href="#人工智能带来的影响：" class="headerlink" title="人工智能带来的影响："></a>人工智能带来的影响：</h1><p>辅助人类，取代计算机</p><h1 id="区块链带来的影响："><a href="#区块链带来的影响：" class="headerlink" title="区块链带来的影响："></a>区块链带来的影响：</h1><p>去中心化，交易透明   生产关系更加透明</p><h1 id="大数据带来的影响："><a href="#大数据带来的影响：" class="headerlink" title="大数据带来的影响："></a>大数据带来的影响：</h1><p>预测结果越来越接近未来发生</p><h1 id="5G带来的影响："><a href="#5G带来的影响：" class="headerlink" title="5G带来的影响："></a>5G带来的影响：</h1><p>云计算的加速   高速带宽使得传统存储方式发生改变，对硬盘、U盘等大容量存储设备的依赖降低</p><p>高清视屏得到普及   提高用户体验（使用云端硬件资源）</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;开源带来的影响：&quot;&gt;&lt;a href=&quot;#开源带来的影响：&quot; class=&quot;headerlink&quot; title=&quot;开源带来的影响：&quot;&gt;&lt;/a&gt;开源带来的影响：&lt;/h1&gt;&lt;p&gt;主线 与 分支&lt;/p&gt;
+&lt;p&gt;基类 与 继承&lt;/p&gt;
+&lt;p&gt;计算 与 存储&lt;/p&gt;
+&lt;h1 
+      
+    
+    </summary>
+    
+    
+      <category term="未来" scheme="http://yoursite.com/tags/%E6%9C%AA%E6%9D%A5/"/>
+    
+  </entry>
+  
+  <entry>
     <title>关于区块链的五个问题</title>
     <link href="http://yoursite.com/%E4%BA%94%E4%B8%AA%E9%97%AE%E9%A2%98/"/>
     <id>http://yoursite.com/五个问题/</id>
@@ -403,6 +429,28 @@ IPFS私有网络存储研究
   
   <entry>
     <title></title>
+    <link href="http://yoursite.com/%E5%BC%80%E6%BA%90%E5%A4%A7%E5%AD%A6/"/>
+    <id>http://yoursite.com/开源大学/</id>
+    <published>2018-11-03T05:02:48.000Z</published>
+    <updated>2018-10-01T23:29:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>开源大学</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;开源大学&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
     <link href="http://yoursite.com/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E8%AE%A1%E5%88%92%E8%A1%A8/"/>
     <id>http://yoursite.com/第一阶段计划表/</id>
     <published>2018-11-03T05:02:48.000Z</published>
@@ -445,28 +493,6 @@ IPFS私有网络存储研究
   
   <entry>
     <title></title>
-    <link href="http://yoursite.com/%E5%BC%80%E6%BA%90%E5%A4%A7%E5%AD%A6/"/>
-    <id>http://yoursite.com/开源大学/</id>
-    <published>2018-11-03T05:02:48.000Z</published>
-    <updated>2018-10-01T23:29:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>开源大学</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;开源大学&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
     <link href="http://yoursite.com/%E7%BC%96%E8%AF%91%E5%92%8C%E9%93%BE%E6%8E%A5/"/>
     <id>http://yoursite.com/编译和链接/</id>
     <published>2018-11-03T05:02:48.000Z</published>
@@ -480,20 +506,6 @@ IPFS私有网络存储研究
       
         &lt;h1 id=&quot;第一章-编译和链接&quot;&gt;&lt;a href=&quot;#第一章-编译和链接&quot; class=&quot;headerlink&quot; title=&quot;第一章 编译和链接&quot;&gt;&lt;/a&gt;第一章 编译和链接&lt;/h1&gt;&lt;p&gt;C语言是我们熟悉的一门语言，当我们编辑了一个C程序，然后再编译和链接，形成可执行文件
       
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://yoursite.com/Linux%E5%86%85%E6%A0%B8%E5%88%86%E6%9E%90-%E5%AD%9F%E5%AE%81/"/>
-    <id>http://yoursite.com/Linux内核分析-孟宁/</id>
-    <published>2018-11-03T05:02:46.000Z</published>
-    <updated>2018-06-13T16:15:42.000Z</updated>
-    
-    <summary type="html">
     
     </summary>
     
