@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>vmware14 安装 Ubuntu18.04 教程 | xiafei-xupt's blog</title><link rel="stylesheet" type="text/css" href="//fonts.css.network/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.1"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.1"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">vmware14 安装 Ubuntu18.04 教程</h1><a id="logo" href="/.">xiafei-xupt's blog</a><p class="description">汝之意志所向,即吾剑之所指</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> Home</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="Arama"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">vmware14 安装 Ubuntu18.04 教程</h1><div class="post-meta"><a href="/vmware14 安装 Ubuntu18.04 教程/#comments" class="comment-count"></a><p><span class="date">Feb 22, 2019</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>Hits</i></i></span></p></div><div class="post-content"><hr>
+<p>作者：王星    有问题请发邮件：<a href="mailto:admin@stormxing.com" target="_blank" rel="noopener">admin@stormxing.com</a></p>
+<h1 id="准备必要文件"><a href="#准备必要文件" class="headerlink" title="准备必要文件"></a>准备必要文件</h1><p>首先需要用到两个文件，你可以用我给的地址下载：</p>
+<ul>
+<li>VMware 14 pro</li>
+</ul>
+<p><a href="https://xings.oss-cn-shanghai.aliyuncs.com/share/VMware-workstation-full-14.1.1.exe" target="_blank" rel="noopener">https://dl.stormxing.com/share/VMware-workstation-full-14.1.1.exe</a></p>
+<ul>
+<li>Ubuntu 18.04 LTS</li>
+</ul>
+<p><a href="https://xings.oss-cn-shanghai.aliyuncs.com/share/ubuntu-18.04-desktop-amd64.iso" target="_blank" rel="noopener">https://dl.stormxing.com/share/ubuntu-18.04-desktop-amd64.iso</a></p>
+<ul>
+<li>Ubuntu 16.04 LTS （备用，非必须）</li>
+</ul>
+<p><a href="https://xings.oss-cn-shanghai.aliyuncs.com/share/ubuntu-16.04.3-desktop-amd64.iso" target="_blank" rel="noopener">https://dl.stormxing.com/share/ubuntu-16.04.3-desktop-amd64.iso</a></p>
+<blockquote>
+<p>有小伙伴反应，Ubuntu 18.04 安装不上，可能是刚出来，vmware 对它的支持还不好，换成Ubuntu16.04 就好了。</p>
+</blockquote>
+<h1 id="安装-VMware-14-pro"><a href="#安装-VMware-14-pro" class="headerlink" title="安装 VMware 14 pro"></a>安装 VMware 14 pro</h1><ol>
+<li>打开软件之后先点下一步。</li>
+</ol>
+<p><img src="https://images-cdn.shimo.im/0cjVJXojWnoj3bQS/vm01.png!thumbnail" alt="图片"></p>
+<ol>
+<li>建议把安装位置改一下，软件比较大，默认是安装到 C 盘的。这个增强型键盘驱动程序无需安装。</li>
+</ol>
+<p><img src="https://images-cdn.shimo.im/VB2yOwDrjMEuIGko/vm02.png!thumbnail" alt="图片"></p>
+<ol>
+<li>最后，要把这两个打钩的去掉。</li>
+</ol>
+<p><img src="https://images-cdn.shimo.im/GFQUfRwk7YIpLDPJ/vm03.png!thumbnail" alt="图片"></p>
+<h1 id="激活-VMware-14-Pro"><a href="#激活-VMware-14-Pro" class="headerlink" title="激活 VMware 14 Pro"></a>激活 VMware 14 Pro</h1><ol>
+<li>在软件安装完成的时候点击「许可证」。</li>
+</ol>
+<p><img src="https://images-cdn.shimo.im/sItvPLwBHGI5XXvN/vm04.png!thumbnail" alt="图片"></p>
+<ol>
+<li><p>输入一下密匙后点「输入」</p>
+<p>   CG54H-D8D0H-H8DHY-C6X7X-N2KG6</p>
+</li>
+</ol>
+<p><img src="https://images-cdn.shimo.im/ELrxOQNjALoJY8H6/vm05.png!thumbnail" alt="图片"></p>
+<ol>
+<li>之后打开 vmware ，点击「帮助」——&gt;「关于」，可以看到软件是激活的。</li>
+</ol>
+<p><img src="https://images-cdn.shimo.im/ayRUKVpVzPsBzN5X/vm06.png!thumbnail" alt="图片"></p>
+<h1 id="安装-Ubuntu-18-04"><a href="#安装-Ubuntu-18-04" class="headerlink" title="安装 Ubuntu 18.04"></a>安装 Ubuntu 18.04</h1><ol>
+<li>点击「创建新的虚拟机」，按默认的安装方式点下一步。</li>
+</ol>
+<p><img src="https://images-cdn.shimo.im/XLtcf5Mm78E8U0GW/vm07.png!thumbnail" alt="图片"></p>
+<ol>
+<li>点击浏览，然后选择刚下载好的镜像，打开之后点下一步。</li>
+</ol>
+<p><img src="https://images-cdn.shimo.im/pyUOPJoj69kisTjV/vm08.png!thumbnail" alt="图片"></p>
+<ol>
+<li>设置 Ubuntu 的用户名和密码，我这里输入的都是 test，你要换成你自己的。</li>
+</ol>
+<p><img src="https://images-cdn.shimo.im/jpnuYguEhl0WiVwE/vm09.png!thumbnail" alt="图片"></p>
+<ol>
+<li>然后选择安装位置，这个位置一定要改一下，默认的是 c 盘。</li>
+</ol>
+<p><img src="https://images-cdn.shimo.im/AU6PtGOoxiIOk5g6/vm10.png!thumbnail" alt="图片"></p>
+<ol>
+<li>设置 Ubuntu 最大可用空间，我这里设置的 20 G，你可以设置大一点。其他的不要动，直接点下一步。</li>
+</ol>
+<p><img src="https://images-cdn.shimo.im/Rz7Dvp1qKCgkxCEq/vm11.png!thumbnail" alt="图片"></p>
+<ol>
+<li>接着可以自定义硬件，如果你不太懂的话，我也建议你无需更改，默认的设置就很好。</li>
+</ol>
+<p><img src="https://images-cdn.shimo.im/9szbCtbZqRU4pX6M/vm12.png!thumbnail" alt="图片"></p>
+<ol>
+<li>最后，他就开始安装了，可惜的是我这里报错了，不要惊慌！如果你跟我一样，则接着进行下面的设置。</li>
+</ol>
+<p><img src="https://images-cdn.shimo.im/W79pau1xR9w0bKka/vm13.png!thumbnail" alt="图片"></p>
+<ol>
+<li><p>打开电脑的「控制面板」——&gt;「程序」——&gt;「启用或关闭 Windows 功能」。<br><img src="https://images-cdn.shimo.im/KjWTbdSCWo4zKlBw/vm14.png!thumbnail" alt="图片"></p>
+</li>
+<li><p>找到 「Hyper-V」,将勾去掉，然后点确定。最后它会提示要重启电脑，这个也是一定要重启的。</p>
+</li>
+</ol>
+<p><img src="https://images-cdn.shimo.im/poIsPKd7xNs9gvgX/vm15.png!thumbnail" alt="图片"></p>
+<ol>
+<li>重启电脑之后，点击「开启此虚拟机」</li>
+</ol>
+<p><img src="https://images-cdn.shimo.im/ZAeGwPUVhGwWXWDS/vm16.png!thumbnail" alt="图片"></p>
+<ol>
+<li>接着就会自动安装 Ubuntu，这个过程大概会持续 10 到 20 分钟左右。如果你电脑配置较好的话，需要的时间则更短。</li>
+</ol>
+<p><img src="https://images-cdn.shimo.im/aLE3Z1z6l9ATo7F1/vm17.png!thumbnail" alt="图片"></p>
+<ol>
+<li>安装完成之后点击用户，登录即可。</li>
+</ol>
+<p><img src="https://images-cdn.shimo.im/DBVuquqTTmYDnN9b/vm18.png!thumbnail" alt="图片"></p>
+<ol>
+<li>电脑竟然卡住了，点击「重新启动客户机」即可。</li>
+</ol>
+<p><img src="https://images-cdn.shimo.im/cs6KwQQiI2gdDPSZ/vm19.png!thumbnail" alt="图片"></p>
+<ol>
+<li>然后就顺利的进入到 Ubuntu 18.04 了。请尽情体验吧。</li>
+</ol>
+<p><img src="https://images-cdn.shimo.im/yAiqkdfcirQ6PE5R/vm20.png!thumbnail" alt="图片"></p>
+<ol>
+<li>个人觉得只需要掌握虚拟机的开机、关机、全屏这些操作即可，其他的自己探索吧。</li>
+</ol>
+<p><img src="https://images-cdn.shimo.im/X0jQaBUUg3w25zd7/vm21.png!thumbnail" alt="图片"></p>
+</div><div class="tags"><a href="/tags/教程/">教程</a></div><div class="post-share"></div><div class="post-nav"><a href="/JavaScript 全栈课程-答疑模块/" class="pre">JavaScript 全栈课程-答疑模块</a><a href="/关系型数据库和非关系型数据库的区别/" class="next">关系型数据库和非关系型数据库的区别</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">Contents</i></div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#准备必要文件"><span class="toc-text">准备必要文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装-VMware-14-pro"><span class="toc-text">安装 VMware 14 pro</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#激活-VMware-14-Pro"><span class="toc-text">激活 VMware 14 Pro</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装-Ubuntu-18-04"><span class="toc-text">安装 Ubuntu 18.04</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/Linux内核模块编程入门/">Linux内核模块编程入门</a></li><li class="post-list-item"><a class="post-list-link" href="/假期论文阅读汇总/">假期论文阅读汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/JavaScript 全栈课程-答疑模块/">JavaScript 全栈课程-答疑模块</a></li><li class="post-list-item"><a class="post-list-link" href="/vmware14 安装 Ubuntu18.04 教程/">vmware14 安装 Ubuntu18.04 教程</a></li><li class="post-list-item"><a class="post-list-link" href="/关系型数据库和非关系型数据库的区别/">关系型数据库和非关系型数据库的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/未来技术猜测/">未来技术猜测</a></li><li class="post-list-item"><a class="post-list-link" href="/五个问题/">关于区块链的五个问题</a></li><li class="post-list-item"><a class="post-list-link" href="/什么是分布式文件系统？/">什么是分布式文件系统？</a></li><li class="post-list-item"><a class="post-list-link" href="/Linux内核是什么？/">Linux内核是什么？</a></li><li class="post-list-item"><a class="post-list-link" href="/Rust语言的优势/">Rust语言的优势</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> Tags</i></div><div class="tagcloud"><a href="/tags/博客/" style="font-size: 15px;">博客</a> <a href="/tags/BlurAdmin/" style="font-size: 15px;">BlurAdmin</a> <a href="/tags/FAQ/" style="font-size: 15px;">FAQ</a> <a href="/tags/Go/" style="font-size: 15px;">Go</a> <a href="/tags/教程/" style="font-size: 15px;">教程</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/Docker/" style="font-size: 15px;">Docker</a> <a href="/tags/IPFS/" style="font-size: 15px;">IPFS</a> <a href="/tags/实习/" style="font-size: 15px;">实习</a> <a href="/tags/PostgreSQL/" style="font-size: 15px;">PostgreSQL</a> <a href="/tags/MariaDB/" style="font-size: 15px;">MariaDB</a> <a href="/tags/Rust/" style="font-size: 15px;">Rust</a> <a href="/tags/安全/" style="font-size: 15px;">安全</a> <a href="/tags/模板/" style="font-size: 15px;">模板</a> <a href="/tags/Kernel/" style="font-size: 15px;">Kernel</a> <a href="/tags/论文/" style="font-size: 15px;">论文</a> <a href="/tags/安排/" style="font-size: 15px;">安排</a> <a href="/tags/分布式/" style="font-size: 15px;">分布式</a> <a href="/tags/未来/" style="font-size: 15px;">未来</a> <a href="/tags/数据库/" style="font-size: 15px;">数据库</a> <a href="/tags/操作系统/" style="font-size: 15px;">操作系统</a> <a href="/tags/Electron/" style="font-size: 15px;">Electron</a> <a href="/tags/云计算/" style="font-size: 15px;">云计算</a> <a href="/tags/区块链/" style="font-size: 15px;">区块链</a> <a href="/tags/系统优化/" style="font-size: 15px;">系统优化</a> <a href="/tags/红线/" style="font-size: 15px;">红线</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> Archive</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">September 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> Blogroll</i></div><ul></ul><a href="http://www.dennishuang.cn/" title="从0开始的异世界" target="_blank">从0开始的异世界</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">Baidu Site Haritası</a> |  <a href="/atom.xml">RSS</a> |  <a href="/about/">About</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次</p><p><span> Copyright &copy;<a href="/." rel="nofollow">xiafei-xupt.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.1"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.1" async></script></body></html>
