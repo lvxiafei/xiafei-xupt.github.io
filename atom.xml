@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-09-23T04:48:18.000Z</updated>
+  <updated>2019-03-07T14:06:44.423Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,33 +17,144 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Linux内核模块编程入门</title>
-    <link href="http://yoursite.com/Linux%E5%86%85%E6%A0%B8%E6%A8%A1%E5%9D%97%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/"/>
-    <id>http://yoursite.com/Linux内核模块编程入门/</id>
-    <published>2026-09-11T16:00:00.000Z</published>
-    <updated>2018-09-23T04:48:18.000Z</updated>
+    <title>文件系统理论学习</title>
+    <link href="http://yoursite.com/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://yoursite.com/文件系统理论学习/</id>
+    <published>2019-03-07T10:56:49.000Z</published>
+    <updated>2019-03-07T14:06:44.423Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><ul><li>0x00-文章前言</li><li>0x01-知识储备</li><li>0x02-测试环境</li><li>0x03-方案设计</li><li>0x04-实践验证</li><li>0x05-总结分析</li><li>0x06-程序源码</li><li>0x07-参考资料</li></ul></blockquote><h1 id="0x00-文章前言"><a href="#0x00-文章前言" class="headerlink" title="0x00-文章前言"></a>0x00-文章前言</h1><h2 id="文章目的"><a href="#文章目的" class="headerlink" title="文章目的"></a>文章目的</h2><h2 id="文章前景"><a href="#文章前景" class="headerlink" title="文章前景"></a>文章前景</h2><h1 id="0x01-知识储备"><a href="#0x01-知识储备" class="headerlink" title="0x01-知识储备"></a>0x01-知识储备</h1><h2 id="linux系统"><a href="#linux系统" class="headerlink" title="linux系统"></a>linux系统</h2><h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h2 id="深入理解计算机系统"><a href="#深入理解计算机系统" class="headerlink" title="深入理解计算机系统"></a>深入理解计算机系统</h2><h2 id="操作系统原理"><a href="#操作系统原理" class="headerlink" title="操作系统原理"></a>操作系统原理</h2><h1 id="0x02-测试环境"><a href="#0x02-测试环境" class="headerlink" title="0x02-测试环境"></a>0x02-测试环境</h1><h2 id="硬件环境"><a href="#硬件环境" class="headerlink" title="硬件环境"></a>硬件环境</h2><h2 id="软件环境"><a href="#软件环境" class="headerlink" title="软件环境"></a>软件环境</h2><h1 id="0x03-方案设计"><a href="#0x03-方案设计" class="headerlink" title="0x03-方案设计"></a>0x03-方案设计</h1><h2 id="方案A"><a href="#方案A" class="headerlink" title="方案A"></a>方案A</h2><h2 id="方案B"><a href="#方案B" class="headerlink" title="方案B"></a>方案B</h2><h1 id="0x04-实践验证"><a href="#0x04-实践验证" class="headerlink" title="0x04-实践验证"></a>0x04-实践验证</h1><h2 id="实践操作"><a href="#实践操作" class="headerlink" title="实践操作"></a>实践操作</h2><h2 id="实践结果"><a href="#实践结果" class="headerlink" title="实践结果"></a>实践结果</h2><h1 id="0x05-总结分析"><a href="#0x05-总结分析" class="headerlink" title="0x05-总结分析"></a>0x05-总结分析</h1><h2 id="文章结论"><a href="#文章结论" class="headerlink" title="文章结论"></a>文章结论</h2><h2 id="文章分析"><a href="#文章分析" class="headerlink" title="文章分析"></a>文章分析</h2><h1 id="0x06-程序源码"><a href="#0x06-程序源码" class="headerlink" title="0x06-程序源码"></a>0x06-程序源码</h1><h2 id="代码A"><a href="#代码A" class="headerlink" title="代码A"></a>代码A</h2><h2 id="代码B"><a href="#代码B" class="headerlink" title="代码B"></a>代码B</h2><h1 id="0x07-参考资料"><a href="#0x07-参考资料" class="headerlink" title="0x07-参考资料"></a>0x07-参考资料</h1><ul><li><a href="https://www.baidu.com" target="_blank" rel="noopener">百度一下</a></li><li><a href="https://www.baidu.com" target="_blank" rel="noopener">百度一下</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><h2 id="wiki"><a href="#wiki" class="headerlink" title="wiki"></a>wiki</h2><p>计算机的文件系统是一种存储和组织计算机数据的方法，它使得对其访问和查找变得容易，文件系统使用文件和树形目录的抽象逻辑概念代替了硬盘和光盘等物理设备使用数据块的概念，用户使用文件系统来保存数据不必关心数据实际保存在硬盘（或者光盘）的地址为多少的数据块上，只需要记住这个文件的所属目录和文件名。在写入新数据之前，用户不必关心硬盘上的那个块地址没有被使用，硬盘上的存储空间管理（分配和释放）功能由文件系统自动完成，用户只需要记住数据被写入到了哪个文件中。</p><p>文件系统通常使用硬盘和光盘这样的存储设备，并维护文件在设备中的物理位置。但是，实际上文件系统也可能仅仅是一种访问数据的界面而已，实际的数据是通过网络协议（如NFS、SMB、9P等）提供的或者内存上，甚至可能根本没有对应的文件（如proc文件系统）。</p><p>严格地说，文件系统是一套实现了数据的存储、分级组织、访问和获取等操作的抽象数据类型（Abstract data type）</p><h2 id="LKPA"><a href="#LKPA" class="headerlink" title="LKPA"></a>LKPA</h2><p>从系统角度看，文件系统是对文件存储器空间进行组织和分配，负责文件的存储并对存入的文件进行保护和检索的系统。具体地说，它负责为用户建立文件，存入、读出、修改、转储文件，控制文件的存取，当用户不再使用时撤销文件等</p><p>文件系统指文件存在的物理空间，Linux系统中每个分区都是一个文件系统，都有自己的目录层次结构。Linux会将这些分属不同分区的、单独的文件系统按一定的方式形成一个系统的总的目录层次结构。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>文件系统是一种用于向用户提供底层数据访问的机制！</p><h1 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h1><ul><li>庞大的数据结构</li><li>一切皆文件</li><li>文件系统的目录组织是一个树形结构</li><li>文件本身是无结构的字符流</li><li>文件系统把外部设备做成特殊文件,与普通文件一并进行管理</li></ul><h1 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h1><h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><p>每个分区是一棵树/根目录</p><h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p><img src="/assets/blogImg/微信图片_20190307192332.jpg" alt=""></p><ul><li>/bin 二进制可执行命令</li><li>/dev 设备特殊文件</li><li>/etc 系统管理和配置文件</li><li>/home 用户主目录的基点，比如用户user的主目录就是/home/user。</li><li>/lib 标准程序设计库，又叫动态链接共享库。</li><li>/sbin 系统管理命令，这里存放的是系统管理员使用的管理程序</li><li>/tmp 公用的临时文件存储点</li><li>/root 系统管理员的主目录</li><li>/mnt 用户临时安装其他文件系统的目录。</li><li>/proc 虚拟的目录，不占用磁盘空间，是系统内存的映射。可直接访问这个目录来获取系统信息。</li><li>/var 某些大文件的溢出区，例如各种服务的日志文件</li><li>/usr 最庞大的目录，要用到的应用程序和文件几乎都在这个目录下。</li></ul><p><strong>总结：</strong>整个文件系统只有一棵树，根目录是公共地方，家目录你随便折腾（体现了多用户的特点）</p><h1 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h1><h2 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h2><p>每个分区都是一个文件系统  </p><h2 id="索引节点号"><a href="#索引节点号" class="headerlink" title="索引节点号"></a>索引节点号</h2><p>标识一个文件<br>eg:</p><pre><code>ls -li  cat /proc/filesystems</code></pre><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><strong>mount：</strong>一般挂载到/mnt目录下</p><h1 id="文件类型"><a href="#文件类型" class="headerlink" title="文件类型"></a>文件类型</h1><p><img src="/assets/blogImg/微信图片_20190307191152.png" alt=""></p><h2 id="常规文件"><a href="#常规文件" class="headerlink" title="常规文件"></a>常规文件</h2><p>存放数据、程序等信息的文件，一般分为文本文件和二进制文件</p><h2 id="目录文件"><a href="#目录文件" class="headerlink" title="目录文件"></a>目录文件</h2><p>将文件的名称和它的索引节点号结合在一起的一张表</p><h2 id="设备文件"><a href="#设备文件" class="headerlink" title="设备文件"></a>设备文件</h2><p>每种I/O设备对应一个设备文件，存放在/dev目录中</p><h2 id="管道文件"><a href="#管道文件" class="headerlink" title="管道文件"></a>管道文件</h2><p>主要用于在进程间传递数据的媒介，Linux对管道的操作与文件操作相同，将管道作为文件进行处理，又称为先进先出文件  </p><h2 id="链接文件"><a href="#链接文件" class="headerlink" title="链接文件"></a>链接文件</h2><p>又称为符号链接文件，提供了共享文件的一种方法。使用链接文件可以访问常规文件，目录文件和其它文件</p><p><strong>注意：</strong>通过<code>ls /dev -l</code>命令可以看到fifo为管道文件，d为目录文件，c为字符文件，l为链接文件</p><h1 id="虚拟文件系统"><a href="#虚拟文件系统" class="headerlink" title="虚拟文件系统"></a>虚拟文件系统</h1><p>虚拟文件系统（简称VFS）为用户程序提供了具体文件系统的接口，它对每个具体文件系统的细节进行抽象，使所有文件系统依赖于VFS且可以通过VFS协同工作。要注意VFS与具体文件系统的区别，VFS只存在于内存中，在系统启动时创建，在系统关闭时消亡。</p><h2 id="虚拟含义"><a href="#虚拟含义" class="headerlink" title="虚拟含义"></a>虚拟含义</h2><ol><li>在同一个目录结构中, 可以挂载着若干种不同的文件系统. VFS隐藏了它们的实现细节, 为使用者提供统一的接口;</li><li>目录结构本身并不是绝对的, 每个进程可能会看到不一样的目录结构. 目录结构是由”地址空间(namespace)”来描述的, 不同的进程可能拥有不同的namespace, 不同的namespace可能有着不同的目录结构(因为它们可能挂载了不同的文件系统).</li></ol><h2 id="VFS中四个主要对象"><a href="#VFS中四个主要对象" class="headerlink" title="VFS中四个主要对象"></a>VFS中四个主要对象</h2><p>超级块对象：描述已安装文件系统。</p><p>索引节点对象：描述一个文件。</p><p>目录项对象：描述一个目录项，是路径的组成部分。</p><p>文件对象：描述由进程打开的文件。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;0x00-文章前言&lt;/li&gt;
-&lt;li&gt;0x01-知识储备&lt;/li&gt;
-&lt;li&gt;0x02-测试环境&lt;/li&gt;
-&lt;li&gt;0x03-方案设计&lt;/li&gt;
-&lt;li&gt;0x04-实践验证&lt;/li&gt;
-&lt;li&gt;0x05-总结分析&lt;/li&gt;
-&lt;li&gt;0x06
+        &lt;h1 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h1&gt;&lt;h2 id=&quot;wiki&quot;&gt;&lt;a href=&quot;#wiki&quot; class=&quot;headerlink&quot; title=&quot;wiki&quot;&gt;&lt;/a&gt;wiki&lt;/h
       
     
     </summary>
     
     
-      <category term="模板" scheme="http://yoursite.com/tags/%E6%A8%A1%E6%9D%BF/"/>
+      <category term="Kernel" scheme="http://yoursite.com/tags/Kernel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>空循环引起的问题</title>
+    <link href="http://yoursite.com/%E7%A9%BA%E5%BE%AA%E7%8E%AF%E5%BC%95%E8%B5%B7%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/空循环引起的问题/</id>
+    <published>2019-03-07T03:48:53.000Z</published>
+    <updated>2019-03-07T03:48:54.260Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="输出为-1"><a href="#输出为-1" class="headerlink" title="输出为-1"></a>输出为-1</h1><p>下列程序的输出结果是（ ）</p><pre><code>int main(void){        int Y=1;        while(Y--);        printf(&quot;Y=%d&quot;,Y);}</code></pre><p>A.Y=0    B.Y=1    C.Y=-1    D.Y=随机数</p><h1 id="输出为0"><a href="#输出为0" class="headerlink" title="输出为0"></a>输出为0</h1><p>那么</p><pre><code>int main(void){        int Y=1;        while(Y--)        printf(&quot;Y=%d&quot;,Y);}</code></pre><p>呢？</p><p><strong>解析：</strong></p><ul><li>第一个程序由于是空循环，当Y为0时还要判断一下，故结果为-1</li><li>第二个程序直接输出，结果为0</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;输出为-1&quot;&gt;&lt;a href=&quot;#输出为-1&quot; class=&quot;headerlink&quot; title=&quot;输出为-1&quot;&gt;&lt;/a&gt;输出为-1&lt;/h1&gt;&lt;p&gt;下列程序的输出结果是（ ）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;int main(void)
+{
+        int 
+      
+    
+    </summary>
+    
+    
+      <category term="C" scheme="http://yoursite.com/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>中断发展史</title>
+    <link href="http://yoursite.com/%E4%B8%AD%E6%96%AD%E5%8F%91%E5%B1%95%E5%8F%B2/"/>
+    <id>http://yoursite.com/中断发展史/</id>
+    <published>2019-03-06T03:40:16.000Z</published>
+    <updated>2019-03-06T03:44:01.750Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="发展过程"><a href="#发展过程" class="headerlink" title="发展过程"></a>发展过程</h1><p>首先，中断上下部分是为了避免中断嵌套时关中断太长有些中断得不到响应引出的一种机制，中断既能让程序运行的快，又能让程序完成的多个工作，即有效利用时间和空间，中断上半部分是特点是快速可以及时快速响应所有中断（避免了有些中断得不到响应这种情况的发生），中断下半部分执行的比较慢，它才是中断主要执行的有用部分，相对于上半部分而言，下半部分执行时可以被中断，也就是允许并发，考虑到中断下半部分的执行，引出了小任务机制，不可睡眠，工作队列，可睡眠， </p><p>引出软中断实现中断下半部分，随着中断数的不停增加，软中断不够用了，于是下半部又做了进化，为了提高中断处理数量，顺道改进处理效率，于是产生了tasklet机制（小任务机制）</p><p>由于之前机制中的中断不可挂起，串行执行，也就是说只要有一个处理时间较长，则会导致其他中断响应的延迟，为了完成这些不可能完成的任务，引出了工作队列，工作队列的本质是一组内核线程，作为中断守护线程来使用。</p><p>操作系统显然不能任由每个中断各自为政，为了对所有中断进行统一管理，引入软中断<br>我们不可中断部分的共同部分放在函数do_IRQ中，需要添加中断处理函数时，通过request_irq实现。下半部放在do_softirq中，也就是软中断，通过open_softirq添加对应的处理函数。</p><p>旧事物跟不上历史的发展时，总会有新事物出现。随着中断数的不停增加，软中断不够用了，于是下半部又做了进化。软中断用轮询的方式处理。假如正好是最后一种中断，则必须循环完所有的中断类型，才能最终执行对应的处理函数。显然当年开发人员为了保证轮询的效率，于是限制中断个数为32个。</p><p>为了提高中断处理数量，顺道改进处理效率，于是产生了tasklet机制。</p><p><strong>工作队列：</strong>由于之前机制中的中断不可挂起，串行执行，也就是说只要有一个处理时间较长，则会导致其他中断响应的延迟，为了完成这些不可能完成的任务，引出了工作队列，工作队列的本质是一组内核线程，作为中断守护线程来使用。</p><p><img src="/assets/blogImg/图fdefef1.png" alt=""></p><h1 id="中断的栈和进程的栈是一个么？"><a href="#中断的栈和进程的栈是一个么？" class="headerlink" title="中断的栈和进程的栈是一个么？"></a>中断的栈和进程的栈是一个么？</h1><p>不是，因为每个进程都有属于自己的栈（每个进程都有自己的虚拟空间，虚拟空间中有栈，在执行时通过页机制转换），假设中断栈和进程栈是同一个栈，那么每个进程的栈地址都不一样，这样恢复中断时将变得非常麻烦。中断栈应该公有，因为中断最后是要中断CPU的，而内核是管理硬件的，所以猜测中断栈应该在内核态，内核空间也有自己的栈，那么内核栈是否和中断栈是同一个栈？<br>查阅资料得知在2.4版本中，中断栈和内核栈共享，优点是代码简单，缺点是共享有时可能会导致内核栈空间不够用（内核栈和中断栈数据共享），为了改善这个缺点，要么扩大内核栈大小，要么在内核空间重新开辟一个栈，称为中断栈，考虑到中断栈如果发生嵌套，可能会破坏内核栈数据（可能会造成栈溢出），所以现在Linux内核采用内核栈和中断栈分离的设计</p><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul><li><a href="https://blog.csdn.net/Quartu_flag/article/details/78339318" target="_blank" rel="noopener">Linux中的中断处理机制</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;发展过程&quot;&gt;&lt;a href=&quot;#发展过程&quot; class=&quot;headerlink&quot; title=&quot;发展过程&quot;&gt;&lt;/a&gt;发展过程&lt;/h1&gt;&lt;p&gt;首先，中断上下部分是为了避免中断嵌套时关中断太长有些中断得不到响应引出的一种机制，中断既能让程序运行的快，又能让程序完成的多
+      
+    
+    </summary>
+    
+    
+      <category term="Kernel" scheme="http://yoursite.com/tags/Kernel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Level DB和Couch DB的区别？</title>
+    <link href="http://yoursite.com/Level%20DB%E5%92%8CCouch%20DB%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/"/>
+    <id>http://yoursite.com/Level DB和Couch DB的区别？/</id>
+    <published>2019-03-06T02:47:10.000Z</published>
+    <updated>2019-03-06T02:59:28.639Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="相关定义"><a href="#相关定义" class="headerlink" title="相关定义"></a>相关定义</h1><p>Level DB：(是fabric默认的db），Level DB 是嵌入在 Peer 中的默认键值对（key-value）状态数据库。</p><p>Counch DB：支持副查询（更加丰富），Couch DB 是一种可选的替代 level DB 的状态数据库。</p><p>与 Level DB 键值存储一样，Couch DB 不仅可以根据 key 进行相应的查询，还可以根据不同的应用场景需求实现复杂查询。</p><h1 id="区别对比"><a href="#区别对比" class="headerlink" title="区别对比"></a>区别对比</h1><p><img src="/assets/blogImg/图片1.png" alt=""> </p><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul><li><a href="https://db-engines.com/en/system/CouchDB%3BLevelDB" target="_blank" rel="noopener">CouchDB vs. LevelDB Comparison - DB-Engines</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;相关定义&quot;&gt;&lt;a href=&quot;#相关定义&quot; class=&quot;headerlink&quot; title=&quot;相关定义&quot;&gt;&lt;/a&gt;相关定义&lt;/h1&gt;&lt;p&gt;Level DB：(是fabric默认的db），Level DB 是嵌入在 Peer 中的默认键值对（key-value）状
+      
+    
+    </summary>
+    
+    
+      <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文件描述符</title>
+    <link href="http://yoursite.com/%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6/"/>
+    <id>http://yoursite.com/文件描述符/</id>
+    <published>2019-03-05T13:41:51.000Z</published>
+    <updated>2019-03-06T02:44:22.818Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="相关说明"><a href="#相关说明" class="headerlink" title="相关说明"></a>相关说明</h1><p>1.对于内核而言，所有打开文件都由文件描述符引用<br>2.文件描述符是一个非负整数<br>3.当打开一个现存文件或创建一个新文件时，内核向进程返回一个文件描述符<br>4.当读、写一个文件时，用open或create返回的文件描述符标书该文件，将其作为参数传送给read或write</p><h1 id="代码体现"><a href="#代码体现" class="headerlink" title="代码体现"></a>代码体现</h1><p><strong>fs_test.c：</strong></p><pre><code>#include &lt;stdio.h&gt;#include &lt;fcntl.h&gt;int main(int argc,char *argv[]){        int fd = open(&quot;/etc/passwd&quot;,O_RDONLY);        printf(&quot;fd : %d\n&quot;,fd);        return 0;}</code></pre><p>执行上面代码，返回值是3</p><p><strong>注：</strong>fcntl.h，是unix标准中通用的头文件，其中包含的相关函数有 open，fcntl，shutdown，unlink，fclose等！</p><h1 id="为什么是3？"><a href="#为什么是3？" class="headerlink" title="为什么是3？"></a>为什么是3？</h1><p>当一个进程启动时，它会自动打开三个文件，这三个文件分别是：标准输入、标准输出、标准出错，它们对应的文件描述符分别是0、1、2，所以当打开/etc/passwd这个文件时，它就接着以3开始计数了。</p><p>POSIX.1应用程序中，整数0、1、2营被代换成符号常数STDIN_FILENO、STDOUT_FILENO、STDERR_FILENO，这些常数都定义在头文件&lt;unistd.h&gt;（可在/usr/include目录下找到，或使用<code>cat unistd.h | grep STDIN_FILENO</code>查看）中。</p><p>文件描述符范围0-OPEN_MAX。早期UNIX版本采用的上限值是19（允许每个进程打开20个文件），现在很多系统将其增加至63，Linux为1024。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;相关说明&quot;&gt;&lt;a href=&quot;#相关说明&quot; class=&quot;headerlink&quot; title=&quot;相关说明&quot;&gt;&lt;/a&gt;相关说明&lt;/h1&gt;&lt;p&gt;1.对于内核而言，所有打开文件都由文件描述符引用&lt;br&gt;2.文件描述符是一个非负整数&lt;br&gt;3.当打开一个现存文件或创建一个
+      
+    
+    </summary>
+    
+    
+      <category term="Kernel" scheme="http://yoursite.com/tags/Kernel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C语言中fprintf和printf的区别？</title>
+    <link href="http://yoursite.com/C%E8%AF%AD%E8%A8%80%E4%B8%ADfprintf%E5%92%8Cprintf%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/"/>
+    <id>http://yoursite.com/C语言中fprintf和printf的区别？/</id>
+    <published>2019-03-05T13:36:40.000Z</published>
+    <updated>2019-03-05T13:39:26.619Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h1><p>fprintf的函数原型为：</p><pre><code>int fprintf( FILE *stream, const char *format, [ argument ]...)；</code></pre><p>而printf的函数原型为：</p><pre><code>int printf( const char *format [, argument]... );</code></pre><p>因此fprintf是将字符输出到流（文件）的，而printf是输出到标准输出设备（stdout）的，一般就是屏幕。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;原型&quot;&gt;&lt;a href=&quot;#原型&quot; class=&quot;headerlink&quot; title=&quot;原型&quot;&gt;&lt;/a&gt;原型&lt;/h1&gt;&lt;p&gt;fprintf的函数原型为：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;int fprintf( FILE *stream, const char *f
+      
+    
+    </summary>
+    
+    
+      <category term="C" scheme="http://yoursite.com/tags/C/"/>
     
   </entry>
   
@@ -364,136 +475,25 @@
   </entry>
   
   <entry>
-    <title>IPFS环境搭建与入门教程</title>
-    <link href="http://yoursite.com/IPFS%E5%88%9D%E6%8E%A2/"/>
-    <id>http://yoursite.com/IPFS初探/</id>
-    <published>2018-11-22T06:06:29.000Z</published>
-    <updated>2019-02-22T08:09:55.689Z</updated>
+    <title>IPFS相关操作</title>
+    <link href="http://yoursite.com/IPFS%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/"/>
+    <id>http://yoursite.com/IPFS相关操作/</id>
+    <published>2018-12-06T04:13:29.000Z</published>
+    <updated>2019-03-06T04:13:40.295Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="IPFS简介和基本原理"><a href="#IPFS简介和基本原理" class="headerlink" title="IPFS简介和基本原理"></a>IPFS简介和基本原理</h1><p><a href="https://www.jianshu.com/p/fe637149e4cf" target="_blank" rel="noopener">https://www.jianshu.com/p/fe637149e4cf</a><br><a href="https://blog.csdn.net/omnispace/article/details/79698701" target="_blank" rel="noopener">https://blog.csdn.net/omnispace/article/details/79698701</a><br><a href="https://blog.csdn.net/a791693310/article/details/80612676" target="_blank" rel="noopener">https://blog.csdn.net/a791693310/article/details/80612676</a><br>IPFS  vs   HTTP<br><a href="https://www.jianshu.com/p/ddccae89a49a" target="_blank" rel="noopener">https://www.jianshu.com/p/ddccae89a49a</a></p><h1 id="环境搭建与入门教程"><a href="#环境搭建与入门教程" class="headerlink" title="环境搭建与入门教程"></a>环境搭建与入门教程</h1><p>参考：<a href="https://atangg.com/index.php/2018/07/09/ipfswindows/" target="_blank" rel="noopener">https://atangg.com/index.php/2018/07/09/ipfswindows/</a></p><p>安装：<a href="https://docs.ipfs.io/introduction/install/" target="_blank" rel="noopener">https://docs.ipfs.io/introduction/install/</a></p><p>上传文件：ipfs  add  index.html</p><p>查看文件： ipfs cat hash_addr</p><p>eg :        ipfs cat  QmSiKZ4kXZEdhsQpXaEyXWiEnp2nwmpNuXWkZhhnoXzgSN</p><p><a href="https://ipfs.io/ipfs/" target="_blank" rel="noopener">https://ipfs.io/ipfs/</a><br><a href="https://localhost:8080/ipfs/" target="_blank" rel="noopener">https://localhost:8080/ipfs/</a></p><p>上传目录：ipfs add -r index.html</p><p>查看视频：<br><a href="http://localhost:8080/ipfs/QmfZTpaNwJTx9qEYGNzFvEFdc1T7ieyNeqWDrKD2PgsQPp" target="_blank" rel="noopener">http://localhost:8080/ipfs/QmfZTpaNwJTx9qEYGNzFvEFdc1T7ieyNeqWDrKD2PgsQPp</a><br><a href="http://localhost:8080/ipfs/QmfA1KVT47g8L9fPS3AT9JSAufL6P9pigX6jtnrLFXK6ZE" target="_blank" rel="noopener">http://localhost:8080/ipfs/QmfA1KVT47g8L9fPS3AT9JSAufL6P9pigX6jtnrLFXK6ZE</a></p><h1 id="搭建自己的ipfs私有网络"><a href="#搭建自己的ipfs私有网络" class="headerlink" title="搭建自己的ipfs私有网络"></a>搭建自己的ipfs私有网络</h1><p><a href="https://blog.csdn.net/oscube/article/details/80598790" target="_blank" rel="noopener">https://blog.csdn.net/oscube/article/details/80598790</a></p><p>添加peer :  ipfs swarm connect </p><h1 id="Linux系统中两种安装go环境的方法"><a href="#Linux系统中两种安装go环境的方法" class="headerlink" title="Linux系统中两种安装go环境的方法"></a>Linux系统中两种安装go环境的方法</h1><p><a href="https://blog.csdn.net/qq_27278957/article/details/77180365" target="_blank" rel="noopener">https://blog.csdn.net/qq_27278957/article/details/77180365</a></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Ipfs私有网络搭建-（5个节点）"><a href="#Ipfs私有网络搭建-（5个节点）" class="headerlink" title="Ipfs私有网络搭建 （5个节点）"></a><strong>Ipfs私有网络搭建 （5个节点）</strong></h1><p><strong>参考 ：</strong>     <a href="https://blog.csdn.net/oscube/article/details/80598790" target="_blank" rel="noopener">https://blog.csdn.net/oscube/article/details/80598790</a><br><strong>添加peer : </strong>ipfs swarm connect<br>ipfs bootstrap add /ip4/10.0.1.85/tcp/4001/ipfs/QmZY1MsysE6SyyQUuE1WvkEZEPy5Wg1Z5M7qWyMKGk5EBQ<br><strong>命令：       ipfs daemon &amp;  </strong><br>    <strong>ipfs swarm peers</strong></p><h1 id="ipfs-cluster集群搭建"><a href="#ipfs-cluster集群搭建" class="headerlink" title="ipfs-cluster集群搭建"></a><strong>ipfs-cluster集群搭建</strong></h1><p>ipfs-cluster-service daemon &amp;<br>ipfs-cluster-service daemon –bootstrap /ip4/10.0.1.85/tcp/9096/ipfs/QmfGrUNtGWBQk36gBMJ3tTW41wGdi6h5BCTCd3hAT8GKEA<br><strong>参考：</strong><br><a href="https://www.cnblogs.com/sumingk/articles/9434253.html" target="_blank" rel="noopener">https://www.cnblogs.com/sumingk/articles/9434253.html</a></p><h1 id="Ipfs-cluster-数据同步（1主4从）"><a href="#Ipfs-cluster-数据同步（1主4从）" class="headerlink" title="Ipfs-cluster 数据同步（1主4从）"></a><strong>Ipfs-cluster 数据同步（1主4从）</strong></h1><p><strong>ipfs-cluster 命令：</strong></p><p>1、统一上传文件<br>ipfs-cluster-ctl add &lt;文件名&gt;<br>该命令可统一上传文件，并且自动在其他节点进行pin命令。</p><p>2、统一pin文件<br>ipfs-cluster-ctl pin add</p><p>3、统一删除文件<br>ipfs-cluster-ctl pin rm<br>但需要在其他节点上手动进行ipfs repo gc</p><p>4、查看通过ipfs-cluster-ctl上传过的文件<br>ipfs-cluster-ctl pin ls</p><p>5、查看cluster集群中联通了哪些节点<br>ipfs-cluster-ctl peers ls<br>6、从集群中删除某一节点<br>ipfs-cluster-ctl peers rm &lt;节点id（短hash）&gt;</p><p>7、可查看集群中文件的同步状态，此命令在某一节点删除文件后有延迟，延迟时间尚不确定<br><strong>ipfs-cluster-ctl status</strong></p><p>8、跟踪集群中文件的同步状态，与上面命令不一样，只会显示同步出现异常的文件，并且可以刷新ipfs-cluster-ctl status的执行结果<br>     ipfs-cluster-ctl sync<br>9、查看集群节点关系图     ipfs-cluster-ctl health graph<br>参考：<br><a href="https://blog.csdn.net/weixin_40741642/article/details/82788072" target="_blank" rel="noopener">https://blog.csdn.net/weixin_40741642/article/details/82788072</a></p><h1 id="医疗数据私有网络分布式存储"><a href="#医疗数据私有网络分布式存储" class="headerlink" title="医疗数据私有网络分布式存储"></a><strong>医疗数据私有网络分布式存储</strong></h1><p>ipfs-cluster-ctl add medical_data/ -r</p><p>added QmZRuAwu5A6feuBBSbyvgeBuukygTjVhQA715KHrAR7D5s medical_data/ECG/MIT/101.xws<br>added Qmc7K6A4FLwm8tLnMg49Eo2W8NYc2iiptkpifx6ZcEvMsh medical_data/ECG/MIT/102.atr<br>……<br>added QmUPouSiTr8cE6hCnzZYUpYgeyPArFwNf8NKdca6iSa7xh medical_data</p><h1 id="api实现文件存取"><a href="#api实现文件存取" class="headerlink" title="api实现文件存取"></a><strong>api实现文件存取</strong></h1><p>js版：client-api实现数据上传，未完善<br>go版：简单了解</p><h1 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a><strong>服务器配置</strong></h1><p>关闭firewall：<br>systemctl stop firewalld.service #停止firewall<br>systemctl disable firewalld.service #禁止firewall开机启动<br>firewall-cmd –state #查看默认防火墙状态（关闭后显示notrunning，开启后显示running）</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;IPFS简介和基本原理&quot;&gt;&lt;a href=&quot;#IPFS简介和基本原理&quot; class=&quot;headerlink&quot; title=&quot;IPFS简介和基本原理&quot;&gt;&lt;/a&gt;IPFS简介和基本原理&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p
+        &lt;h1 id=&quot;Ipfs私有网络搭建-（5个节点）&quot;&gt;&lt;a href=&quot;#Ipfs私有网络搭建-（5个节点）&quot; class=&quot;headerlink&quot; title=&quot;Ipfs私有网络搭建 （5个节点）&quot;&gt;&lt;/a&gt;&lt;strong&gt;Ipfs私有网络搭建 （5个节点）&lt;/strong&gt;&lt;
       
     
     </summary>
     
     
       <category term="IPFS" scheme="http://yoursite.com/tags/IPFS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Go语言初探</title>
-    <link href="http://yoursite.com/Go%E8%AF%AD%E8%A8%80%E5%88%9D%E6%8E%A2/"/>
-    <id>http://yoursite.com/Go语言初探/</id>
-    <published>2018-11-22T06:06:29.000Z</published>
-    <updated>2019-02-25T03:38:40.467Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Go语言发展"><a href="#Go语言发展" class="headerlink" title="Go语言发展"></a>Go语言发展</h1><p>Go 是一个开源的编程语言，它能让构造简单、可靠且高效的软件变得容易。</p><p>Go是从2007年末由Robert Griesemer, Rob Pike, Ken Thompson主持开发，后来还加入了Ian Lance Taylor, Russ Cox等人，并最终于2009年11月开源，在2012年早些时候发布了Go 1稳定版本。现在Go的开发已经是完全开放的，并且拥有一个活跃的社区。</p><h1 id="Go-语言特色"><a href="#Go-语言特色" class="headerlink" title="Go 语言特色"></a>Go 语言特色</h1><p>简洁、快速、安全</p><p>并行、有趣、开源</p><p>内存管理、v数组安全、编译迅速</p><h1 id="Go语言优缺点"><a href="#Go语言优缺点" class="headerlink" title="Go语言优缺点"></a>Go语言优缺点</h1><p><a href="http://developer.51cto.com/art/201710/555200.htm" target="_blank" rel="noopener">Go语言的9大优势和3大缺点</a></p><h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><ol><li>性能</li><li>语言性能很重要</li><li>开发者效率&amp;不要过于创新</li><li>并发性&amp;通道</li><li>快速的编译时间</li><li>打造团队的能力</li><li>强大的生态系统</li><li>GOFMT，强制代码格式</li><li>gRPC 和 Protocol Buffers</li></ol><h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ol><li>缺少框架</li><li>错误处理</li><li>软件包管理</li></ol><h1 id="Go-语言用途"><a href="#Go-语言用途" class="headerlink" title="Go 语言用途"></a>Go 语言用途</h1><p>Go 语言被设计成一门应用于搭载 Web 服务器，存储集群或类似用途的巨型中央服务器的系统编程语言。</p><p>对于高性能分布式系统领域而言，Go 语言无疑比大多数其它语言有着更高的开发效率。它提供了海量并行的支持，这对于游戏服务端的开发而言是再好不过了。</p><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul><li><a href="https://blog.csdn.net/Hi_TYSONZHANG/article/details/78810128" target="_blank" rel="noopener">Go语言开发环境搭建与配置</a></li><li><a href="https://edu.aliyun.com/course/499/lesson/list?utm_campaign=aliyunedu&amp;utm_medium=images&amp;utm_source=wb&amp;utm_content=m_36926" target="_blank" rel="noopener">Go语言完全自学手册（图文教程）</a> </li><li><a href="https://github.com/xmge/gonote" target="_blank" rel="noopener">gonote</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Go语言发展&quot;&gt;&lt;a href=&quot;#Go语言发展&quot; class=&quot;headerlink&quot; title=&quot;Go语言发展&quot;&gt;&lt;/a&gt;Go语言发展&lt;/h1&gt;&lt;p&gt;Go 是一个开源的编程语言，它能让构造简单、可靠且高效的软件变得容易。&lt;/p&gt;
-&lt;p&gt;Go是从2007年末由
-      
-    
-    </summary>
-    
-    
-      <category term="Go" scheme="http://yoursite.com/tags/Go/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>阿里云￥9.5服务器开通管理及使用</title>
-    <link href="http://yoursite.com/%E9%98%BF%E9%87%8C%E4%BA%91%EF%BF%A59.5%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BC%80%E9%80%9A%E7%AE%A1%E7%90%86%E5%8F%8A%E4%BD%BF%E7%94%A8/"/>
-    <id>http://yoursite.com/阿里云￥9.5服务器开通管理及使用/</id>
-    <published>2018-11-20T12:54:27.000Z</published>
-    <updated>2019-02-22T08:12:16.612Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="一、阿里云账号注册"><a href="#一、阿里云账号注册" class="headerlink" title="一、阿里云账号注册"></a>一、阿里云账号注册</h1><p>浏览器打开<a href="https://www.aliyun.com/" target="_blank" rel="noopener">阿里云官网</a>，右上角点击<strong>免费注册</strong></p><p><img src="https://uploader.shimo.im/f/WEo9FrSF1I49CUz0.png!thumbnail" alt="图片"></p><h1 id="二、学生认证"><a href="#二、学生认证" class="headerlink" title="二、学生认证"></a>二、学生认证</h1><h2 id="1-点击自己图像进入管理控制台"><a href="#1-点击自己图像进入管理控制台" class="headerlink" title="1.点击自己图像进入管理控制台"></a>1.点击自己图像进入管理控制台</h2><p><img src="https://uploader.shimo.im/f/ZZYPTMRNtTYRPVHj.png!thumbnail" alt="图片"></p><h2 id="2-完成学生认证"><a href="#2-完成学生认证" class="headerlink" title="2.完成学生认证"></a>2.完成学生认证</h2><p><img src="https://uploader.shimo.im/f/QCwfY2VTbzAwSvPW.png!thumbnail" alt="图片"></p><h1 id="三、云翼计划"><a href="#三、云翼计划" class="headerlink" title="三、云翼计划"></a>三、云翼计划</h1><h2 id="前往云翼计划，购买云服务器"><a href="#前往云翼计划，购买云服务器" class="headerlink" title="前往云翼计划，购买云服务器"></a>前往云翼计划，购买云服务器</h2><p><img src="https://uploader.shimo.im/f/sBHh8SPpQMcBd98b.png!thumbnail" alt="图片"></p><p><strong>注：</strong>轻量应用服务器较  云服务器ECS 带宽较大，系统盘为SSD,根据需要付款即可</p><h1 id="四、服务器管理"><a href="#四、服务器管理" class="headerlink" title="四、服务器管理"></a>四、服务器管理</h1><h2 id="1-进入服务器控制台"><a href="#1-进入服务器控制台" class="headerlink" title="1.进入服务器控制台"></a>1.进入服务器控制台</h2><p><a href="https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fswas.console.aliyun.com%2F%3F%26msctype%3Demail%26mscareaid%3Dcn%26mscsiteid%3Dcn%26mscmsgid%3D6650118112500273544%26" target="_blank" rel="noopener">轻量应用服务器管理控制台</a></p><h2 id="2-初始化机器及修改密码"><a href="#2-初始化机器及修改密码" class="headerlink" title="2.初始化机器及修改密码"></a>2.初始化机器及修改密码</h2><p><img src="https://uploader.shimo.im/f/vrC3FZtGTSkxVEA0.png!thumbnail" alt="图片"></p><h2 id="3-远程连接"><a href="#3-远程连接" class="headerlink" title="3.远程连接"></a>3.远程连接</h2><p><a href="https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fswas.console.aliyun.com%2F%3F%26msctype%3Demail%26mscareaid%3Dcn%26mscsiteid%3Dcn%26mscmsgid%3D6650118112500273544%26" target="_blank" rel="noopener">远程连接到Linux操作系统实例</a><br><strong>注：</strong>本地远程云服务器可使用SSH，<a href="http://www.baidu.com/link?url=fwdUecy-JeYt4lUlWlr_hUvduI2WOCwjUyGjVjoE5xXEXJudCyfYqMgFInpYMX3y" target="_blank" rel="noopener">XShell</a>、Secure CRT等软件，文件传输可通过 <a href="http://winscp.net/" target="_blank" rel="noopener">WinSCP</a>、<a href="http://filezilla-project.org/" target="_blank" rel="noopener">Filezilla</a>工具或者scp，ftp等命令完成</p><h2 id="4-快照备份"><a href="#4-快照备份" class="headerlink" title="4.快照备份"></a>4.快照备份</h2><p><img src="https://uploader.shimo.im/f/h0ZO0C9c2MAByy6d.png!thumbnail" alt="图片"></p><p><strong>注：</strong>快照可备份服务器数据，总快照数量上限为已创建实例数乘以3,但最多不超过15个</p><h1 id="五、计划任务"><a href="#五、计划任务" class="headerlink" title="五、计划任务"></a>五、计划任务</h1><ol><li>测试阿里云服务器内部网络环境</li><li>搭建单台服务器ipfs环境(附脚本)</li><li>测试ipfs接口<h1 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h1></li></ol><ul><li><a href="https://help.aliyun.com/knowledge_detail/85383.html?spm=5176.11065259.1996646101.searchclickresult.7cc66b95O081UW" target="_blank" rel="noopener">学生</a><a href="https://help.aliyun.com/knowledge_detail/85383.html?spm=5176.11065259.1996646101.searchclickresult.7cc66b95O081UW" target="_blank" rel="noopener">机（云翼计划）FAQ - 活动</a></li><li><a href="https://help.aliyun.com/knowledge_detail/85383.html?spm=5176.11065259.1996646101.searchclickresult.7cc66b95O081UW" target="_blank" rel="noopener">帮助文档</a><a href="https://help.aliyun.com/knowledge_detail/85383.html?spm=5176.11065259.1996646101.searchclickresult.7cc66b95O081UW" target="_blank" rel="noopener">（可搜索）</a></li><li><a href="https://help.aliyun.com/knowledge_detail/85383.html?spm=5176.11065259.1996646101.searchclickresult.7cc66b95O081UW" target="_blank" rel="noopener">阿里云ECS建网站</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;一、阿里云账号注册&quot;&gt;&lt;a href=&quot;#一、阿里云账号注册&quot; class=&quot;headerlink&quot; title=&quot;一、阿里云账号注册&quot;&gt;&lt;/a&gt;一、阿里云账号注册&lt;/h1&gt;&lt;p&gt;浏览器打开&lt;a href=&quot;https://www.aliyun.com/&quot; tar
-      
-    
-    </summary>
-    
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://yoursite.com/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E8%AE%A1%E5%88%92%E8%A1%A8/"/>
-    <id>http://yoursite.com/第一阶段计划表/</id>
-    <published>2018-11-03T05:02:48.000Z</published>
-    <updated>2018-10-08T00:35:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="一周：9-10"><a href="#一周：9-10" class="headerlink" title="一周：9.10"></a>一周：9.10</h1><h3 id="服务器管理"><a href="#服务器管理" class="headerlink" title="服务器管理"></a>服务器管理</h3><ol><li>从数据表server中获取所有服务器并显示</li><li>可筛选查看</li></ol><h3 id="日志查询"><a href="#日志查询" class="headerlink" title="日志查询"></a>日志查询</h3><ol><li>通过条件从warning中查询日志并显示</li><li>多条件查询，时间、消息类型、电厂名称等</li></ol><h1 id="一周：9-17"><a href="#一周：9-17" class="headerlink" title="一周：9.17"></a>一周：9.17</h1><h3 id="实时告警"><a href="#实时告警" class="headerlink" title="实时告警"></a>实时告警</h3><ol><li>实时（通过定时器）从数据表warning中获取最新的日志显示</li><li>可选择要显示的日志类型、可清空、对日志可以操作状态（已解决、未解决）</li><li>根据重要性统计以饼状图显示（紧急、重要、一般）、并以线性图显示趋势（近一周、近一月、近一年）</li><li>上面显示图表，下面以列表显示日志</li></ol><h1 id="二周：10-1"><a href="#二周：10-1" class="headerlink" title="二周：10.1"></a>二周：10.1</h1><h3 id="系统运行统计图"><a href="#系统运行统计图" class="headerlink" title="系统运行统计图"></a>系统运行统计图</h3><ol><li>按消息类型统计，以柱状图显示</li><li>按操作类型统计，以柱状图显示</li><li>按电厂属性统计，以饼状图显示</li><li>在线统计</li><li>按告警级别统计，以饼状图统计</li></ol><p>第二阶段</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;一周：9-10&quot;&gt;&lt;a href=&quot;#一周：9-10&quot; class=&quot;headerlink&quot; title=&quot;一周：9.10&quot;&gt;&lt;/a&gt;一周：9.10&lt;/h1&gt;&lt;h3 id=&quot;服务器管理&quot;&gt;&lt;a href=&quot;#服务器管理&quot; class=&quot;headerlink&quot; ti
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://yoursite.com/%E7%BC%96%E8%AF%91%E5%92%8C%E9%93%BE%E6%8E%A5/"/>
-    <id>http://yoursite.com/编译和链接/</id>
-    <published>2018-11-03T05:02:48.000Z</published>
-    <updated>2018-08-28T22:29:22.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="第一章-编译和链接"><a href="#第一章-编译和链接" class="headerlink" title="第一章 编译和链接"></a>第一章 编译和链接</h1><p>C语言是我们熟悉的一门语言，当我们编辑了一个C程序，然后再编译和链接，形成可执行文件在操作系统下执行时，我们是否会发出以下疑问：</p><ol><li>C语言代码为什么要编译后才能执行？整个过程中编译器都做了什么？</li><li>C代码中经常会包含头文件，那么，什么是头文件？什么又是C语言库？</li><li>我们经常说main函数是C语言程序的入口，难道不能把其它函数当入口？</li><li>不同的操作系统上编译好的程序可以直接拷贝过去运行吗？</li></ol><p>如果上面的问题你都能回答的话，那么就可以跳过本节。如果你不知道或者不是很清楚，那么我们就顺着这个思路探究下去。</p><h2 id="1-C语言代码为什么要编译后才能执行？整个过程中编译器都做了什么？"><a href="#1-C语言代码为什么要编译后才能执行？整个过程中编译器都做了什么？" class="headerlink" title="1. C语言代码为什么要编译后才能执行？整个过程中编译器都做了什么？"></a>1. C语言代码为什么要编译后才能执行？整个过程中编译器都做了什么？</h2><p>我们以最经典的HelloWorld程序为例。先使用vim等文本编辑器写好代码，接着在终端执行编译命令（使用的Linux系统是Debian）：</p><pre><code>gcc HelloWorld.c -o HelloWorld </code></pre><p>这条命令在编译的同时进行了链接，形成了可执行文件HelloWorld，最后我们在终端执行 ./HelloWorld，顺利地显示了输出结果。</p><pre><code>debian@bogon:~/Documents/HelloWorld$ vim HelloWorld.cdebian@bogon:~/Documents/HelloWorld$ gcc HelloWorld.c -o HelloWorlddebian@bogon:~/Documents/HelloWorld$ ./HelloWorld Hello World!debian@bogon:~/Documents/HelloWorld$</code></pre><p>可是，简单的命令背后经过了什么样的处理过程？gcc真的就“直接”生成了最后的可执行文件了？当然不是，我们在gcc编译命令行加上参数 –verbose要求gcc输出完整的处理过程(命令行加上 -v 也行)，我们看到了一段较长的过程输出。</p><pre><code>debian@bogon:~/Documents/HelloWorld$ gcc --verbose HelloWorld.c -o HelloWorldUsing built-in specs.COLLECT_GCC=gccCOLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapperTarget: x86_64-linux-gnuConfigured with: ../src/configure -v --with-pkgversion=&apos;Debian 6.3.0-18+deb9u1&apos; --with-bugurl=file:///usr/share/doc/gcc-6/README.Bugs --enable-languages=c,ada,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-6 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-6-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-6-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-6-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnuThread model: posixgcc version 6.3.0 20170516 (Debian 6.3.0-18+deb9u1) COLLECT_GCC_OPTIONS=&apos;-v&apos; &apos;-o&apos; &apos;HelloWorld&apos; &apos;-mtune=generic&apos; &apos;-march=x86-64&apos; /usr/lib/gcc/x86_64-linux-gnu/6/cc1 -quiet -v -imultiarch x86_64-linux-gnu HelloWorld.c -quiet -dumpbase HelloWorld.c -mtune=generic -march=x86-64 -auxbase HelloWorld -version -o /tmp/ccKizfOU.sGNU C11 (Debian 6.3.0-18+deb9u1) version 6.3.0 20170516 (x86_64-linux-gnu)    compiled by GNU C version 6.3.0 20170516, GMP version 6.1.2, MPFR version 3.1.5, MPC version 1.0.3, isl version 0.15GGC heuristics: --param ggc-min-expand=62 --param ggc-min-heapsize=60678ignoring nonexistent directory &quot;/usr/local/include/x86_64-linux-gnu&quot;ignoring nonexistent directory &quot;/usr/lib/gcc/x86_64-linux-gnu/6/../../../../x86_64-linux-gnu/include&quot;#include &quot;...&quot; search starts here:#include &lt;...&gt; search starts here: /usr/lib/gcc/x86_64-linux-gnu/6/include /usr/local/include /usr/lib/gcc/x86_64-linux-gnu/6/include-fixed /usr/include/x86_64-linux-gnu /usr/includeEnd of search list.GNU C11 (Debian 6.3.0-18+deb9u1) version 6.3.0 20170516 (x86_64-linux-gnu)    compiled by GNU C version 6.3.0 20170516, GMP version 6.1.2, MPFR version 3.1.5, MPC version 1.0.3, isl version 0.15GGC heuristics: --param ggc-min-expand=62 --param ggc-min-heapsize=60678Compiler executable checksum: b8e5d7f3c4236757ee0871869b8330f3COLLECT_GCC_OPTIONS=&apos;-v&apos; &apos;-o&apos; &apos;HelloWorld&apos; &apos;-mtune=generic&apos; &apos;-march=x86-64&apos; as -v --64 -o /tmp/ccyb9gCU.o /tmp/ccKizfOU.sGNU assembler version 2.28 (x86_64-linux-gnu) using BFD version (GNU Binutils for Debian) 2.28COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/6/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/6/../../../:/lib/:/usr/lib/COLLECT_GCC_OPTIONS=&apos;-v&apos; &apos;-o&apos; &apos;HelloWorld&apos; &apos;-mtune=generic&apos; &apos;-march=x86-64&apos; /usr/lib/gcc/x86_64-linux-gnu/6/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/6/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper -plugin-opt=-fresolution=/tmp/ccj2W1uU.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o HelloWorld /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/6/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/6 -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/6/../../.. /tmp/ccyb9gCU.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/6/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crtn.oCOLLECT_GCC_OPTIONS=&apos;-v&apos; &apos;-o&apos; &apos;HelloWorld&apos; &apos;-mtune=generic&apos; &apos;-march=x86-64&apos;debian@bogon:~/Documents/HelloWorld$</code></pre><p>在此，我们不截取输出结果的完整图了，但你可以自己试验，然后试着分析整个流程。</p><p>图1是gcc编译过程的分解图：</p><p><img src="https://i.imgur.com/adD90hj.png" alt=""></p><p>从图中我们大致可以看出gcc处理HelloWorld.c的大致过程：</p><p>预处理(Prepressing)—&gt;编译(Compilation)—&gt;汇编(Assembly)—&gt;链接(Linking)</p><p>括号中注明了各个过程中实际执行任务的程序名称：预处理器cpp、编译器cc1、汇编器as以及最后的链接器ld。</p><h2 id="2-预处理到底做什么？"><a href="#2-预处理到底做什么？" class="headerlink" title="2. 预处理到底做什么？"></a>2. 预处理到底做什么？</h2><p>我们在终端输入命令 <code>gcc -E HelloWorld.c -o HelloWorld.i</code>，然后打开输出文件HelloWorld.i：</p><pre><code># 1 &quot;/usr/include/x86_64-linux-gnu/bits/wordsize.h&quot; 1 3 4# 28 &quot;/usr/include/x86_64-linux-gnu/bits/types.h&quot; 2 3 4typedef unsigned char __u_char;typedef unsigned short int __u_short;typedef unsigned int __u_int;typedef unsigned long int __u_long;</code></pre><p>首先是大段的变量和函数的声明，我们的代码找不到了，到底去哪了？在vim编辑环境的普通模式中按下shift+g(大写G)跳到文件的底部，终于在几千行以后看到了我们可怜兮兮的几行代码。   </p><pre><code>int main(){ printf(&quot;Hello World!\n&quot;); return 0;}</code></pre><p>前面几千行代码是做什么的？其实它就是 /usr/include/stdio.h 文件的所有内容，预处理器把所有的#include替换为实际文件的内容了。这个过程是递归进行的，所以stdio.h里面的#include也被实际内容所替换了。</p><p>而且我在HelloWorld.c里面的所有注释被预处理器全部删除了。就连printf语句前的Tab缩进也被替换为一个空格了，显得代码都不美观了。</p><p>通过观察这些内容，我们梳理出预处理器处理的大致所做的事情：</p><ul><li>展开所有的宏定义并删除 #define</li><li>处理所有的条件编译指令，例如 #if #else #endif #ifndef …</li><li>把所有的 #include 替换为头文件实际内容，递归进行</li><li>把所有的注释 // 和 / / 替换为空格</li><li>添加行号和文件名标识以供编译器使用</li><li>保留所有的 #pragma 指令，因为编译器要使用</li></ul><p>基本上就是这些内容。（在这里顺便插播一个小技巧，在代码中有时候宏定义比较复杂的时候我们很难判断其处理后的结构是否正确。这个时候我们就可以使用gcc的-E参数输出处理结果来判断）</p><p>前文中我们提到头文件中存放的是变量定义和函数声明等等内容。这些内容到底是什么？其实在早期调用函数时并不需要声明，后来因为“笔误”之类的错误实在太多，造成了链接期间的错误过多，所有编译器开始要求对所有使用的变量或者函数给出声明，以支持编译器进行参数检查和类型匹配。头文件包含的基本上就是这些东西和一些预先的宏定义来方便程序员编程。其实对于我们的HelloWorld.c程序来说不需要这个庞大的头文件，只需要在main函数前声明printf函数，不需要#include即可通过编译。</p><p>声明如下：</p><pre><code>int printf(const char *format, ...);</code></pre><p>大家可以自行测试。另外再补充一点，gcc其实并不要求函数一定要在被调用之前定义或者声明，因为gcc在处理到某个未知类型的函数时，会为其创建一个隐式声明，并假设该函数返回值类型为int。但gcc此时无法检查传递给该函数的实参类型和个数是否正确，不利于编译器为我们排除错误（而且如果该函数的返回值不是int的话也会出错）。所以还是建议大家在函数调用前，先对其定义或声明。</p><h2 id="3-编译做什么？"><a href="#3-编译做什么？" class="headerlink" title="3. 编译做什么？"></a>3. 编译做什么？</h2><p>了解了预处理之后，我们接着看编译和汇编。什么是编译？一句话描述：编译就是把预处理之后的文件进行一系列词法分析、语法分析、语义分析以及优化后生成的相应汇编代码文件。</p><p>怎么查看编译后的汇编代码？命令：</p><pre><code>gcc -S HelloWorld.c -o HelloWorld.s</code></pre><p>这样输出了汇编代码文件HelloWorld.s，其实输出的文件名可以随意。顺便说一句，这里生成的汇编是AT&amp;T风格的汇编代码，如果大家更熟悉Intel风格，可以在命令行加上参数 -masm=intel ,这样gcc就会生成Intel风格的汇编代码了（如图）。不过gcc的内联汇编只支持AT&amp;T风格，我们在第二章会给予介绍。</p><pre><code>    .file    &quot;HelloWorld.c&quot;    .intel_syntax noprefix    .section    .rodata.LC0:    .string    &quot;Hello World!&quot;    .text    .globl    main    .type    main, @functionmain:.LFB0:    .cfi_startproc    push    rbp    .cfi_def_cfa_offset 16    .cfi_offset 6, -16    mov    rbp, rsp    .cfi_def_cfa_register 6    lea    rdi, .LC0[rip]    call    puts@PLT    mov    eax, 0    pop    rbp    .cfi_def_cfa 7, 8    ret    .cfi_endproc.LFE0:    .size    main, .-main    .ident    &quot;GCC: (Debian 6.3.0-18+deb9u1) 6.3.0 20170516&quot;    .section    .note.GNU-stack,&quot;&quot;,@progbits</code></pre><h2 id="4-汇编做什么？"><a href="#4-汇编做什么？" class="headerlink" title="4. 汇编做什么？"></a>4. 汇编做什么？</h2><p>我们继续用一句话来描述：汇编就是将编译后的汇编代码翻译为机器码，几乎每一条汇编指令对应一句机器码。</p><p>命令：</p><pre><code>gcc -c HelloWorld.c </code></pre><p>可以让编译器只进行到生成目标文件这一步，这样我们就能在目录下看到HelloWorld.o文件了。</p><p>Linux下的可执行文件以及目标文件的格式叫作ELF(Executable Linkable Format)。其实Windows下的PE(Portable Executable)也好，Linux下的ELF也罢，都是COFF(Common file format)格式的一种变种，甚至Windows下的目标文件就是以COFF格式去存储的。不同的操作系统之间的可执行文件的格式通常是不一样的，所以造成了编译好的HelloWorld没有办法直接复制执行，而需要在相关平台上重新编译。当然了，不能运行的原因不只是这一点，不同的操作系统接口（windows API和Linux的API不同）以及相关的类库不同也是原因之一。</p><p>更详细的内容可以参看《程序员的自我修养》了解。</p><h2 id="5-链接做什么？"><a href="#5-链接做什么？" class="headerlink" title="5. 链接做什么？"></a>5. 链接做什么？</h2><p>这一步是将汇编产生的目标文件和所使用的库函数的目标文件链接生成一个可执行文件的过程。在这里稍微的扩展一下篇幅，稍微详细的说一说链接，一是链接造成的错误通常难以理解和处理，二是在开发中使用第三方库越来越常见了，大家可能更需要稍微了解一些细节。</p><p>首先介绍一下gnu binutils工具包，这是一整套的二进制分析处理工具包。详细介绍请大家参考维基百科：<a href="http://zh.wikipedia.org/wiki/GNU_Binutils" target="_blank" rel="noopener">http://zh.wikipedia.org/wiki/GNU_Binutils</a></p><p>一般系统安装包中都带了这套工具包，如果你的发行版没有，请自行搜索进行安装。</p><p>这套工具包含了足够多的工具，我们甚至可以用来研究ELF文件的格式等内容。不过本节只是抛砖引玉，更多的使用方法和技巧还是需要大家自己去学习和研究。</p><p>链接这个话题涉及的内容相当广泛，为了避免本节牵扯到过多的话题导致言之泛泛，我们先设定本节讨论的范围。在这里只讨论链接进行的大致步骤及其规则、静态链接库与动态链接库的创建和使用这两大问题。至于可执行文件的加载、可执行文件的运行时储存器映像之类的内容我们暂时不讨论。<br>那么，什么是链接？我们引用《深入理解计算机系统》中的定义：链接（linking）是将各种代码和数据部分收集起来并组合成为一个单一文件的过程，这个文件可被加载（或被拷贝）到存储器并执行。</p><p>需要强调的是，链接可以执行于编译时（compile time），也就是在源代码被翻译成机器代码时；也可以执行于加载时，也就是在程序被加载器（loader）加载到存储器并执行时；甚至执行于运行时（run time），由应用程序来执行。</p><p>那么，了解链接到底有什么用？继续引用《深入理解计算机系统》的说法，如下：</p><ol><li>理解链接器将帮助你构造大型程序。</li><li>理解链接器将帮助你避免一些危险的编程错误。</li><li>理解链接将帮助你理解语言的作用域是如何实现的。</li><li>理解链接将帮助你理解其他重要的系统概念。</li><li>理解链接将使你能够利用共享库。</li></ol><p>言归正传。为了避免我们的描述过于枯燥，我们还是以C语言为例。大家通过我们前面的描述，已经知道C代码编译后的目标文件了。目标文件最终要和标准库进行链接生成最后的可执行文件。那么，标准库和我们生成的目标文件是什么关系？</p><p>其实，任何一个程序，它的背后都有一套庞大的代码在支撑着它，以使得该程序能够正常运行。这套代码至少包括入口函数、以及其所依赖的函数构成的函数集合。当然，它还包含了各种标准库函数的实现。</p><p>这个“支撑模块”就叫做运行时库（Runtime Library）。而C语言的运行库，即被称为C运行时库（CRT）。</p><p>CRT大致包括：启动与退出相关的代码（包括入口函数及入口函数所依赖的其他函数）、标准库函数（ANSI C标准规定的函数实现）、I/O相关、堆的封装实现、语言特殊功能的实现以及调试相关。其中标准库函数的实现占据了主要地位。标准库函数比如我们平时常用的printf，scanf函数等。C语言标准库在不同的平台上实现了不同的版本，我们只要依赖其接口定义，就能保证程序在不同平台上的一致行为。C语言标准库有24个，囊括标准输入输出、文件操作、字符串操作、数学函数以及日期等等内容。大家有兴趣的可以自行搜索。</p><h3 id="5-1-静态链接库"><a href="#5-1-静态链接库" class="headerlink" title="5.1 静态链接库"></a>5.1 静态链接库</h3><p>既然C语言提供了标准库函数供我们使用，那么以什么形式提供？是源代码吗？当然不是。下面引入静态链接库的概念。我们几乎每一次写程序都难免去使用库函数，那么每一次去编译岂不是太麻烦了。干嘛不把标准库函数提前编译好，需要的时候直接链接？是的，标准库就是这么做的。<br>那么，标准库以什么形式存在？是一个目标文件？我们知道，链接的最小单位就是一个个目标文件，如果我们只用到一个printf函数，但需要和整个库链接的话岂不是太浪费资源了么？但是，如果把库函数分别定义在彼此独立的代码文件中，这样编译出后就形成一大堆目标文件。所以，编辑器系统提供了一种机制，将所有的编译出来的目标文件打包成一个单独的文件，叫做静态库（static library）。当链接器和静态库链接的时候，链接器会从这个打包的文件中“解压缩”出需要的部分目标文件进行链接。这样就解决了资源浪费的问题。</p><p>Linux/Unix系统下ANSI C的库名叫做libc.a，另外数学函数单独在libm.a库中。当了解以上相关知识后，我们试着自己做一个静态库。为了简单起见我们就做一个只有两个函数的私有库。</p><p>在swap.c里定义一个swap函数，在add.c里定义了一个add函数。最后还有含有它们声明的calc.h头文件。</p><pre><code>// swap.cvoid swap(int *num1, int *num2){    int tmp = *num1;    *num1 = *num2;    *num2 = tmp;}// add.cint add(int a, int b){    return a + b;}// calc.h#ifndef CALC_H_#define CALC_H_#ifdef _cplusplusextern &quot;C&quot;{#endifvoid swap(int *, int *);int add(int, int);#ifdef _cplusplus}#endif#endif // CALC_H_</code></pre><p>我们分别编译它们得到了swap.o和add.o这两个目标文件，最后使用ar命令将其打包为一个静态库。</p><pre><code>debian@bogon:~/Documents/link$ gcc add.c -c -o add.odebian@bogon:~/Documents/link$ gcc swap.c -c -o swap.odebian@bogon:~/Documents/link$ lsadd.c  add.o  calc.h  swap.c  swap.odebian@bogon:~/Documents/link$ ar rcs libcalc.a swap.o add.odebian@bogon:~/Documents/link$ lsadd.c  add.o  calc.h  libcalc.a  swap.c  swap.odebian@bogon:~/Documents/link$ </code></pre><p>现在我们怎么使用这个静态库呢？我们写一个test.c使用这个库中的swap函数。代码如下：</p><pre><code>#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;#include &quot;calc.h&quot;int main(int argc, char *argv[]){    int a = 1, b = 2;    swap(&amp;a, &amp;b);    printf(&quot;%d %d\n&quot;, a, b);    return EXIT_SUCCESS;}</code></pre><p>下来是编译执行，命令行执行gcc test.c ./libcalc.a -o test编译，执行。如图，我们输出了预期的结果。</p><pre><code>debian@bogon:~/Documents/link$ gcc test.c ./libcalc.a -o testdebian@bogon:~/Documents/link$ ./test2 1debian@bogon:~/Documents/link$ </code></pre><p>可能你会问，我们使用C语言标准库的时候，编译时并不需要加库名。是的，的确不需要，那是因为标准库已经是标准了，所以会被默认链接。不过因为数学函数库libm.a没有默认链接，所以我们使用了数学函数的代码在编译时需要在命令行指定 -lm 链接（-l是指定链接库，m是去掉lib之后的库名），不过现在好多gcc都默认链接libm.c库了。</p><p>正如我们所看到的，静态链接库解决了一些问题，但是它同时带来了另一些问题。比如说每一个使用了相同的C标准函数的程序都需要和相关目标文件进行链接，浪费磁盘空间；当一个程序有多个副本执行时，相同的库代码部分被载入内存，浪费内存；当库代码更新之后，使用这些库的函数必须全部重新编译等等。</p><h3 id="5-2-动态链接库"><a href="#5-2-动态链接库" class="headerlink" title="5.2 动态链接库"></a>5.2 动态链接库</h3><p>是否有更好的办法？当然有。我们接下来引入动态链接库/共享库（shared library）。</p><p>动态链接库/共享库是一个目标模块，在运行时可以加载到任意的存储器地址，并和一个正在运行的程序链接起来。这个过程就是动态链接（dynamic linking），是由一个叫做动态链接器（dynamic linker）的程序完成的。</p><p>Unix/Linux中共享库的后缀名通常是.so（微软就是DLL文件）。那么，如何建立一个动态链接库？</p><p>我们还是以上面的代码为例，首先删除之前的静态库和目标文件。要建立动态链接库，在命令行输入：</p><pre><code>gcc swap.c add.c -shared -o libcalc.so </code></pre><p>顺便说一下，最好在gcc命令行加上一句-fPIC让其生成与位置无关的代码（PIC），具体原因超出本文范围，故暂不予讨论。</p><pre><code>debian@bogon:~/Documents/link$ gcc swap.c add.c -shared -o libcalc.sodebian@bogon:~/Documents/link$ lsadd.c  add.o  calc.h  libcalc.a  libcalc.so  swap.c  swap.o  test  test.cdebian@bogon:~/Documents/link$ </code></pre><p>如何使用动态链接库？我们继续编译测试代码，执行<code>gcc test.c -o test ./libcalc.so</code>即可。运行后我们仍旧得到了预期的结果。</p><pre><code>debian@bogon:~/Documents/link$ gcc test.c -o test ./libcalc.sodebian@bogon:~/Documents/link$ ./test 2 1debian@bogon:~/Documents/link$</code></pre><p>这看起来也没什么不一样的。其实不然，我们用ldd命令（ldd是我们推荐的GNU binutils工具包的组成之一）检查test文件的依赖。</p><pre><code>debian@bogon:~/Documents/link$ ldd ./test    linux-vdso.so.1 (0x00007fff3d3fb000)    ./libcalc.so (0x00007f61c97de000)    libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f61c943f000)    /lib64/ld-linux-x86-64.so.2 (0x00007f61c9be2000)debian@bogon:~/Documents/link$ </code></pre><p>我们看到这个文件能顺利运行需要依赖libcalc.so这个动态库，我们还能看到C语言的标准库默认也是动态链接的（在gcc编译的命令行加上 -static 可以要求静态链接）。</p><p>好处何在？第一，库更新之后，只需要替换掉动态库文件即可，无需编译所有依赖库的可执行文件。第二，程序有多个副本执行时，内存中只需要一份库代码，节省空间。</p><p>大家想想，C语言标准库好多程序都在用，但内存只有一份代码，这样节省的空间就相当可观了，而且假如库代码发现bug，只需要更新libc.so即可，所有程序即可使用新的代码，代码的可维护性提高。</p><p>关于库的内容还很多，就此介绍到这里。</p><h3 id="5-3-链接的步骤"><a href="#5-3-链接的步骤" class="headerlink" title="5.3 链接的步骤"></a>5.3 链接的步骤</h3><p>我们来看看链接过程中具体做的事情<strong>。链接的步骤大致包括了地址和空间分配（Address and Storage Allocation）、符号决议（Symbol Resolution）和重定位（Relocation）等主要步骤。</strong></p><p>首先是地址和空间分配，我们之前提到的目标文件其实全称叫做可重定位目标文件（这只是一种名称，还有其他名称）。目标文件的格式已经无限度接近可执行文件了，Unix/Linux下的目标文件的格式叫做ELF（Executable and Linkable Format，可执行连接格式）。本节暂不详细讨论可执行文件的格式，我们只需要知道可执行文件中代码，数据，符号等内容分别存储在不同的段中就可以，这也和第二章保护模式下的内存分段是有一定关系的。我们简单叙述了地址和空间分配以及重定位，但是稍微详细说明一下符号决议。</p><p><strong>什么是符号（symbol）？简单说我们在代码中定义的函数和变量可以统称为符号。符号名（symbol name）就是函数名和变量名了。</strong></p><p>目标文件的拼合其实也就是对目标文件之间相互的符号引用的一个修正。我们知道一个C语言代码文件只要所有的符号被声明过就可以通过编译了，可是对某符号的引用怎么知道位置呢？比如我们调用了printf函数，编译时留下了要填入的函数地址，那么printf函数的实际地址在哪里？这个空位什么时候修正呢？当然是链接的时候，重定位那一步就是做这个的。但是在修改地址之前需要做符号决议，那什么是符号决议？正如前文所说，编译期间留下了很多需要重新定位的符号，所以目标文件中会有一块区域专门保存符号表。链接器如何知道具体位置？其实链接器并不知道，所以链接器会搜索全部的待链接的目标文件，寻找这个符号的位置，然后修正每一个符号的地址。</p><p><strong>在此我们要重点介绍一下在编译程序时几乎所有人会遇见的问题——符号查找问题。在编译时通常会碰到两种编译错误，即找不到某符号或者符号重定义。</strong></p><p>首先介绍找不到符号的情况，比如，当我们声明了一个swap函数却没有定义它的时候，我们调用这个函数的代码可以通过编译，但是在链接期间却会遇到错误。形如“test.c:(.text+0x29): undefined reference to ‘swap’”这样，特别的，MSVC编译器报错是找不到符号_swap。这个下划线从哪里来的？这得从C语言刚诞生说起。当C语言刚面世的时候，已经存在不少用汇编语言写好的库了，因为链接器的符号唯一规则，假如该库中存在main函数，我们就不能在C代码中出现main函数了，因为会遭遇符号重定义错误，倘若放弃这些库又是一大损失。所以当时的编译器会对代码中的符号进行修饰（name decoration），C语言的代码会在符号前加下划线，fortran语言在符号前后都加下划线，这样各个目标文件就不会同名了，就解决了符号冲突的问题。随着时间的流逝，操作系统和编译器都被重写了好多遍，当前的这个问题已经可以忽略。所以新版的gcc一般不会再加下划线做符号修饰（也可以在编译的命令行加上-fleading-underscore/-fno-fleading-underscore开打开/关闭这个是否加下划线）。而MSVC依旧保留了这个传统，所以我们可以看到_swap这样的修饰。</p><p>顺便说一下，符号冲突是很常见的事情，特别是在大型项目的开发中，所以我们需要一个约定良好的命名规则。C++也引入了命名空间来帮助我们解决这些问题，因为C++中存在函数重载，所以C++的符号修饰更加复杂难懂（Linux下有c++filt命令帮助我们翻译一个被C++编译器修饰过的符号）。</p><p>那么，当出现同名符号时链接器到底如何处理。刚才说过会报告重名错误，为什么还要进行探讨？实际上，不仅仅这么简单。在编译时，编译器会向汇编器输出每个全局符号，分为强（strong）符号和弱符号（weak），汇编器把这个信息隐含的编码在可重定位目标文件的符号表里。其中函数和已初始化过的全局变量是强符号，未初始化的全局变量是弱符号。根据强弱符号的定义，GNU链接器采用的规则如下：</p><ol><li>不允许多个强符号</li><li>如果有一个强符号和一个或多个弱符号，则选择强符号</li><li>如果有多个弱符号，则随机选择一个</li></ol><p>其中，第一条会报符号重名错误的，而后两条默认情况下甚至连警告都不会有。关键就在这里，默认甚至连警告都没有。</p><p>我们来个实验具体说一下：</p><pre><code>// link1.c#include &lt;stdio.h&gt;int n;int main(int argc, char *argv[]){    printf(&quot;It is %d\n&quot;, n);    return 0;}// link2.cint n = 5;</code></pre><p>这两个文件编译运行会输出什么呢？想必你已经知道了结果，没错，就是5</p><pre><code>debian@bogon:~/Documents/link$ vim link1.cdebian@bogon:~/Documents/link$ vim link2.cdebian@bogon:~/Documents/link$ gcc link1.c link2.c -o linkdebian@bogon:~/Documents/link$ ./link It is 5debian@bogon:~/Documents/link$ </code></pre><p>初始化过的n是强符号，被优先选择了。但是，在很复杂的项目代码中，这样的错误很难发现，特别是多线程的代码，不过当我们怀疑代码中的bug可能是因为此原因引起的时候，我们可以在gcc命令行加上-fno-common这个参数，这样链接器在遇到多重定义的符号时，都会给出一条警告信息，而无关强弱符号。如下所示：</p><pre><code>debian@bogon:~/Documents/link$ gcc link1.c link2.c -o link -fno-common/tmp/ccJnlWp9.o:(.data+0x0): multiple definition of `n&apos;/tmp/ccM5uYLR.o:(.bss+0x0): first defined herecollect2: error: ld returned 1 exit statusdebian@bogon:~/Documents/link$ </code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;第一章-编译和链接&quot;&gt;&lt;a href=&quot;#第一章-编译和链接&quot; class=&quot;headerlink&quot; title=&quot;第一章 编译和链接&quot;&gt;&lt;/a&gt;第一章 编译和链接&lt;/h1&gt;&lt;p&gt;C语言是我们熟悉的一门语言，当我们编辑了一个C程序，然后再编译和链接，形成可执行文件
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://yoursite.com/%E5%BC%80%E6%BA%90%E5%A4%A7%E5%AD%A6/"/>
-    <id>http://yoursite.com/开源大学/</id>
-    <published>2018-11-03T05:02:48.000Z</published>
-    <updated>2018-10-01T23:29:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>开源大学</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;开源大学&lt;/p&gt;
-
-      
-    
-    </summary>
-    
     
   </entry>
   
