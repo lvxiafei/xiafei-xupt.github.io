@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-20T06:07:24.136Z</updated>
+  <updated>2019-05-09T00:29:07.913Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,100 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>恺撒密码代码简单实现加密解密</title>
+    <link href="http://yoursite.com/%E6%81%BA%E6%92%92%E5%AF%86%E7%A0%81%E4%BB%A3%E7%A0%81%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/"/>
+    <id>http://yoursite.com/恺撒密码代码简单实现加密解密/</id>
+    <published>2019-05-09T00:26:08.000Z</published>
+    <updated>2019-05-09T00:29:07.913Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="加密代码"><a href="#加密代码" class="headerlink" title="加密代码"></a>加密代码</h1><pre><code>#include &lt;stdio.h&gt;#include &lt;string.h&gt;#define MAX 100int main(){    char C[MAX];    char S[MAX];    int K=3,i;    printf(&quot;Enter passage\n&quot;);    gets(S);    for(i=0; S[i]!=&apos;\0&apos;; i++)    {        C[i]=(S[i]-&apos;a&apos;+K)%26+&apos;a&apos;;    }    C[i]=&apos;\0&apos;;    for(i=0; S[i]!=&apos;\0&apos;; i++)    {        C[i]=(S[i]-&apos;A&apos;+K)%26+&apos;A&apos;;    }    C[i]=&apos;\0&apos;;    printf(&quot;Password\n%s\n&quot;,C);    return 0;}</code></pre><h1 id="加密效果"><a href="#加密效果" class="headerlink" title="加密效果"></a>加密效果</h1><p><img src="/assets/blogImg/微信图片_20190509082756.png" alt=""></p><h1 id="解密代码"><a href="#解密代码" class="headerlink" title="解密代码"></a>解密代码</h1><pre><code>#include &lt;stdio.h&gt;#include &lt;string.h&gt;#define MAX 100int main(){    char C[MAX];    char S[MAX];    int K=3,i;    printf(&quot;Password\n&quot;);    gets(C);    for(i=0; C[i]!=&apos;\0&apos;; i++)    {         S[i]=(C[i]-&apos;a&apos;-K)%26+&apos;a&apos;;    }    S[i]=&apos;\0&apos;;    for(i=0; C[i]!=&apos;\0&apos;; i++)    {         S[i]=(C[i]-&apos;A&apos;-K)%26+&apos;A&apos;;    }    S[i]=&apos;\0&apos;;    printf(&quot;Output passage\n%s\n&quot;,S);    return 0;}</code></pre><h1 id="解密效果"><a href="#解密效果" class="headerlink" title="解密效果"></a>解密效果</h1><p><img src="/assets/blogImg/微信图片_20190509082850.png" alt=""></p><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul><li><a href="https://blog.csdn.net/dyw_666666/article/details/82466958" target="_blank" rel="noopener">恺撒密码代码简单实现加密解密</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;加密代码&quot;&gt;&lt;a href=&quot;#加密代码&quot; class=&quot;headerlink&quot; title=&quot;加密代码&quot;&gt;&lt;/a&gt;加密代码&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;
+#de
+      
+    
+    </summary>
+    
+    
+      <category term="安全" scheme="http://yoursite.com/tags/%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ARM核心和架构的关系</title>
+    <link href="http://yoursite.com/ARM%E5%86%85%E6%A0%B8%E5%92%8C%E6%9E%B6%E6%9E%84%E7%9A%84%E5%85%B3%E7%B3%BB/"/>
+    <id>http://yoursite.com/ARM内核和架构的关系/</id>
+    <published>2019-04-28T11:38:03.000Z</published>
+    <updated>2019-04-28T13:40:48.716Z</updated>
+    
+    <content type="html"><![CDATA[<p>转自：<a href="https://blog.csdn.net/u011784994/article/details/80497832" target="_blank" rel="noopener">https://blog.csdn.net/u011784994/article/details/80497832</a></p><p>好比你盖房子 刚开始因为水平低 流行盖平房 这就是一种架构（V5T）；然后这种平房架构你可以设计出一款独立卫生间的款式 这叫ARM7内核（很重要的核心）；然后其他人（芯片设计公司）想盖房子的就买你这个图纸去盖；然后过一段时间，有人觉得光独立卫生间还不够啊 我还想有个小院子，好吧，那ARM就满足你们，就出个带小院子的款式（ARM9）； 又过了很久，这种平房的架构就随着大伙的需求一直改啊改啊。</p><p>后来经过ARM研究发现 现在大伙盖房子的能力duang duang直升啊（包括工艺、设计能力、时钟主频） 只盖这种平房施展不开啊 好吧ARM为了不让这帮设计的人闲着 就推出一种二三层楼房的样式 这因为跟平房设计结构完全不一样嘛 那就叫一种新的架构（V6） 同样这种楼房样式ARM也为大家准备了带游泳池的和带车库的款式（ARM11各种）。</p><p>好吧继续改啊改啊，改到后来大家已经开始有能力盖十层以上的大楼了 ARM一如既往地出了新的款式（V7架构） 这时ARM觉得以前尼玛名字都太土鳖了，什么ARM5 ARM6 ARM7又难听又难记，劳资要取个看起来牛逼的名字，咱至少也算个能设计摩天大楼的主了 于是后面的内核都叫cortex。</p><p>改名只是一部分 随着这个架构出来后 ARM发现 以前用咱们图纸盖出的楼也就做个民宅，民宅图个啥，实惠嘛（功耗低） 现在不一样了，现在咱的图纸盖得楼不仅可以做民宅 还可以做军事基地，还可以做高档写字楼，以前这些高级功能的楼房可是只有小英（英特尔）才设计得来的啊，为了满足这些不同的需求 ARM把这个架构设计出来的款式分成3个系列（M系列、R系列、A系列）。</p><p>M系列是为民宅设计的 因为老百姓图实惠嘛 这种设计就设计个十层左右（功耗低） R系列是为军事基地设计的 这种楼设计的也不高 十层左右吧 但是关键是要对特殊情况要有快速反应的能力（中断快） 最后A系列是给商业大佬用的 那当然是要高端大气上档次 就是要高（性能高）各种LED灯灯光秀啊都给我上。</p><p>扩展：</p><p><a href="http://m.elecfans.com/article/678193.html" target="_blank" rel="noopener">一文看懂arm架构和x86架构有什么区别</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;转自：&lt;a href=&quot;https://blog.csdn.net/u011784994/article/details/80497832&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/u011784994/ar
+      
+    
+    </summary>
+    
+    
+      <category term="Kernel" scheme="http://yoursite.com/tags/Kernel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>订阅Linux内核邮件列表</title>
+    <link href="http://yoursite.com/%E8%AE%A2%E9%98%85Linux%E9%82%AE%E4%BB%B6%E5%88%97%E8%A1%A8/"/>
+    <id>http://yoursite.com/订阅Linux邮件列表/</id>
+    <published>2019-04-01T07:51:08.000Z</published>
+    <updated>2019-04-01T07:58:02.323Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>转载：</strong><a href="http://www.wowotech.net/linux_application/lkml.html" target="_blank" rel="noopener">新技能get: 订阅Linux内核邮件列表</a>  作者：wowo </p><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文给小伙伴们分享一下怎么订阅Linux内核邮件列表（Linux kernel mailing list，LKML）。</p><h1 id="LKML用来做什么的"><a href="#LKML用来做什么的" class="headerlink" title="LKML用来做什么的"></a>LKML用来做什么的</h1><p>先贴一段来自维基百科的定义：</p><pre><code>The Linux kernel mailing list (LKML) is the main electronic mailing list for Linux kernel development,[1][2] where the majority of the announcements, discussions, debates, and flame wars over the kernel take place.[3]</code></pre><p>大家知道，Linux kernel是由分布在世界各地的大牛们共同开发、维护的，这就需要一种交流工具，这种工具就是LKML。因而LKML主要有如下功能：</p><ul><li>patch的提交、审查</li><li>patch、版本等发布公告</li><li>技术讨论、辩论</li><li>打口水仗</li></ul><h1 id="订阅LKML的好处"><a href="#订阅LKML的好处" class="headerlink" title="订阅LKML的好处"></a>订阅LKML的好处</h1><p>订阅LKML的好处包括：</p><ul><li>接近大牛（经常可以看到Linus同学的发言哦），享受大牛亲笔给自己发送邮件的快感</li><li>了解kernel发展的最新动态</li><li>关注功能模块的演进过程</li><li>我们在学习、分析Linux kernel时，总觉得很复杂，觉得能写出这些代码的人有多么了不起。其实，罗马也是一块一块砖盖起来的，kernel的发展也是渐进的、一点一点积累的。这可以从每天上百封的邮件交流中体会到。因此技术的积累和进步，要有耐心，要有一定的环境，而不是喊三五年口号就出来的。希望和路过的蜗牛们共勉！</li><li>熟悉参与kernel开发的基本流程，以便日后能够提交patch</li><li>学习国外软件开发的方法和态度</li><li>这一点可以从每一封信（讨论、patch的review意见、提议等等）中看到<h1 id="有没有什么坏处？"><a href="#有没有什么坏处？" class="headerlink" title="有没有什么坏处？"></a>有没有什么坏处？</h1>绝对有！如果你不想你的邮箱被撑爆的话，一定要忍住，不要订阅！因为邮件太多了！</li></ul><p>如果你真的想清楚了，决定需要，那就继续吧。</p><h1 id="怎么订阅"><a href="#怎么订阅" class="headerlink" title="怎么订阅"></a>怎么订阅</h1><p>下面网址为LKML的主要列表：</p><p><a href="http://vger.kernel.org/vger-lists.html" target="_blank" rel="noopener">http://vger.kernel.org/vger-lists.html</a></p><p>它有很多分类，如alsa、PM、PWM、USB、GIT等等，大家可以选择感兴趣的订阅。点击指定分类的超链接（这里以linux-pm为例），会看到如下的表格：</p><pre><code>List: linux-pm; ( subscribe / unsubscribe )Info:This is the mailing list for Linux Power Management development. Archives: http://marc.info/?l=linux-pm http://dir.gmane.org/gmane.linux.power-management.general Footer:--- To unsubscribe from this list: send the line &quot;unsubscribe linux-pm&quot; in the body of a message to majordomo@vger.kernel.org More majordomo info at  http://vger.kernel.org/majordomo-info.html </code></pre><p>该表格有4个字段：</p><pre><code>List为邮件列表分类的名字，这里为“linux-pm”；Info描述了该邮件列表的内容，这里主要是Linux电源管理相关的；Archives为该分类所有邮件列表的归档，记录了该主题有关的所有的交流过程；注1：有了这个归档链接，其实可以不用订阅的，实时的去看一下就行了。另外，这些邮件列表的归档，对我们理解某个模块的设计理念是非常有帮助的，因为代码只是最终结论的展示，而为什么要这样设计，可以在邮件列表中的讨论中看到。Footer是一个提示，告诉大家怎么退订（如果你后悔的话，想相信会的，哈哈！）。</code></pre><p>订阅的方法很简单：</p><p>1）发送订阅邮件，格式如下</p><pre><code>收件人：majordomo@vger.kernel.org标题：可以为空。邮件正文：subscribe linux-pm xxx@xxx.com注2：subscribe为订阅关键字，linux-pm为分类名称，后面为需要订阅的邮箱地址。</code></pre><p>2）发送后，订阅邮箱会收到一封邮件，要求你回复一个鉴权字符串。回复即可，格式如下（红色为鉴权字符串，要替换为自己收到的，另外注意自己的邮箱地址要正确）：</p><pre><code>auth 25415058 subscribe linux-pm xxx@xxx.com</code></pre><p>3）回复后，会收到欢迎邮件，订阅成功</p><p><strong>注2：</strong>订阅邮箱尽量使用正常邮箱，比如工作邮箱。有些邮箱，如qq邮箱，可能会订阅失败。另外，一旦订阅成功，一定要及时查看、清理，否则会把邮箱撑爆。</p><p>原创文章，转发请注明出处。蜗窝科技，<a href="http://www.wowotech.net。" target="_blank" rel="noopener">www.wowotech.net。</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;转载：&lt;/strong&gt;&lt;a href=&quot;http://www.wowotech.net/linux_application/lkml.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;新技能get: 订阅Linux内核邮件列表&lt;/a
+      
+    
+    </summary>
+    
+    
+      <category term="Kernel" scheme="http://yoursite.com/tags/Kernel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>EndNote X9推荐</title>
+    <link href="http://yoursite.com/EndNote%20X9%E6%8E%A8%E8%8D%90/"/>
+    <id>http://yoursite.com/EndNote X9推荐/</id>
+    <published>2019-03-21T11:43:42.000Z</published>
+    <updated>2019-03-21T11:43:54.427Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>EndNote X9是一款来自国外的主流文献管理软件，是一款优秀的文献管理软件，广泛使用于数以百万计的研究人员、学生和图书管理员等人员。软件具有在线搜索文献、建立文献库和图片库、定制文稿、引文编排等功能特点，拥有文献检索工具、文摘及全文的管理工具、引文编排工具等诸多实用工具，帮助用户更好的使用EndNote X9软件。</p><h1 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h1><ul><li><a href="https://www.cnblogs.com/liuhuanhuan123456/p/9614539.html" target="_blank" rel="noopener">EndNote X9教程</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;EndNote X9是一款来自国外的主流文献管理软件，是一款优秀的文献管理软件，广泛使用于数以百万计的研究人员、学生和图书管理员等人员。软件
+      
+    
+    </summary>
+    
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>图片去水印教程</title>
@@ -67,21 +161,21 @@
     <link href="http://yoursite.com/%E5%8D%8E%E4%B8%BA%E5%A4%9A%E6%AC%A1%E6%89%BF%E8%AE%A4%E6%9C%89%E7%A0%94%E5%8F%91%E6%89%8B%E6%9C%BA%E7%B3%BB%E7%BB%9F%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E6%8E%A8%E5%B9%BF%EF%BC%9F/"/>
     <id>http://yoursite.com/华为多次承认有研发手机系统，为什么不推广？/</id>
     <published>2019-03-15T04:50:56.000Z</published>
-    <updated>2019-03-15T04:51:30.999Z</updated>
+    <updated>2019-04-01T07:53:08.790Z</updated>
     
-    <content type="html"><![CDATA[<p><strong>转载：</strong><a href="https://baijiahao.baidu.com/s?id=1628002282052315996&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">华为多次承认有研发手机系统，为什么不推广？有2大原因很无奈！</a></p><h1 id="华为多次承认有研发手机系统，为什么不推广？有2大原因很无奈！"><a href="#华为多次承认有研发手机系统，为什么不推广？有2大原因很无奈！" class="headerlink" title="华为多次承认有研发手机系统，为什么不推广？有2大原因很无奈！"></a>华为多次承认有研发手机系统，为什么不推广？有2大原因很无奈！</h1><p>华为这个企业在近年来的发展是一直朝着更好的方向前进，虽然说遇到的困难也不小，但是我们还是能够感受到华为的自身的实力，作为一个在中国自主研发比较出色的一个企业，华为掌握了全球最多的5G专利技术，还自己研发了处理器芯片，当然我们在手机的体验中也是能够感受到华为很多的新科技，就手机行业上来说，现在华为的位置已经可以坐到全球出货量前三的位置，本来还可以占据第二的，只是稍微有些遗憾。种种的事迹都表明了现在的华为实力越来越强大，而且多次承认有自主研发的系统。</p><p><img src="https://pics6.baidu.com/feed/b812c8fcc3cec3fde8ddc64e09bd503b869427e7.jpeg?token=3fb14ac1bd93dba3d73786bd3b3fd145&amp;s=57A7D84AC9C98B514AC2B5AB03007009" alt=""></p><p>对于华为自主研发系统其实早在很久之前就有相关的传闻，只是一直没有得到确定，也就不知道传闻是真是假，而这一次余承东亲自承认确实华为现在有着自己的一个操作系统，不过也只是为了给自己留条后路，暂时不会去做一个推广。很多用户可能就比较奇怪了，按照华为的实力，想必系统的体验感还是很强，如果能够拿出来使用，华为就系统这一方面可以省下不少的钱，而且说不定也会成为流行的第三大系统，到时候这个收益不久更多了吗？可是华为多次承认有研发手机系统，为什么不推广？有2大原因很无奈！<br><img src="https://pics4.baidu.com/feed/8326cffc1e178a82dab076b82936f789a877e8d0.jpeg?token=3c9ef7c6f10e3fee1b82c5a0604f060b&amp;s=9670788456072B4502B48CA503003000" alt=""></p><h1 id="第一个原因：生态不够完善"><a href="#第一个原因：生态不够完善" class="headerlink" title="第一个原因：生态不够完善"></a>第一个原因：生态不够完善</h1><p>要知道创立一个系统来说并不什么难事，难得是后期的生态完善，这样说可能大家都不是很懂，我们换个简单的说法，就比如说现在的苹果系统和安卓系统的生态都相当的完善了，不需要各大app重新再研发适配的软件。而且对于这些软件开发者来说，华为的新系统暂时还看不到什么收益，目前使用华为手机的人比较多，不过总体来讲使用其他的手机品牌的人也不少，到时候华为的系统肯定是用在华为的手机上，这样一来也就没有多少的收益，软件开发者是不会因为这一点用户量而去费心研究匹配新系统的软件。既然软件开发者不去设计，那么消费者可以用到的软件就很少，对于消费者来说这是不能够满足需求的。说白了就是现在华为的系统跟其他两个系统比起来没有那么大的市场。<br><img src="https://pics3.baidu.com/feed/6f061d950a7b020819bd57c8bdec76d7572cc859.jpeg?token=a71b0d79864936584657b8d9dab14ee2&amp;s=F22288E276226B0FAA83095303004099" alt=""></p><h1 id="第二个原因：华为本意不是拿来现在使用"><a href="#第二个原因：华为本意不是拿来现在使用" class="headerlink" title="第二个原因：华为本意不是拿来现在使用"></a>第二个原因：华为本意不是拿来现在使用</h1><p>我们都知道华为这个企业危机意识一直是很强的，他们研发这个系统并不是现在要拿出来给安卓的系统或者是苹果的系统抗衡，本意就是为了有一天，假如我们不能够在使用谷歌系统的时候，自己不会处于一个尴尬的地位。大家都知道美国政府入侵华为5G系统的事情，如果说到时候因为这个官司的问题，谷歌受到压力不再给华为提供系统，至少华为也不会因此感到焦急，还有退路可言。说白了这个系统存在的意义也就是以防万一。<br><img src="https://pics5.baidu.com/feed/ae51f3deb48f8c54874bec1dda1ca9f1e0fe7f25.jpeg?token=38e09860b6306c3b813fb7553df7ee31&amp;s=ECBB20D4D28219456B283D9F03005080" alt=""></p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>以上这两个原因就是为什么现在华为不推广自己的新系统，当然华为这一种自主研发的精神以及有强烈的危机意识是我们中国人的福气，华为在全球上的地位很大一部分都是代表着中国的。那么对于我们今天讨论的话题小伙伴们有什么不一样的看法呢？</p>]]></content>
+    <content type="html"><![CDATA[<p><strong>转载：</strong><a href="http://www.wowotech.net/linux_application/lkml.html" target="_blank" rel="noopener">新技能get: 订阅Linux内核邮件列表</a> 作者：wowo </p><ol><li><p>前言<br>本文给小伙伴们分享一下怎么订阅Linux内核邮件列表（Linux kernel mailing list，LKML）。</p></li><li><p>LKML用来做什么的<br>先贴一段来自维基百科的定义：</p></li></ol><p>The Linux kernel mailing list (LKML) is the main electronic mailing list for Linux kernel development,[1][2] where the majority of the announcements, discussions, debates, and flame wars over the kernel take place.[3]</p><p>大家知道，Linux kernel是由分布在世界各地的大牛们共同开发、维护的，这就需要一种交流工具，这种工具就是LKML。因而LKML主要有如下功能：</p><p>patch的提交、审查<br>patch、版本等发布公告<br>技术讨论、辩论<br>打口水仗</p><ol start="3"><li>订阅LKML的好处<br>订阅LKML的好处包括：</li></ol><p>接近大牛（经常可以看到Linus同学的发言哦），享受大牛亲笔给自己发送邮件的快感<br>了解kernel发展的最新动态<br>关注功能模块的演进过程<br>我们在学习、分析Linux kernel时，总觉得很复杂，觉得能写出这些代码的人有多么了不起。其实，罗马也是一块一块砖盖起来的，kernel的发展也是渐进的、一点一点积累的。这可以从每天上百封的邮件交流中体会到。因此技术的积累和进步，要有耐心，要有一定的环境，而不是喊三五年口号就出来的。希望和路过的蜗牛们共勉！<br>熟悉参与kernel开发的基本流程，以便日后能够提交patch<br>学习国外软件开发的方法和态度<br>这一点可以从每一封信（讨论、patch的review意见、提议等等）中看到</p><ol start="4"><li>有没有什么坏处？<br>绝对有！如果你不想你的邮箱被撑爆的话，一定要忍住，不要订阅！因为邮件太多了！</li></ol><p>如果你真的想清楚了，决定需要，那就继续吧。</p><ol start="5"><li>怎么订阅<br>下面网址为LKML的主要列表：</li></ol><p><a href="http://vger.kernel.org/vger-lists.html" target="_blank" rel="noopener">http://vger.kernel.org/vger-lists.html</a></p><p>它有很多分类，如alsa、PM、PWM、USB、GIT等等，大家可以选择感兴趣的订阅。点击指定分类的超链接（这里以linux-pm为例），会看到如下的表格：</p><p>List: linux-pm;     ( subscribe / unsubscribe )</p><p>Info:</p><p>This is the mailing list for Linux Power Management development. </p><p>Archives:<br><a href="http://marc.info/?l=linux-pm" target="_blank" rel="noopener">http://marc.info/?l=linux-pm</a><br><a href="http://dir.gmane.org/gmane.linux.power-management.general" target="_blank" rel="noopener">http://dir.gmane.org/gmane.linux.power-management.general</a> </p><p>Footer:</p><hr><p>To unsubscribe from this list: send the line “unsubscribe linux-pm” in<br>the body of a message to <a href="mailto:majordomo@vger.kernel.org" target="_blank" rel="noopener">majordomo@vger.kernel.org</a><br>More majordomo info at  <a href="http://vger.kernel.org/majordomo-info.html" target="_blank" rel="noopener">http://vger.kernel.org/majordomo-info.html</a> </p><p>该表格有4个字段：</p><p>List为邮件列表分类的名字，这里为“linux-pm”；</p><p>Info描述了该邮件列表的内容，这里主要是Linux电源管理相关的；</p><p>Archives为该分类所有邮件列表的归档，记录了该主题有关的所有的交流过程；</p><p>注1：有了这个归档链接，其实可以不用订阅的，实时的去看一下就行了。另外，这些邮件列表的归档，对我们理解某个模块的设计理念是非常有帮助的，因为代码只是最终结论的展示，而为什么要这样设计，可以在邮件列表中的讨论中看到。</p><p>Footer是一个提示，告诉大家怎么退订（如果你后悔的话，想相信会的，哈哈！）。</p><p>订阅的方法很简单：</p><p>1）发送订阅邮件，格式如下</p><p>收件人：<a href="mailto:majordomo@vger.kernel.org" target="_blank" rel="noopener">majordomo@vger.kernel.org</a></p><p>标题：可以为空。</p><p>邮件正文：subscribe linux-pm <a href="mailto:xxx@xxx.com" target="_blank" rel="noopener">xxx@xxx.com</a></p><p>注2：subscribe为订阅关键字，linux-pm为分类名称，后面为需要订阅的邮箱地址。</p><p>2）发送后，订阅邮箱会收到一封邮件，要求你回复一个鉴权字符串。回复即可，格式如下（红色为鉴权字符串，要替换为自己收到的，另外注意自己的邮箱地址要正确）：</p><p>auth 25415058 subscribe linux-pm <a href="mailto:xxx@xxx.com" target="_blank" rel="noopener">xxx@xxx.com</a></p><p>3）回复后，会收到欢迎邮件，订阅成功</p><p>注2：订阅邮箱尽量使用正常邮箱，比如工作邮箱。有些邮箱，如qq邮箱，可能会订阅失败。另外，一旦订阅成功，一定要及时查看、清理，否则会把邮箱撑爆。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;strong&gt;转载：&lt;/strong&gt;&lt;a href=&quot;https://baijiahao.baidu.com/s?id=1628002282052315996&amp;amp;wfr=spider&amp;amp;for=pc&quot; target=&quot;_blank&quot; rel=&quot;noopene
+        &lt;p&gt;&lt;strong&gt;转载：&lt;/strong&gt;&lt;a href=&quot;http://www.wowotech.net/linux_application/lkml.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;新技能get: 订阅Linux内核邮件列表&lt;/a
       
     
     </summary>
     
     
-      <category term="市场" scheme="http://yoursite.com/tags/%E5%B8%82%E5%9C%BA/"/>
+      <category term="Kernel" scheme="http://yoursite.com/tags/Kernel/"/>
     
   </entry>
   
@@ -400,100 +494,6 @@
     
     
       <category term="区块链" scheme="http://yoursite.com/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>什么是分布式文件系统？</title>
-    <link href="http://yoursite.com/%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%EF%BC%9F/"/>
-    <id>http://yoursite.com/什么是分布式文件系统？/</id>
-    <published>2019-02-17T08:15:33.000Z</published>
-    <updated>2019-02-22T08:17:22.465Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="维基百科上给出的定义"><a href="#维基百科上给出的定义" class="headerlink" title="维基百科上给出的定义"></a>维基百科上给出的定义</h1><p>相对于本机端的文件系统而言，分布式文件系统（英语：Distributed file system, DFS），或是网络文件系统（英语：Network File System），是一种允许文件透过网络在多台主机上分享的文件系统，可让多机器上的多用户分享文件和存储空间。<br>在这样的文件系统中，客户端并非直接访问底层的数据存储区块，而是透过网络，以特定的通信协议和服务器沟通。借由通信协议的设计，可以让客户端和服务端都能根据访问控制清单或是授权，来限制对于文件系统的访问。<br>相对地，在一个分享的磁盘文件系统中，所有节点对数据存储区块都有相同的访问权，在这样的系统中，访问权限就必须由客户端程序来控制。<br>分布式文件系统可能包含的功能有：透通的数据复制与容错。也就是说，即使系统中有一小部分的节点脱机，整体来说系统仍然可以持续运作而不会有数据损失。<br>分布式文件系统和分布式数据存储的界线是模糊的，但一般来说，分布式文件系统是被设计用在局域网[1]，比较强调的是传统文件系统概念的延伸，并透过软件方法来达成容错。而分布式数据存储，则是泛指应用分布式运算技术的文件和数据库等提供数据存储服务的系统。</p><h2 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h2><p>一个普遍用来量测网络文件系统性能的方式是：它需要用多少时间来完成服务请求？在传统的系统中，完成请求所需要的时间包括了实际的硬盘访问时间，和一小部分的中央处理器处理时间。但在一个网络文件系统中，由于分布式架构的关系，远程访问动作会产生额外的经常性负担，包括：把请求从客户端送到服务端的时间、把回应从服务端传回客户端的时间、以及这两个传输过程中用来运行网络传输协议的中央处理处时间。一个网络文件系统的性能，可被视为是评估它透通性的一个维度，拿来与本地磁盘进行充分的对比。</p><h2 id="CAP定理"><a href="#CAP定理" class="headerlink" title="CAP定理"></a>CAP定理</h2><p>著名的CAP定理指出：在一个分布式数据存储架构中，数据的一致性（Consistency）、可用性（Availability）、和网络分隔的容忍程度（Partition tolerance）只能取二来做最优化，无法三者兼具。当代的分布式数据存储服务均是各自针对服务的内容和性质来作取舍，很难说有哪一个是通用的最佳解。</p><h1 id="发展路线"><a href="#发展路线" class="headerlink" title="发展路线"></a>发展路线</h1><p>传统纸笔——&gt;磁盘磁带光盘——&gt;单机时代——&gt;独立文件服务器——&gt;存储服务器/设备——&gt;分布式文件系统——&gt;未来量子通信</p><h1 id="目前主流的分布式文件系统介绍"><a href="#目前主流的分布式文件系统介绍" class="headerlink" title="目前主流的分布式文件系统介绍"></a>目前主流的分布式文件系统介绍</h1><p>常见的分布式文件系统有，GFS、HDFS、Lustre 、Ceph 、GridFS 、mogileFS、TFS、FastDFS等。各自适用于不同的领域。它们都不是系统级的分布式文件系统，而是应用级的分布式文件存储服务。</p><h2 id="GFS（Google-File-System）"><a href="#GFS（Google-File-System）" class="headerlink" title="GFS（Google File System）"></a>GFS（Google File System）</h2><p>Google公司为了满足本公司需求而开发的基于Linux的专有分布式文件系统。。尽管Google公布了该系统的一些技术细节，但Google并没有将该系统的软件部分作为开源软件发布。<br>下面分布式文件系统都是类 GFS的产品。</p><h2 id="HDFS"><a href="#HDFS" class="headerlink" title="HDFS"></a>HDFS</h2><p>Hadoop 实现了一个分布式文件系统（Hadoop Distributed File System），简称HDFS。 Hadoop是Apache Lucene创始人Doug Cutting开发的使用广泛的文本搜索库。它起源于Apache Nutch，后者是一个开源的网络搜索引擎，本身也是Luene项目的一部分。Aapche Hadoop架构是MapReduce算法的一种开源应用，是Google开创其帝国的重要基石。</p><h2 id="Ceph"><a href="#Ceph" class="headerlink" title="Ceph"></a>Ceph</h2><p>是加州大学圣克鲁兹分校的Sage weil攻读博士时开发的分布式文件系统。并使用Ceph完成了他的论文。<br>说 ceph 性能最高，C++编写的代码，支持Fuse，并且没有单点故障依赖， 于是下载安装， 由于 ceph 使用 btrfs 文件系统， 而btrfs 文件系统需要 Linux 2.6.34 以上的内核才支持。<br>可是ceph太不成熟了，它基于的btrfs本身就不成熟，它的官方网站上也明确指出不要把ceph用在生产环境中。</p><h2 id="Lustre"><a href="#Lustre" class="headerlink" title="Lustre"></a>Lustre</h2><p>Lustre是一个大规模的、安全可靠的，具备高可用性的集群文件系统，它是由SUN公司开发和维护的。<br>该项目主要的目的就是开发下一代的集群文件系统，可以支持超过10000个节点，数以PB的数据量存储系统。<br>目前Lustre已经运用在一些领域，例如HP SFS产品等。</p><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul><li><a href="https://zh.wikipedia.org/wiki/%E5%88%86%E6%95%A3%E5%BC%8F%E6%AA%94%E6%A1%88%E7%B3%BB%E7%B5%B1" target="_blank" rel="noopener">分布式文件系统</a></li><li><a href="http://ask.zol.com.cn/x/4673524.html" target="_blank" rel="noopener">当前主流分布式文件系统有哪些?各有什么优缺点</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;维基百科上给出的定义&quot;&gt;&lt;a href=&quot;#维基百科上给出的定义&quot; class=&quot;headerlink&quot; title=&quot;维基百科上给出的定义&quot;&gt;&lt;/a&gt;维基百科上给出的定义&lt;/h1&gt;&lt;p&gt;相对于本机端的文件系统而言，分布式文件系统（英语：Distributed f
-      
-    
-    </summary>
-    
-    
-      <category term="分布式" scheme="http://yoursite.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux内核是什么？</title>
-    <link href="http://yoursite.com/Linux%E5%86%85%E6%A0%B8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/"/>
-    <id>http://yoursite.com/Linux内核是什么？/</id>
-    <published>2019-02-10T12:03:33.000Z</published>
-    <updated>2019-02-11T03:11:32.526Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Linux内核定义"><a href="#Linux内核定义" class="headerlink" title="Linux内核定义"></a>Linux内核定义</h1><p><img src="/assets/blogImg/微信图片_20190210200636.png" alt=""></p><h2 id="底层驱动"><a href="#底层驱动" class="headerlink" title="底层驱动"></a>底层驱动</h2><p>Linux内核[kernel]是整个操作系统的最底层，它负责整个硬件的驱动，以及提供各种系统所需的核心功能，包括防火墙机制、是否支持LVM或Quota等文件系统等等，如果内核不认识某个最新的硬件，那么硬件也就无法被驱动，你也就无法使用该硬件。</p><h2 id="芯片控制"><a href="#芯片控制" class="headerlink" title="芯片控制"></a>芯片控制</h2><p>计算机真正工作的东西其实是硬件，例如数值运算要使用到CPU、数据储存要使用到硬盘、图形显示会用到显示适配器、音乐发声要有音效芯片、连接Internet 可能需要网络卡等等。内核就是控制这些芯片如何工作。</p><h1 id="Linux操作系统的三层模型"><a href="#Linux操作系统的三层模型" class="headerlink" title="Linux操作系统的三层模型"></a>Linux操作系统的三层模型</h1><ul><li>最底层的硬件系统，包括CPU、内存、硬盘、网卡等；</li><li>硬件系统之上是内核，这是操作系统的核心，负责管理硬件系统，同时为上层的应用程序提供操作接口；</li><li>用户进程在这表示计算机中运行的所有程序，它们运行于用户空间，由内核统一管理； </li></ul><p><img src="/assets/blogImg/微信图片_20190210200802.png" alt=""></p><h1 id="Linux内核主的五个子系统"><a href="#Linux内核主的五个子系统" class="headerlink" title="Linux内核主的五个子系统"></a>Linux内核主的五个子系统</h1><ul><li>进程调度</li><li>内存管理</li><li>虚拟文件系统</li><li>网络接口</li><li>进程间通信</li></ul><p><img src="/assets/blogImg/微信图片_20190210201005.png" alt=""></p><p>进程调度位于中心位置，所有子系统都依赖于它，因为每个子系统都需要挂起和恢复进程。<br>一般情况下，当一个进程等待硬件操作完成时，它就被挂起；当操作完成时，进程就被恢复执行<br>例如：<br>当一个进程通过网络发送一条消息时，网络接口需要挂起发送进程，直到硬件成功地完成消息的发送，当消息被成功地发送出去后，网络接口给进程返回一个代码，表示操作成功或失败。其它子系统都是与此相似地依赖进程调度</p><h1 id="Linux组成"><a href="#Linux组成" class="headerlink" title="Linux组成"></a>Linux组成</h1><h2 id="kernel的功能"><a href="#kernel的功能" class="headerlink" title="kernel的功能"></a>kernel的功能</h2><ol><li>kernel提供的功能都通过系统调用给用户接口</li><li>kernel包括：进程管理 、内存管理 、网络管理 、驱动程序、安全管理 、文件系统<br><img src="/assets/blogImg/微信图片_20190210201548.png" alt=""></li></ol><h2 id="库"><a href="#库" class="headerlink" title="库"></a>库</h2><p>函数功能模块集合，调用接口是二进制程序，要想运行，必须别其他程序调用，即其他程序面向硬件的一个中间层，有两种情形</p><ol><li>过程调用（procedure）无返回值</li><li>函数调用（function ）：有返回值</li></ol><h2 id="rootfs"><a href="#rootfs" class="headerlink" title="rootfs"></a>rootfs</h2><p>linux一切皆文件，除了一级文件外，其他文件需要挂载至根文件系统</p><h2 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h2><h3 id="开机过程"><a href="#开机过程" class="headerlink" title="开机过程"></a>开机过程</h3><p>开机 –&gt;内核运行 –&gt; 内核加载根文件系统 –&gt;运行根文件系统上的第一个应用程序init</p><p>init：它是负责后面的总的应用程序的启动回收等，启动可能需要向内核申请，这一切都在用户空间运行，如果init程序终止了，则用户空间的所有程序终止</p><h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>让程序按照我们需要的方式一直运行下去</p><h1 id="Linux内核特点"><a href="#Linux内核特点" class="headerlink" title="Linux内核特点"></a>Linux内核特点</h1><p>结合了unix操作系统的一些基础概念</p><h2 id="支持模块化"><a href="#支持模块化" class="headerlink" title="支持模块化"></a>支持模块化</h2><ul><li><p>linux内核会将其各部分功能模块化，这使得在安装linux内核时，可以仅保持最基本的内核和功能，不过内核中模块数量会变多。linux内核中的.ko（kernel object）文件就是可以被内核调用的内核模块。</p></li><li><p>做以下假设：驱动是内核提供的，编译好一个内核之后，在装在主机上，在未来添加新的硬件设备没有新的驱动的话。是重新编译一次内核？这种设计是一件反人类的设计啊，因此引入了模块设计。</p></li><li><p>模块化设计得以避免这种情况，故各大厂商可以通过模块化的形式开发自己的驱动，只需针对某一特定设备开发自己驱动程序即可，在编译驱动模块。由于linux支持动态装载和卸载模块，因此当我需要和不需要某一功能时，可自行拆卸，此操作并不影响核心的正常运行。</p></li></ul><h1 id="Linux内核的任务"><a href="#Linux内核的任务" class="headerlink" title="Linux内核的任务"></a>Linux内核的任务</h1><ol><li>从技术层面讲，内核是硬件与软件之间的一个中间层。作用是将应用层序的请求传递给硬件，并充当底层驱动程序，对系统中的各种设备和组件进行寻址。</li><li>从应用程序的层面讲，应用程序与硬件没有联系，只与内核有联系，内核是应用程序知道的层次中的最底层。在实际工作中内核抽象了相关细节。</li><li>内核是一个资源管理程序。负责将可用的共享资源(CPU时间、磁盘空间、网络连接等)分配得到各个系统进程。</li><li>内核就像一个库，提供了一组面向系统的命令。系统调用对于应用程序来说，就像调用普通函数一样。</li></ol><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul><li><a href="https://blog.csdn.net/TommyMusk/article/details/80714364" target="_blank" rel="noopener">Linux内核简介</a></li><li><a href="https://www.cnblogs.com/zangfans/p/8646013.html" target="_blank" rel="noopener">linux内核管理</a></li><li>《深入理解linux内核》</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Linux内核定义&quot;&gt;&lt;a href=&quot;#Linux内核定义&quot; class=&quot;headerlink&quot; title=&quot;Linux内核定义&quot;&gt;&lt;/a&gt;Linux内核定义&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/assets/blogImg/微信图片_20190210200
-      
-    
-    </summary>
-    
-    
-      <category term="Kernel" scheme="http://yoursite.com/tags/Kernel/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Rust语言的优势</title>
-    <link href="http://yoursite.com/Rust%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BC%98%E5%8A%BF/"/>
-    <id>http://yoursite.com/Rust语言的优势/</id>
-    <published>2019-02-01T14:23:38.000Z</published>
-    <updated>2019-02-01T14:51:37.354Z</updated>
-    
-    <content type="html"><![CDATA[<p>一门编程语言的开发追求的是快速、安全性、易于编写三个方面，但大多数的编程语言的现状只满足两个方面，安全性和简单的编程语言往往编译速度很慢，比如Python;编译快又满足安全性的却又很难学，比方说C与C++。那么有没有一门语言同时满足快速、安全、简单三个方面呢?</p><p>由Graydon Hoare开发、Mozilla Research赞助的Rust语言一直在致力于快速、安全、简单三方面的追求，虽然谷歌的Go语言近些月以来都被炒得很热，但Rust语言可以说也是新晋黑马的一员，Rust语言为何能与Go相媲美?它的优势在哪里?</p><h1 id="满足更高的速度需求"><a href="#满足更高的速度需求" class="headerlink" title="满足更高的速度需求"></a>满足更高的速度需求</h1><p>Rust代码可跨多个平台编译成本机代码，且二进制文件是自包含的，无需运行。生成的代码意味要执行与C或者C++编写的类似的代码。</p><h1 id="更加注重安全性"><a href="#更加注重安全性" class="headerlink" title="更加注重安全性"></a>更加注重安全性</h1><p>大多数内存错误都是在程序运行时才被发现，其他语言中常见的内存问题——空指针、野指针以及数据竞争等绝不会在Rust中产生。Rust编译器会将这些问题标记出来，在程序运行之前进行修复。</p><h1 id="无需内存管理"><a href="#无需内存管理" class="headerlink" title="无需内存管理"></a>无需内存管理</h1><p>Rust的记忆管理系统在语言语法中通过一个叫做所有权的隐喻进行了阐述语言中的任何给定值都可以被控制或者操纵，且一次只能由一个变量来控制。对象之间传输所有权受到编译器的严格控制，所以在运行时没有内存分配形式的错误。所有权也意味着Rust没有像GO或C#这样的垃圾回收的内存管理。 Rust程序中的所有内存都通过所有权自动跟踪和释放。</p><h1 id="使用简单"><a href="#使用简单" class="headerlink" title="使用简单"></a>使用简单</h1><p>Rust相对于C入门简单，这也是Rust受欢迎的重要原因之一。所有在Rust中生成的二进制文件都会放在一个包里;像GCC那样的外部编译器只有在编译Rust原生系统之外的其他组件(比如从源代码中编译C库)时才需要。Rust同样适用于Linux、MacOS以及Windows。</p><h1 id="其他优势"><a href="#其他优势" class="headerlink" title="其他优势"></a>其他优势</h1><ul><li>支持多架构、多平台</li></ul><p>　　支持三种操作系统，支持交叉编译以及跨架构、平台二进制文件的产生。</p><ul><li><p>强大的语言功能<br>　　Rust拥有 “宏”，泛型，模式匹配等，功能毫不逊色于C++。</p></li><li><p>标准库<br>　　拥有像C和C++的标准库，可使用容器、集合、迭代器等工具，执行字符串操作，管理进程和线程等。</p></li><li><p>IDE工具<br>Visual Studio等工具</p></li></ul><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul><li><a href="https://blog.csdn.net/liigo/article/details/45757123" target="_blank" rel="noopener">为什么我说Rust是靠谱的编程语言</a></li><li><a href="https://www.rust-lang.org" target="_blank" rel="noopener">Rust官网</a>    </li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;一门编程语言的开发追求的是快速、安全性、易于编写三个方面，但大多数的编程语言的现状只满足两个方面，安全性和简单的编程语言往往编译速度很慢，比如Python;编译快又满足安全性的却又很难学，比方说C与C++。那么有没有一门语言同时满足快速、安全、简单三个方面呢?&lt;/p&gt;
-&lt;p
-      
-    
-    </summary>
-    
-    
-      <category term="Rust" scheme="http://yoursite.com/tags/Rust/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker与虚拟机、物理机的区别？</title>
-    <link href="http://yoursite.com/Docker%E4%B8%8E%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%81%E7%89%A9%E7%90%86%E6%9C%BA%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/"/>
-    <id>http://yoursite.com/Docker与虚拟机、物理机的区别？/</id>
-    <published>2019-01-31T15:22:44.000Z</published>
-    <updated>2019-01-31T15:34:49.597Z</updated>
-    
-    <content type="html"><![CDATA[<p>初次接触Docker时，感觉它就像一种轻量级的虚拟机。Docker最初的成功秘诀是因为它比虚拟机更节省内存，启动更快。然而事实并非如此，Docker并非虚拟机，那么什么是Docker呢？它和虚拟机、物理机又有什么区别呢？</p><h1 id="极简类比"><a href="#极简类比" class="headerlink" title="极简类比"></a>极简类比</h1><h2 id="一、物理机是这样的"><a href="#一、物理机是这样的" class="headerlink" title="一、物理机是这样的"></a>一、物理机是这样的</h2><p>  <img src="/assets/blogImg/微信图片_20190131232444.png" alt=""></p><h2 id="二、虚拟机是这样的"><a href="#二、虚拟机是这样的" class="headerlink" title="二、虚拟机是这样的"></a>二、虚拟机是这样的</h2><p>  <img src="/assets/blogImg/微信图片_20190131232509.png" alt=""></p><h2 id="三、容器是这样的"><a href="#三、容器是这样的" class="headerlink" title="三、容器是这样的"></a>三、容器是这样的</h2><p>  <img src="/assets/blogImg/微信图片_20190131232529.png" alt=""></p><h1 id="什么是Docker"><a href="#什么是Docker" class="headerlink" title="什么是Docker?"></a>什么是Docker?</h1><p>Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。 </p><h2 id="集装箱比方"><a href="#集装箱比方" class="headerlink" title="集装箱比方"></a>集装箱比方</h2><p>集装箱解决了什么问题呢？在一艘大船上，可以把货物规整的摆放起来。并且各种各样的货物被集装箱标准化了，集装箱和集装箱之间不会互相影响。那么我就不需要专门运送水果的船和专门运送化学品的船了。只要这些货物在集装箱里封装的好好的，那我就可以用一艘大船把他们都运走。<br>docker也是类似的理念。我们可以在一台机器上跑多个互相毫无关联的docker容器，每一个容器就相当于一个集装箱。</p><h2 id="Docker的应用场景"><a href="#Docker的应用场景" class="headerlink" title="Docker的应用场景"></a>Docker的应用场景</h2><ul><li>web应用的自动化打包和发布；</li><li>自动化测试和持续集成、发布；</li><li>在服务型环境中部署和调整数据库或其他的后台应用；</li><li>从头编译或者扩展现有的OpenShift或Cloud Foundry平台来搭建自己的PaaS环境。</li></ul><h2 id="Docker里的几个基本概念"><a href="#Docker里的几个基本概念" class="headerlink" title="Docker里的几个基本概念"></a>Docker里的几个基本概念</h2><h3 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h3><p>镜像可以理解为一堆静态的文件</p><h3 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h3><p>容器则是镜像run起来之后的一个实例。镜像之于容器就好比面向对象编程里的class之于object。</p><h3 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h3><p>镜像需要地方保存，这个地方就是仓库<br>上层建立不同的容器，不同的应用镜像打包在不同的容器中，他们互相隔离。</p><h3 id="理解Docker容器"><a href="#理解Docker容器" class="headerlink" title="理解Docker容器"></a>理解Docker容器</h3><p>使用Docker容器运行多个相互隔离的应用时，如下图:</p><p><img src="/assets/blogImg/微信图片_20190131232714.png" alt=""></p><p>不难发现，相比于虚拟机，Docker要简洁很多。因为我们不需要运行一个臃肿的从操作系统了。<br>从下到上理解上图:</p><ul><li>基础设施(Infrastructure)。</li><li>主操作系统(Host Operating System)。所有主流的Linux发行版都可以运行Docker。对于MacOS和Windows，也有一些办法”运行”Docker。</li><li>Docker守护进程(Docker Daemon)。Docker守护进程取代了Hypervisor，它是运行在操作系统之上的后台进程，负责管理Docker容器。</li><li>各种依赖。对于Docker，应用的所有依赖都打包在Docker镜像中，Docker容器是基于Docker镜像创建的。</li><li>应用。应用的源代码与它的依赖都打包在Docker镜像中，不同的应用需要不同的Docker镜像。不同的应用运行在不同的Docker容器中，它们是相互隔离的。</li></ul><h1 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h1><p>使用虚拟机运行多个相互隔离的应用时，如下图:<br>   <img src="/assets/blogImg/微信图片_20190131232908.png" alt=""></p><p>从下到上理解上图:</p><ul><li>基础设施(Infrastructure)。它可以是你的个人电脑，数据中心的服务器，或者是云主机。</li><li>主操作系统(Host Operating System)。你的个人电脑之上，运行的可能是MacOS，Windows或者某个Linux发行版。</li><li>虚拟机管理系统(Hypervisor)。利用Hypervisor，可以在主操作系统之上运行多个不同的从操作系统。类型1的Hypervisor有支持MacOS的HyperKit，支持Windows的Hyper-V以及支持Linux的KVM。类型2的Hypervisor有VirtualBox和VMWare。</li><li>从操作系统(Guest Operating System)。假设你需要运行3个相互隔离的应用，则需要使用Hypervisor启动3个从操作系统，也就是3个虚拟机。这些虚拟机都非常大，也许有700MB，这就意味着它们将占用2.1GB的磁盘空间。更糟糕的是，它们还会消耗很多CPU和内存。</li><li>各种依赖。每一个从操作系统都需要安装许多依赖。如果你的的应用需要连接PostgreSQL的话，则需要安装libpq-dev；如果你使用Ruby的话，应该需要安装gems；如果使用其他编程语言，比如Python或者Node.js，都会需要安装对应的依赖库。</li><li>应用。安装依赖之后，就可以在各个从操作系统分别运行应用了，这样各个应用就是相互隔离的。</li></ul><h1 id="对比虚拟机与Docker"><a href="#对比虚拟机与Docker" class="headerlink" title="对比虚拟机与Docker"></a>对比虚拟机与Docker</h1><p>docker设计小巧，部署迁移快速，运行高效，应用之间相互独立，管理人员可以看到所有容器的内容，虚拟化技术比较臃肿，不论什么应用都需要先创建新的系统，并且并非按照应用隔离，而是按照系统隔离，管理员无法看到系统内部信息。</p><p>Docker守护进程可以直接与主操作系统进行通信，为各个Docker容器分配资源；它还可以将容器与主操作系统隔离，并将各个容器互相隔离。虚拟机启动需要数分钟，而Docker容器可以在数毫秒内启动。由于没有臃肿的从操作系统，Docker可以节省大量的磁盘空间以及其他系统资源。</p><h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p>虚拟机更擅长于彻底隔离整个运行环境。例如，云服务提供商通常采用虚拟机技术隔离不同的用户。而Docker通常用于隔离不同的应用，例如前端，后端以及数据库。</p><h2 id="APP与某信"><a href="#APP与某信" class="headerlink" title="APP与某信"></a>APP与某信</h2><p>举个例子，Docker就是手机中的各种APP，只需要一个系统就可以下载自己所需的应用，但是虚拟化技术相当于你的苹果手机安装一个庞大软件，这个软件上安装安卓系统、魅族系统等，每个系统上还要安装各类应用，比较麻烦。</p><p>但两者没有绝对的好坏，主要还是看应用场景，根据不同的需求选择不同的解决方案即可。</p><h2 id="具体对比"><a href="#具体对比" class="headerlink" title="具体对比"></a>具体对比</h2><ol><li>docker启动快速属于秒级别，虚拟机通常需要几分钟去启动。</li><li>docker需要的资源更少，docker在操作系统级别进行虚拟化，docker容器和内核交互，几乎没有性能损耗，性能优于通过Hypervisor层与内核层的虚拟化。</li><li>docker更轻量，docker的架构可以共用一个内核与共享应用程序库，所占内存极小。同样的硬件环境，Docker运行的镜像数远多于虚拟机数量。对系统的利用率非常高</li><li>与虚拟机相比，docker隔离性更弱，docker属于进程之间的隔离，虚拟机可实现系统级别隔离；</li><li>安全性： docker的安全性也更弱。Docker的租户root和宿主机root等同，一旦容器内的用户从普通用户权限提升为root权限，它就直接具备了宿主机的root权限，进而可进行无限制的操作。虚拟机租户root权限和宿主机的root虚拟机权限是分离的，并且虚拟机利用如Intel的VT-d和VT-x的ring-1硬件隔离技术，这种隔离技术可以防止虚拟机突破和彼此交互，而容器至今还没有任何形式的硬件隔离，这使得容器容易受到攻击。</li><li>可管理性：docker的集中化管理工具还不算成熟。各种虚拟化技术都有成熟的管理工具，例如VMware vCenter提供完备的虚拟机管理能力。</li><li>高可用和可恢复性：docker对业务的高可用支持是通过快速重新部署实现的。虚拟化具备负载均衡，高可用，容错，迁移和数据保护等经过生产实践检验的成熟保障机制，VMware可承诺虚拟机99.999%高可用，保证业务连续性。</li><li>快速创建、删除：虚拟化创建是分钟级别的，Docker容器创建是秒级别的，Docker的快速迭代性，决定了无论是开发、测试、部署都可以节约大量时间。</li><li>交付、部署：虚拟机可以通过镜像实现环境交付的一致性，但镜像分发无法体系化；Docker在Dockerfile中记录了容器构建过程，可在集群中实现快速分发和快速部署</li></ol><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul><li><a href="http://www.docker.org.cn/book/docker/what-is-docker-16.html" target="_blank" rel="noopener">docker中文社区</a></li><li><a href="https://diveintodocker.com/blog/comparing-virtual-machines-vs-docker-containers" target="_blank" rel="noopener">comparing-virtual-machines-vs-docker-containers</a></li><li><a href="https://www.zhihu.com/question/48174633" target="_blank" rel="noopener">docker容器与虚拟机有什么区别？</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;初次接触Docker时，感觉它就像一种轻量级的虚拟机。Docker最初的成功秘诀是因为它比虚拟机更节省内存，启动更快。然而事实并非如此，Docker并非虚拟机，那么什么是Docker呢？它和虚拟机、物理机又有什么区别呢？&lt;/p&gt;
-&lt;h1 id=&quot;极简类比&quot;&gt;&lt;a href=
-      
-    
-    </summary>
-    
-    
-      <category term="云计算" scheme="http://yoursite.com/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/"/>
     
   </entry>
   

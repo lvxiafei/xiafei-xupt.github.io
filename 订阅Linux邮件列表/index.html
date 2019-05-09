@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>订阅Linux内核邮件列表 | xiafei-xupt's blog</title><link rel="stylesheet" type="text/css" href="//fonts.css.network/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.1"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.1"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">订阅Linux内核邮件列表</h1><a id="logo" href="/.">xiafei-xupt's blog</a><p class="description">汝之意志所向,即吾剑之所指</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> Home</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="Arama"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">订阅Linux内核邮件列表</h1><div class="post-meta"><a href="/订阅Linux邮件列表/#comments" class="comment-count"></a><p><span class="date">Apr 01, 2019</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>Hits</i></i></span></p></div><div class="post-content"><p><strong>转载：</strong><a href="http://www.wowotech.net/linux_application/lkml.html" target="_blank" rel="noopener">新技能get: 订阅Linux内核邮件列表</a>  作者：wowo </p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文给小伙伴们分享一下怎么订阅Linux内核邮件列表（Linux kernel mailing list，LKML）。</p>
+<h1 id="LKML用来做什么的"><a href="#LKML用来做什么的" class="headerlink" title="LKML用来做什么的"></a>LKML用来做什么的</h1><p>先贴一段来自维基百科的定义：</p>
+<pre><code>The Linux kernel mailing list (LKML) is the main electronic mailing list for Linux kernel development,[1][2] where the majority of the announcements, discussions, debates, and flame wars over the kernel take place.[3]
+</code></pre><p>大家知道，Linux kernel是由分布在世界各地的大牛们共同开发、维护的，这就需要一种交流工具，这种工具就是LKML。因而LKML主要有如下功能：</p>
+<ul>
+<li>patch的提交、审查</li>
+<li>patch、版本等发布公告</li>
+<li>技术讨论、辩论</li>
+<li>打口水仗</li>
+</ul>
+<h1 id="订阅LKML的好处"><a href="#订阅LKML的好处" class="headerlink" title="订阅LKML的好处"></a>订阅LKML的好处</h1><p>订阅LKML的好处包括：</p>
+<ul>
+<li>接近大牛（经常可以看到Linus同学的发言哦），享受大牛亲笔给自己发送邮件的快感</li>
+<li>了解kernel发展的最新动态</li>
+<li>关注功能模块的演进过程</li>
+<li>我们在学习、分析Linux kernel时，总觉得很复杂，觉得能写出这些代码的人有多么了不起。其实，罗马也是一块一块砖盖起来的，kernel的发展也是渐进的、一点一点积累的。这可以从每天上百封的邮件交流中体会到。因此技术的积累和进步，要有耐心，要有一定的环境，而不是喊三五年口号就出来的。希望和路过的蜗牛们共勉！</li>
+<li>熟悉参与kernel开发的基本流程，以便日后能够提交patch</li>
+<li>学习国外软件开发的方法和态度</li>
+<li>这一点可以从每一封信（讨论、patch的review意见、提议等等）中看到<h1 id="有没有什么坏处？"><a href="#有没有什么坏处？" class="headerlink" title="有没有什么坏处？"></a>有没有什么坏处？</h1>绝对有！如果你不想你的邮箱被撑爆的话，一定要忍住，不要订阅！因为邮件太多了！</li>
+</ul>
+<p>如果你真的想清楚了，决定需要，那就继续吧。</p>
+<h1 id="怎么订阅"><a href="#怎么订阅" class="headerlink" title="怎么订阅"></a>怎么订阅</h1><p>下面网址为LKML的主要列表：</p>
+<p><a href="http://vger.kernel.org/vger-lists.html" target="_blank" rel="noopener">http://vger.kernel.org/vger-lists.html</a></p>
+<p>它有很多分类，如alsa、PM、PWM、USB、GIT等等，大家可以选择感兴趣的订阅。点击指定分类的超链接（这里以linux-pm为例），会看到如下的表格：</p>
+<pre><code>List: linux-pm; ( subscribe / unsubscribe )
+
+Info:
+
+This is the mailing list for Linux Power Management development. 
+
+Archives: 
+http://marc.info/?l=linux-pm 
+http://dir.gmane.org/gmane.linux.power-management.general 
+
+Footer:
+
+--- 
+To unsubscribe from this list: send the line &quot;unsubscribe linux-pm&quot; in 
+the body of a message to majordomo@vger.kernel.org 
+More majordomo info at  http://vger.kernel.org/majordomo-info.html 
+</code></pre><p>该表格有4个字段：</p>
+<pre><code>List为邮件列表分类的名字，这里为“linux-pm”；
+
+Info描述了该邮件列表的内容，这里主要是Linux电源管理相关的；
+
+Archives为该分类所有邮件列表的归档，记录了该主题有关的所有的交流过程；
+
+注1：有了这个归档链接，其实可以不用订阅的，实时的去看一下就行了。另外，这些邮件列表的归档，对我们理解某个模块的设计理念是非常有帮助的，因为代码只是最终结论的展示，而为什么要这样设计，可以在邮件列表中的讨论中看到。
+
+Footer是一个提示，告诉大家怎么退订（如果你后悔的话，想相信会的，哈哈！）。
+</code></pre><p>订阅的方法很简单：</p>
+<p>1）发送订阅邮件，格式如下</p>
+<pre><code>收件人：majordomo@vger.kernel.org
+
+标题：可以为空。
+
+邮件正文：subscribe linux-pm xxx@xxx.com
+
+注2：subscribe为订阅关键字，linux-pm为分类名称，后面为需要订阅的邮箱地址。
+</code></pre><p>2）发送后，订阅邮箱会收到一封邮件，要求你回复一个鉴权字符串。回复即可，格式如下（红色为鉴权字符串，要替换为自己收到的，另外注意自己的邮箱地址要正确）：</p>
+<pre><code>auth 25415058 subscribe linux-pm xxx@xxx.com
+</code></pre><p>3）回复后，会收到欢迎邮件，订阅成功</p>
+<p><strong>注2：</strong>订阅邮箱尽量使用正常邮箱，比如工作邮箱。有些邮箱，如qq邮箱，可能会订阅失败。另外，一旦订阅成功，一定要及时查看、清理，否则会把邮箱撑爆。</p>
+<p>原创文章，转发请注明出处。蜗窝科技，<a href="http://www.wowotech.net。" target="_blank" rel="noopener">www.wowotech.net。</a></p>
+</div><div class="tags"><a href="/tags/Kernel/">Kernel</a></div><div class="post-share"></div><div class="post-nav"><a href="/ARM内核和架构的关系/" class="pre">ARM核心和架构的关系</a><a href="/EndNote X9推荐/" class="next">EndNote X9推荐</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">Contents</i></div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LKML用来做什么的"><span class="toc-text">LKML用来做什么的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#订阅LKML的好处"><span class="toc-text">订阅LKML的好处</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#有没有什么坏处？"><span class="toc-text">有没有什么坏处？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#怎么订阅"><span class="toc-text">怎么订阅</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/恺撒密码代码简单实现加密解密/">恺撒密码代码简单实现加密解密</a></li><li class="post-list-item"><a class="post-list-link" href="/ARM内核和架构的关系/">ARM核心和架构的关系</a></li><li class="post-list-item"><a class="post-list-link" href="/订阅Linux邮件列表/">订阅Linux内核邮件列表</a></li><li class="post-list-item"><a class="post-list-link" href="/EndNote X9推荐/">EndNote X9推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/图片去水印教程/">图片去水印教程</a></li><li class="post-list-item"><a class="post-list-link" href="/《分布式文件系统IO拥塞控制研究》论文阅读/">《分布式文件系统I/O拥塞控制研究》论文阅读</a></li><li class="post-list-item"><a class="post-list-link" href="/华为多次承认有研发手机系统，为什么不推广？/">华为多次承认有研发手机系统，为什么不推广？</a></li><li class="post-list-item"><a class="post-list-link" href="/羽毛球攻略/">羽毛球攻略</a></li><li class="post-list-item"><a class="post-list-link" href="/文件系统理论学习/">文件系统理论学习</a></li><li class="post-list-item"><a class="post-list-link" href="/空循环引起的问题/">空循环引起的问题</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> Tags</i></div><div class="tagcloud"><a href="/tags/博客/" style="font-size: 15px;">博客</a> <a href="/tags/BlurAdmin/" style="font-size: 15px;">BlurAdmin</a> <a href="/tags/模板/" style="font-size: 15px;">模板</a> <a href="/tags/Kernel/" style="font-size: 15px;">Kernel</a> <a href="/tags/教程/" style="font-size: 15px;">教程</a> <a href="/tags/Docker/" style="font-size: 15px;">Docker</a> <a href="/tags/IPFS/" style="font-size: 15px;">IPFS</a> <a href="/tags/数据库/" style="font-size: 15px;">数据库</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/MariaDB/" style="font-size: 15px;">MariaDB</a> <a href="/tags/实习/" style="font-size: 15px;">实习</a> <a href="/tags/PostgreSQL/" style="font-size: 15px;">PostgreSQL</a> <a href="/tags/Go/" style="font-size: 15px;">Go</a> <a href="/tags/Rust/" style="font-size: 15px;">Rust</a> <a href="/tags/安全/" style="font-size: 15px;">安全</a> <a href="/tags/C/" style="font-size: 15px;">C</a> <a href="/tags/论文/" style="font-size: 15px;">论文</a> <a href="/tags/安排/" style="font-size: 15px;">安排</a> <a href="/tags/分布式/" style="font-size: 15px;">分布式</a> <a href="/tags/师者/" style="font-size: 15px;">师者</a> <a href="/tags/FAQ/" style="font-size: 15px;">FAQ</a> <a href="/tags/未来/" style="font-size: 15px;">未来</a> <a href="/tags/操作系统/" style="font-size: 15px;">操作系统</a> <a href="/tags/运动/" style="font-size: 15px;">运动</a> <a href="/tags/Electron/" style="font-size: 15px;">Electron</a> <a href="/tags/云计算/" style="font-size: 15px;">云计算</a> <a href="/tags/系统优化/" style="font-size: 15px;">系统优化</a> <a href="/tags/区块链/" style="font-size: 15px;">区块链</a> <a href="/tags/红线/" style="font-size: 15px;">红线</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> Archive</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> Blogroll</i></div><ul></ul><a href="http://www.dennishuang.cn/" title="从0开始的异世界" target="_blank">从0开始的异世界</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">Baidu Site Haritası</a> |  <a href="/atom.xml">RSS</a> |  <a href="/about/">About</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次</p><p><span> Copyright &copy;<a href="/." rel="nofollow">xiafei-xupt.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.1"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.1" async></script></body></html>
