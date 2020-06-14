@@ -1,0 +1,123 @@
+<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Netdata开源产品分析 | xiafei-xupt's blog</title><link rel="stylesheet" type="text/css" href="//fonts.css.network/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.1"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.1"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Netdata开源产品分析</h1><a id="logo" href="/.">xiafei-xupt's blog</a><p class="description">汝之意志所向,即吾剑之所指</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> Home</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="Arama"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">Netdata开源产品分析</h1><div class="post-meta"><a href="/Netdata开源产品分析/#comments" class="comment-count"></a><p><span class="date">Jun 15, 2020</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>Hits</i></i></span></p></div><div class="post-content"><p><img src="/assets/blogImg/80839230-b034a800-8baf-11ea-9cb2-99c1e10f0f85.gif" alt><br><a href="https://london.my-netdata.io/" target="_blank" rel="noopener">Live Demo Site（点我）</a></p>
+<h1 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h1><ul>
+<li>Netdata是针对系统和应用程序的分布式，实时性能和运行状况监视。它是您在所有系统和容器上安装的高度优化的监视代理。</li>
+<li>Netdata 使用高度互动的Web仪表板实时提供了无与伦比的洞察力，可实时了解运行在其上的系统（包括Web服务器，数据库，应用程序）上发生的一切。</li>
+<li>高效的数据库以1秒的粒度存储几天，几周或几个月的长期历史指标。自动运行此长期存储，或将Netdata与您现有的监视工具链（Prometheus，Graphite，OpenTSDB，Kafka，Grafana等）集成。</li>
+<li>Netdata是快速和有效的，旨在对所有的系统（永久运行物理和虚拟服务器， 集装箱，物联网设备），而不会破坏其核心功能。</li>
+<li>Netdata是免费的开源软件，目前可在Linux，FreeBSD和macOS以及从它们衍生的其他系统（例如Kubernetes和Docker）上运行。</li>
+<li>Netdata不是由CNCF托管的，而是Cloud Native Computing Foundation（CNCF）领域中排名第四的开源项目。</li>
+</ul>
+<p>/*
+该产品主要解决用户的什么问题；使用的用户是那些，有什么特征；该产品分为那几个部分；功能模块有那些，视觉表现上怎么样。<br>*/</p>
+<h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><ul>
+<li>优美的界面：bootstrap框架下的控制界面, 酷炫（主要是dark主题，light主题就没这感觉了）</li>
+<li>自定义的控制界面：你可以使用简单的HTML代码去自定义控制界面(不需要使用javascript)</li>
+<li>极其的快速而高效：程序使用C进行编写(默认安装下，预计只有2%的单核CPU使用率和少许的内存使用率)</li>
+<li>零配置：你只需要去安装它，接着它就会自动地监测一切数据</li>
+<li>零依赖：它的静态网络文件和网络接口拥有自己的网络服务器. netdata有自己的web server， 提供静态web文件和web API</li>
+<li>可扩展：用它自身的插件API(可以使用许多方式来制作它的插件，从bash到node.js),你可以检测任何可以衡量的数据。</li>
+<li>可嵌入：它可以在任何Linux内核可以运行的地方运行</li>
+<li>零维护：只管跑    </li>
+<li>匪夷所思的快。。。所有请求每个metreic都在0.5ms内响应，即便是一台烂机器</li>
+<li>非常高效，每秒采集数千个指标，但仅占cpu单核1%，少量MB的内存以及完全没有磁盘IO</li>
+<li>提供复杂的、各种类型的告警，支持动态阈值、告警模板、多种通知方式等</li>
+<li>支撑多种时间序列后端服务，比如graphite, opentsdb, prometheus, json document DBs</li>
+</ul>
+<p><strong>注：</strong>老版本的，仅供参考</p>
+<h2 id="监测内容"><a href="#监测内容" class="headerlink" title="监测内容"></a>监测内容</h2><p>下面是Netdata目前检测的内容（大多数都不需要进行配置，安装后即可开始监测）</p>
+<ol>
+<li>CPU的使用率,中断，软中断和频率(总量和每个单核)</li>
+<li>RAM，互换和内核内存的使用率（包括KSM和内核内存deduper）</li>
+<li>硬盘输入/输出(每个硬盘的带宽，操作，整理，利用等)</li>
+<li>IPv4网络（数据包，错误，分片）：<br>TCP：连接，数据包，错误，握手<br>UDP:数据包，错误<br>广播：带宽，数据包<br>组播：带宽，数据包</li>
+<li>Netfilter/iptables Linux防火墙(连接，连接跟踪事件，错误等)</li>
+<li>进程(运行，受阻，分叉，活动等)</li>
+<li>NFS文件服务器，v2,v3,v4(输入/输出，缓存，预读，RPC调用)</li>
+<li>网络服务质量（唯一一个可实时可视化网络状况的工具）</li>
+<li>应用程序，通过对进程树进行分组（CPU,内存，硬盘读取，硬盘写入，交换，线程，管道，套接字等）</li>
+<li>Apache Web服务器状态(v2.2, v2.4)</li>
+<li>Nginx Web服务器状态</li>
+<li>Mysql数据库（多台服务器，单个显示：带宽，查询/s, 处理者，锁，问题，临时操作，连接，二进制日志，线程，innodb引擎等）</li>
+<li>ISC Bind域名服务器（多个服务器，单个显示：客户，请求，查询，更新，失败等）</li>
+<li>Postfix邮件服务器的消息队列（条目，大小）</li>
+<li>Squid代理服务器（客户带宽和请求，服务带宽和请求）</li>
+<li>硬件传感器（温度，电压，风扇，电源，湿度等）</li>
+<li>NUT UPSes（负载，充电，电池电压，温度，使用指标，输出指标）</li>
+</ol>
+<p>可以监测任意数量的SNMP服务，不过你需要进行配置，还可以对此软件进行扩展，可以使用任何语言编写插件，以此来从任何来源收集数据</p>
+<p><strong>注：</strong>老版本的，仅供参考</p>
+<h2 id="参考效果"><a href="#参考效果" class="headerlink" title="参考效果"></a>参考效果</h2><p><img src="/assets/blogImg/907596-20170807172707487-897415577.gif" alt></p>
+<h2 id="秒级数据检测"><a href="#秒级数据检测" class="headerlink" title="秒级数据检测"></a>秒级数据检测</h2><p>支持粒度自定义，以单个进程CPU使用率为例：</p>
+<p><strong>进程CPU使用率（1s粒度）：</strong></p>
+<p><img src="/assets/blogImg/WeChatImage20200614210601.png" alt></p>
+<p><strong>进程CPU使用率（2s粒度）：</strong></p>
+<p><img src="/assets/blogImg/WeChatScreenshot_20200614210634.png" alt></p>
+<h1 id="架构分析"><a href="#架构分析" class="headerlink" title="架构分析"></a>架构分析</h1><p><img src="/assets/blogImg/60951037-8ba5d180-a2f8-11e9-906e-e27356f168bc.png" alt></p>
+<h2 id="Netdata-backend"><a href="#Netdata-backend" class="headerlink" title="Netdata backend"></a>Netdata backend</h2><p>支持数据库持久化存储<br><img src="/assets/blogImg/29f182ba-b4ce-11e6-97c8-ab2c0ab59833.png" alt></p>
+<ul>
+<li>Netdata可以将其指标以相同或更低的分辨率归档到Graphite，OpenTSDB，Prometheus，AWS Kinesis，MongoDB，JSON文档DB（较低：防止由于收集到的数据量而阻塞这些服务器） 。</li>
+<li>Netdata还支持Prometheus远程写入API，该API允许将指标存储到Elasticsearch，Gnocchi，InfluxDB，Kafka，PostgreSQL / TimescaleDB， Splunk，VictoriaMetrics以及许多其他存储提供商。</li>
+</ul>
+<h2 id="grafana-influxdb数据展示"><a href="#grafana-influxdb数据展示" class="headerlink" title="grafana + influxdb数据展示"></a>grafana + influxdb数据展示</h2><p><img src="/assets/blogImg/WeChatScreenshot_20200614221127.png" alt><br><strong>注：</strong>亲测阿里云服务器运行时数据</p>
+<h1 id="竞品分析"><a href="#竞品分析" class="headerlink" title="竞品分析"></a>竞品分析</h1><p><img src="/assets/blogImg/WeChatScreenshot_20200615000721.png" alt></p>
+<h1 id="SWOT分析"><a href="#SWOT分析" class="headerlink" title="SWOT分析"></a>SWOT分析</h1><h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><h3 id="多平台支持"><a href="#多平台支持" class="headerlink" title="多平台支持"></a>多平台支持</h3><p>目前可在Linux，FreeBSD和macOS以及从它们衍生的其他系统（例如Kubernetes和Docker）上运行。</p>
+<p><strong>扩：</strong>网上流传的<a href="https://apkpure.com/cn/netdata-app-server-monitoring-tool/com.kpots.netdata/versions" target="_blank" rel="noopener">netdata安卓客户端 </a>  （待测试）</p>
+<h3 id="实时"><a href="#实时" class="headerlink" title="实时"></a>实时</h3><p>Netdata可在<strong>3毫秒</strong>内将图表查询结果反馈给到网页上。在3毫秒内，Netdata完成了计算图表结果，生成json文本，压缩并发送到web浏览器这些操作。查看access.log可看到这些操作各花费了多少时间。</p>
+<h3 id="无需管理员身份运行"><a href="#无需管理员身份运行" class="headerlink" title="无需管理员身份运行"></a>无需管理员身份运行</h3><p>Netdata无需管理员身份。如果以管理员身份启动Netdata，它会切换到netdata使用者身份来运行。</p>
+<h3 id="高精度无限指标"><a href="#高精度无限指标" class="headerlink" title="高精度无限指标"></a>高精度无限指标</h3><p>1s粒度 -所有指标的最高（？）可能分辨率。<br>无限指标 -Netdata收集所有可用指标</p>
+<h3 id="低资源消耗"><a href="#低资源消耗" class="headerlink" title="低资源消耗"></a>低资源消耗</h3><p>单核的CPU利用率为1％ -令人难以置信的优化。<br>由系统管理员，DevOps工程师和开发人员设计的，不仅用于可视化指标，而且还可以解决复杂的性能问题。</p>
+<h2 id="劣势"><a href="#劣势" class="headerlink" title="劣势"></a>劣势</h2><ul>
+<li>实时可视化展示的目的是什么？是否有更近的路可走？</li>
+<li>…</li>
+</ul>
+<h2 id="机会"><a href="#机会" class="headerlink" title="机会"></a>机会</h2><ul>
+<li>机器学习</li>
+<li>ebpf事件触发<br>…</li>
+</ul>
+<h2 id="威胁"><a href="#威胁" class="headerlink" title="威胁"></a>威胁</h2><ul>
+<li>平台原生监控软件对比</li>
+<li>…</li>
+</ul>
+<h1 id="可参与性分析："><a href="#可参与性分析：" class="headerlink" title="可参与性分析："></a>可参与性分析：</h1><h2 id="性能方向："><a href="#性能方向：" class="headerlink" title="性能方向："></a>性能方向：</h2><h2 id="安全方向："><a href="#安全方向：" class="headerlink" title="安全方向："></a>安全方向：</h2><h2 id="算法方向："><a href="#算法方向：" class="headerlink" title="算法方向："></a>算法方向：</h2><p><a href="https://www.netdata.cloud/blog/contribute-machine-learning/" target="_blank" rel="noopener">机器学习</a></p>
+<p><img src="/assets/blogImg/contribute-machine-learning.png" alt></p>
+<p><img src="/assets/blogImg/contribute-machine-learning-charts-980x494.jpg" alt></p>
+<h2 id="运维方向："><a href="#运维方向：" class="headerlink" title="运维方向："></a>运维方向：</h2><ul>
+<li>容器</li>
+<li>内核指标？</li>
+<li><a href="https://learn.netdata.cloud/docs/agent/collectors/ebpf.plugin/" target="_blank" rel="noopener">使用Netdata进行eBPF监视</a><br><a href="https://github.com/netdata/netdata/issues/8195" target="_blank" rel="noopener">初步测试</a>表明，尽管收集并显示了更复杂的指标，但eBPF收集器的性能几乎与apps.plugin收集器相同。现在，您可以使用eBPF收集更深的数据，而不会影响任何负载下复杂应用程序的性能。 </li>
+</ul>
+<p><strong>优势：</strong>有价值的未知指标</p>
+<ul>
+<li>…</li>
+</ul>
+<h2 id="Web方向："><a href="#Web方向：" class="headerlink" title="Web方向："></a>Web方向：</h2><ul>
+<li>Bootstrap框架</li>
+<li>…</li>
+</ul>
+<h2 id="存储方向："><a href="#存储方向：" class="headerlink" title="存储方向："></a>存储方向：</h2><ul>
+<li>数据库</li>
+<li>…</li>
+</ul>
+<h1 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h1><ul>
+<li><a href="https://www.netdata.cloud/blog/linux-ebpf-monitoring-with-netdata/" target="_blank" rel="noopener">Linux eBPF monitoring with Netdata</a></li>
+<li><a href="https://www.netdata.cloud/blog/docker-monitoring-netdata/" target="_blank" rel="noopener">Docker container monitoring with Netdata</a></li>
+<li><a href="https://www.netdata.cloud/blog/contribute-machine-learning/" target="_blank" rel="noopener">Contribute to Netdata’s machine learning efforts!</a></li>
+<li><a href="https://www.wware.org/wide/yw/backups/servernetdata.html" target="_blank" rel="noopener">Netdata性能分析_cn</a></li>
+<li><a href="https://github.com/netdata/netdata/blob/master/collectors/COLLECTORS.md" target="_blank" rel="noopener">collectors list</a></li>
+</ul>
+<h1 id="改进建议"><a href="#改进建议" class="headerlink" title="改进建议"></a>改进建议</h1><ul>
+<li>定制化/个性化/场景化？</li>
+<li>半自动化-&gt;自动化？</li>
+<li>提取数据种类？</li>
+<li>机器学习？</li>
+<li>轻量级？</li>
+<li>性能?</li>
+<li>安全？</li>
+<li>…</li>
+</ul>
+<h1 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h1><ul>
+<li><a href="https://github.com/netdata/netdata" target="_blank" rel="noopener">netdata开源地址</a></li>
+<li><a href="https://learn.netdata.cloud/docs/agent" target="_blank" rel="noopener">netdata官方文档</a></li>
+<li><a href="https://www.cnblogs.com/kevingrace/p/7300191.html" target="_blank" rel="noopener">Netdata—Linux系统性能实时监控平台部署记录</a></li>
+</ul>
+</div><div class="tags"><a href="/tags/Product/">Product</a></div><div class="post-share"></div><div class="post-nav"><a href="/什么是“平均负载”(三)？/" class="next">什么是“平均负载”(三)？</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">Contents</i></div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#项目介绍"><span class="toc-text">项目介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主要功能"><span class="toc-text">主要功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#监测内容"><span class="toc-text">监测内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考效果"><span class="toc-text">参考效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#秒级数据检测"><span class="toc-text">秒级数据检测</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#架构分析"><span class="toc-text">架构分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Netdata-backend"><span class="toc-text">Netdata backend</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#grafana-influxdb数据展示"><span class="toc-text">grafana + influxdb数据展示</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#竞品分析"><span class="toc-text">竞品分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SWOT分析"><span class="toc-text">SWOT分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#优势"><span class="toc-text">优势</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#多平台支持"><span class="toc-text">多平台支持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实时"><span class="toc-text">实时</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无需管理员身份运行"><span class="toc-text">无需管理员身份运行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高精度无限指标"><span class="toc-text">高精度无限指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#低资源消耗"><span class="toc-text">低资源消耗</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#劣势"><span class="toc-text">劣势</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#机会"><span class="toc-text">机会</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#威胁"><span class="toc-text">威胁</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#可参与性分析："><span class="toc-text">可参与性分析：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#性能方向："><span class="toc-text">性能方向：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安全方向："><span class="toc-text">安全方向：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#算法方向："><span class="toc-text">算法方向：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运维方向："><span class="toc-text">运维方向：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web方向："><span class="toc-text">Web方向：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#存储方向："><span class="toc-text">存储方向：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#扩展"><span class="toc-text">扩展</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#改进建议"><span class="toc-text">改进建议</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料："><span class="toc-text">参考资料：</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/Netdata开源产品分析/">Netdata开源产品分析</a></li><li class="post-list-item"><a class="post-list-link" href="/什么是“平均负载”(三)？/">什么是“平均负载”(三)？</a></li><li class="post-list-item"><a class="post-list-link" href="/恺撒密码代码简单实现加密解密/">恺撒密码代码简单实现加密解密</a></li><li class="post-list-item"><a class="post-list-link" href="/ARM内核和架构的关系/">ARM核心和架构的关系</a></li><li class="post-list-item"><a class="post-list-link" href="/订阅Linux邮件列表/">订阅Linux内核邮件列表</a></li><li class="post-list-item"><a class="post-list-link" href="/EndNote X9推荐/">EndNote X9推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/图片去水印教程/">图片去水印教程</a></li><li class="post-list-item"><a class="post-list-link" href="/《分布式文件系统IO拥塞控制研究》论文阅读/">《分布式文件系统I/O拥塞控制研究》论文阅读</a></li><li class="post-list-item"><a class="post-list-link" href="/华为多次承认有研发手机系统，为什么不推广？/">华为多次承认有研发手机系统，为什么不推广？</a></li><li class="post-list-item"><a class="post-list-link" href="/羽毛球攻略/">羽毛球攻略</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> Tags</i></div><div class="tagcloud"><a href="/tags/安全/" style="font-size: 15px;">安全</a> <a href="/tags/Kernel/" style="font-size: 15px;">Kernel</a> <a href="/tags/BlurAdmin/" style="font-size: 15px;">BlurAdmin</a> <a href="/tags/C/" style="font-size: 15px;">C</a> <a href="/tags/教程/" style="font-size: 15px;">教程</a> <a href="/tags/FAQ/" style="font-size: 15px;">FAQ</a> <a href="/tags/Docker/" style="font-size: 15px;">Docker</a> <a href="/tags/Go/" style="font-size: 15px;">Go</a> <a href="/tags/IPFS/" style="font-size: 15px;">IPFS</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/数据库/" style="font-size: 15px;">数据库</a> <a href="/tags/MariaDB/" style="font-size: 15px;">MariaDB</a> <a href="/tags/实习/" style="font-size: 15px;">实习</a> <a href="/tags/PostgreSQL/" style="font-size: 15px;">PostgreSQL</a> <a href="/tags/Rust/" style="font-size: 15px;">Rust</a> <a href="/tags/模板/" style="font-size: 15px;">模板</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a> <a href="/tags/论文/" style="font-size: 15px;">论文</a> <a href="/tags/系统优化/" style="font-size: 15px;">系统优化</a> <a href="/tags/分布式/" style="font-size: 15px;">分布式</a> <a href="/tags/安排/" style="font-size: 15px;">安排</a> <a href="/tags/师者/" style="font-size: 15px;">师者</a> <a href="/tags/未来/" style="font-size: 15px;">未来</a> <a href="/tags/运动/" style="font-size: 15px;">运动</a> <a href="/tags/操作系统/" style="font-size: 15px;">操作系统</a> <a href="/tags/云计算/" style="font-size: 15px;">云计算</a> <a href="/tags/Electron/" style="font-size: 15px;">Electron</a> <a href="/tags/区块链/" style="font-size: 15px;">区块链</a> <a href="/tags/红线/" style="font-size: 15px;">红线</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Product/" style="font-size: 15px;">Product</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> Archive</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> Blogroll</i></div><ul></ul><a href="http://www.dennishuang.cn/" title="从0开始的异世界" target="_blank">从0开始的异世界</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">Baidu Site Haritası</a> |  <a href="/atom.xml">RSS</a> |  <a href="/about/">About</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次</p><p><span> Copyright &copy;<a href="/." rel="nofollow">xiafei-xupt.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.1"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.1" async></script></body></html>
